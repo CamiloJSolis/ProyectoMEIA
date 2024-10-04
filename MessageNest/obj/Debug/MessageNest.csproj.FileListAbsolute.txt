@@ -1,0 +1,21 @@
+C:\Users\Dell\source\repos\MessageNest\bin\Debug\MessageNest.exe.config
+C:\Users\Dell\source\repos\MessageNest\bin\Debug\MessageNest.exe
+C:\Users\Dell\source\repos\MessageNest\bin\Debug\MessageNest.pdb
+C:\Users\Dell\source\repos\MessageNest\obj\Debug\MessageNest.csproj.AssemblyReference.cache
+C:\Users\Dell\source\repos\MessageNest\obj\Debug\MessageNest.FrmLogin.resources
+C:\Users\Dell\source\repos\MessageNest\obj\Debug\MessageNest.Properties.Resources.resources
+C:\Users\Dell\source\repos\MessageNest\obj\Debug\MessageNest.csproj.GenerateResource.cache
+C:\Users\Dell\source\repos\MessageNest\obj\Debug\MessageNest.csproj.CoreCompileInputs.cache
+C:\Users\Dell\source\repos\MessageNest\obj\Debug\MessageNest.exe
+C:\Users\Dell\source\repos\MessageNest\obj\Debug\MessageNest.pdb
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\bin\Debug\MessageNest.exe.config
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\bin\Debug\MessageNest.exe
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\bin\Debug\MessageNest.pdb
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.csproj.AssemblyReference.cache
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.FrmLogin.resources
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.Properties.Resources.resources
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.csproj.GenerateResource.cache
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.exe
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.pdb
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.Forms.FrmCreateUser.resources
