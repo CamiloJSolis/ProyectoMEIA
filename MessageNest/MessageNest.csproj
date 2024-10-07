@@ -52,19 +52,19 @@
     <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmCreateUser.cs">
+    <Compile Include="Forms\FrmSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmCreateUser.Designer.cs">
-      <DependentUpon>FrmCreateUser.cs</DependentUpon>
+    <Compile Include="Forms\FrmSignUp.Designer.cs">
+      <DependentUpon>FrmSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmCreateUser.resx">
-      <DependentUpon>FrmCreateUser.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmSignUp.resx">
+      <DependentUpon>FrmSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

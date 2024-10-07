@@ -35,21 +35,26 @@
             this.PbUserLin = new System.Windows.Forms.PictureBox();
             this.LblUserLin = new System.Windows.Forms.Label();
             this.pnlEnterUsr = new System.Windows.Forms.Panel();
+            this.PnlInsertUsrRight = new System.Windows.Forms.Panel();
             this.TxtUsr = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.PnlInsertUsrLeft = new System.Windows.Forms.Panel();
+            this.PnlInsertUsrDown = new System.Windows.Forms.Panel();
+            this.PnlInsertUsrUp = new System.Windows.Forms.Panel();
             this.PnlLogin = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.LnkLblCreateAccount = new System.Windows.Forms.LinkLabel();
+            this.LnkLblSignUp = new System.Windows.Forms.LinkLabel();
             this.LnkLblForgotPwd = new System.Windows.Forms.LinkLabel();
             this.LblNoUsrPwd = new System.Windows.Forms.Label();
             this.BtnSingIn = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.PnlPwd = new System.Windows.Forms.Panel();
             this.LblWrongPwd = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.BtnShowPwd = new System.Windows.Forms.Button();
-            this.BtnHidePwd = new System.Windows.Forms.Button();
+            this.PnlEnterPwd = new System.Windows.Forms.Panel();
+            this.BtnShowHide = new System.Windows.Forms.Button();
             this.TxtPwd = new System.Windows.Forms.TextBox();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.PnlInsertPwdRight = new System.Windows.Forms.Panel();
+            this.PnlInsertPwdLeft = new System.Windows.Forms.Panel();
+            this.PnlInsertPwdUp = new System.Windows.Forms.Panel();
+            this.PnlInsertPwdDown = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.PbPwd = new System.Windows.Forms.PictureBox();
             this.PnlUsr = new System.Windows.Forms.Panel();
@@ -59,8 +64,8 @@
             this.pnlEnterUsr.SuspendLayout();
             this.PnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.PnlPwd.SuspendLayout();
+            this.PnlEnterPwd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbPwd)).BeginInit();
             this.PnlUsr.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +78,7 @@
             this.PnlTop.Name = "PnlTop";
             this.PnlTop.Size = new System.Drawing.Size(467, 32);
             this.PnlTop.TabIndex = 0;
+            this.PnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlTop_MouseDown);
             // 
             // BtnCloseLogin
             // 
@@ -85,22 +91,26 @@
             this.BtnCloseLogin.Size = new System.Drawing.Size(50, 32);
             this.BtnCloseLogin.TabIndex = 0;
             this.BtnCloseLogin.UseVisualStyleBackColor = true;
+            this.BtnCloseLogin.Click += new System.EventHandler(this.BtnCloseLogin_Click);
+            this.BtnCloseLogin.MouseLeave += new System.EventHandler(this.BtnCloseLogin_MouseLeave);
+            this.BtnCloseLogin.MouseHover += new System.EventHandler(this.BtnCloseLogin_MouseHover);
             // 
             // LblTitleLin
             // 
             this.LblTitleLin.AutoSize = true;
-            this.LblTitleLin.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitleLin.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitleLin.ForeColor = System.Drawing.Color.White;
-            this.LblTitleLin.Location = new System.Drawing.Point(172, 162);
+            this.LblTitleLin.Location = new System.Drawing.Point(150, 213);
             this.LblTitleLin.Name = "LblTitleLin";
-            this.LblTitleLin.Size = new System.Drawing.Size(123, 25);
+            this.LblTitleLin.Size = new System.Drawing.Size(176, 37);
             this.LblTitleLin.TabIndex = 0;
             this.LblTitleLin.Text = "Iniciar sesión";
+            this.LblTitleLin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PbUserLin
             // 
             this.PbUserLin.Image = global::MessageNest.Properties.Resources.user;
-            this.PbUserLin.Location = new System.Drawing.Point(26, 218);
+            this.PbUserLin.Location = new System.Drawing.Point(20, 274);
             this.PbUserLin.Name = "PbUserLin";
             this.PbUserLin.Size = new System.Drawing.Size(40, 40);
             this.PbUserLin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +122,7 @@
             this.LblUserLin.AutoSize = true;
             this.LblUserLin.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblUserLin.ForeColor = System.Drawing.Color.White;
-            this.LblUserLin.Location = new System.Drawing.Point(72, 229);
+            this.LblUserLin.Location = new System.Drawing.Point(66, 285);
             this.LblUserLin.Name = "LblUserLin";
             this.LblUserLin.Size = new System.Drawing.Size(65, 21);
             this.LblUserLin.TabIndex = 2;
@@ -120,46 +130,77 @@
             // 
             // pnlEnterUsr
             // 
+            this.pnlEnterUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
+            this.pnlEnterUsr.Controls.Add(this.PnlInsertUsrRight);
             this.pnlEnterUsr.Controls.Add(this.TxtUsr);
-            this.pnlEnterUsr.Controls.Add(this.panel3);
+            this.pnlEnterUsr.Controls.Add(this.PnlInsertUsrLeft);
+            this.pnlEnterUsr.Controls.Add(this.PnlInsertUsrDown);
+            this.pnlEnterUsr.Controls.Add(this.PnlInsertUsrUp);
             this.pnlEnterUsr.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlEnterUsr.Location = new System.Drawing.Point(0, 0);
             this.pnlEnterUsr.Name = "pnlEnterUsr";
-            this.pnlEnterUsr.Size = new System.Drawing.Size(251, 30);
+            this.pnlEnterUsr.Size = new System.Drawing.Size(263, 30);
             this.pnlEnterUsr.TabIndex = 4;
+            // 
+            // PnlInsertUsrRight
+            // 
+            this.PnlInsertUsrRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlInsertUsrRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlInsertUsrRight.Location = new System.Drawing.Point(262, 1);
+            this.PnlInsertUsrRight.Name = "PnlInsertUsrRight";
+            this.PnlInsertUsrRight.Size = new System.Drawing.Size(1, 28);
+            this.PnlInsertUsrRight.TabIndex = 18;
             // 
             // TxtUsr
             // 
-            this.TxtUsr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
             this.TxtUsr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtUsr.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUsr.ForeColor = System.Drawing.Color.Silver;
-            this.TxtUsr.Location = new System.Drawing.Point(3, 2);
+            this.TxtUsr.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtUsr.Location = new System.Drawing.Point(7, 4);
             this.TxtUsr.Name = "TxtUsr";
-            this.TxtUsr.Size = new System.Drawing.Size(249, 22);
+            this.TxtUsr.Size = new System.Drawing.Size(253, 22);
             this.TxtUsr.TabIndex = 3;
             this.TxtUsr.Text = "Ingrese el usuario";
             this.TxtUsr.Click += new System.EventHandler(this.TxtUsr_Click);
-            this.TxtUsr.TextChanged += new System.EventHandler(this.TxtUsr_TextChanged);
+            this.TxtUsr.Enter += new System.EventHandler(this.TxtUsr_Enter);
+            this.TxtUsr.Leave += new System.EventHandler(this.TxtUsr_Leave);
             // 
-            // panel3
+            // PnlInsertUsrLeft
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel3.Location = new System.Drawing.Point(0, 26);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(249, 1);
-            this.panel3.TabIndex = 4;
+            this.PnlInsertUsrLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlInsertUsrLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlInsertUsrLeft.Location = new System.Drawing.Point(0, 1);
+            this.PnlInsertUsrLeft.Name = "PnlInsertUsrLeft";
+            this.PnlInsertUsrLeft.Size = new System.Drawing.Size(1, 28);
+            this.PnlInsertUsrLeft.TabIndex = 17;
+            // 
+            // PnlInsertUsrDown
+            // 
+            this.PnlInsertUsrDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlInsertUsrDown.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PnlInsertUsrDown.Location = new System.Drawing.Point(0, 29);
+            this.PnlInsertUsrDown.Name = "PnlInsertUsrDown";
+            this.PnlInsertUsrDown.Size = new System.Drawing.Size(263, 1);
+            this.PnlInsertUsrDown.TabIndex = 4;
+            // 
+            // PnlInsertUsrUp
+            // 
+            this.PnlInsertUsrUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlInsertUsrUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlInsertUsrUp.Location = new System.Drawing.Point(0, 0);
+            this.PnlInsertUsrUp.Name = "PnlInsertUsrUp";
+            this.PnlInsertUsrUp.Size = new System.Drawing.Size(263, 1);
+            this.PnlInsertUsrUp.TabIndex = 17;
             // 
             // PnlLogin
             // 
             this.PnlLogin.Controls.Add(this.pictureBox1);
-            this.PnlLogin.Controls.Add(this.LnkLblCreateAccount);
+            this.PnlLogin.Controls.Add(this.LnkLblSignUp);
             this.PnlLogin.Controls.Add(this.LnkLblForgotPwd);
             this.PnlLogin.Controls.Add(this.LblNoUsrPwd);
             this.PnlLogin.Controls.Add(this.BtnSingIn);
-            this.PnlLogin.Controls.Add(this.panel4);
+            this.PnlLogin.Controls.Add(this.PnlPwd);
             this.PnlLogin.Controls.Add(this.label2);
             this.PnlLogin.Controls.Add(this.PbPwd);
             this.PnlLogin.Controls.Add(this.PnlUsr);
@@ -169,35 +210,37 @@
             this.PnlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlLogin.Location = new System.Drawing.Point(0, 32);
             this.PnlLogin.Name = "PnlLogin";
-            this.PnlLogin.Size = new System.Drawing.Size(467, 568);
+            this.PnlLogin.Size = new System.Drawing.Size(467, 637);
             this.PnlLogin.TabIndex = 2;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::MessageNest.Properties.Resources.appLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(149, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(155, 58);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(167, 123);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
-            // LnkLblCreateAccount
+            // LnkLblSignUp
             // 
-            this.LnkLblCreateAccount.AutoSize = true;
-            this.LnkLblCreateAccount.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
-            this.LnkLblCreateAccount.Location = new System.Drawing.Point(172, 474);
-            this.LnkLblCreateAccount.Name = "LnkLblCreateAccount";
-            this.LnkLblCreateAccount.Size = new System.Drawing.Size(120, 17);
-            this.LnkLblCreateAccount.TabIndex = 15;
-            this.LnkLblCreateAccount.TabStop = true;
-            this.LnkLblCreateAccount.Text = "Crear nueva cuenta";
+            this.LnkLblSignUp.AutoSize = true;
+            this.LnkLblSignUp.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.LnkLblSignUp.Location = new System.Drawing.Point(175, 577);
+            this.LnkLblSignUp.Name = "LnkLblSignUp";
+            this.LnkLblSignUp.Size = new System.Drawing.Size(120, 17);
+            this.LnkLblSignUp.TabIndex = 15;
+            this.LnkLblSignUp.TabStop = true;
+            this.LnkLblSignUp.Text = "Crear nueva cuenta";
+            this.LnkLblSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkLblSignUp_LinkClicked);
             // 
             // LnkLblForgotPwd
             // 
             this.LnkLblForgotPwd.AutoSize = true;
-            this.LnkLblForgotPwd.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
-            this.LnkLblForgotPwd.Location = new System.Drawing.Point(154, 398);
+            this.LnkLblForgotPwd.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.LnkLblForgotPwd.Location = new System.Drawing.Point(157, 501);
             this.LnkLblForgotPwd.Name = "LnkLblForgotPwd";
             this.LnkLblForgotPwd.Size = new System.Drawing.Size(157, 17);
             this.LnkLblForgotPwd.TabIndex = 14;
@@ -208,8 +251,8 @@
             // 
             this.LblNoUsrPwd.AutoSize = true;
             this.LblNoUsrPwd.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNoUsrPwd.ForeColor = System.Drawing.Color.IndianRed;
-            this.LblNoUsrPwd.Location = new System.Drawing.Point(128, 357);
+            this.LblNoUsrPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.LblNoUsrPwd.Location = new System.Drawing.Point(126, 453);
             this.LblNoUsrPwd.Name = "LblNoUsrPwd";
             this.LblNoUsrPwd.Size = new System.Drawing.Size(226, 17);
             this.LblNoUsrPwd.TabIndex = 12;
@@ -219,11 +262,14 @@
             // 
             // BtnSingIn
             // 
-            this.BtnSingIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(188)))), ((int)(((byte)(75)))));
+            this.BtnSingIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(191)))), ((int)(((byte)(74)))));
+            this.BtnSingIn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnSingIn.FlatAppearance.BorderSize = 0;
+            this.BtnSingIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
             this.BtnSingIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSingIn.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSingIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.BtnSingIn.Location = new System.Drawing.Point(128, 431);
+            this.BtnSingIn.Location = new System.Drawing.Point(131, 536);
             this.BtnSingIn.Name = "BtnSingIn";
             this.BtnSingIn.Size = new System.Drawing.Size(206, 30);
             this.BtnSingIn.TabIndex = 13;
@@ -231,95 +277,115 @@
             this.BtnSingIn.UseVisualStyleBackColor = false;
             this.BtnSingIn.Click += new System.EventHandler(this.BtnSingIn_Click);
             // 
-            // panel4
+            // PnlPwd
             // 
-            this.panel4.Controls.Add(this.LblWrongPwd);
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(187, 308);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(251, 77);
-            this.panel4.TabIndex = 7;
+            this.PnlPwd.Controls.Add(this.LblWrongPwd);
+            this.PnlPwd.Controls.Add(this.PnlEnterPwd);
+            this.PnlPwd.Location = new System.Drawing.Point(181, 383);
+            this.PnlPwd.Name = "PnlPwd";
+            this.PnlPwd.Size = new System.Drawing.Size(266, 74);
+            this.PnlPwd.TabIndex = 7;
             // 
             // LblWrongPwd
             // 
             this.LblWrongPwd.AutoSize = true;
             this.LblWrongPwd.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblWrongPwd.ForeColor = System.Drawing.Color.IndianRed;
-            this.LblWrongPwd.Location = new System.Drawing.Point(28, 36);
+            this.LblWrongPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.LblWrongPwd.Location = new System.Drawing.Point(-3, 33);
             this.LblWrongPwd.Name = "LblWrongPwd";
-            this.LblWrongPwd.Size = new System.Drawing.Size(202, 34);
+            this.LblWrongPwd.Size = new System.Drawing.Size(262, 17);
             this.LblWrongPwd.TabIndex = 13;
-            this.LblWrongPwd.Text = "Contraseña no válida. Inténtalo \r\nde nuevo.";
-            this.LblWrongPwd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblWrongPwd.Text = "Contraseña no válida. Inténtalo de nuevo.";
+            this.LblWrongPwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LblWrongPwd.Visible = false;
             // 
-            // panel5
+            // PnlEnterPwd
             // 
-            this.panel5.Controls.Add(this.BtnShowPwd);
-            this.panel5.Controls.Add(this.BtnHidePwd);
-            this.panel5.Controls.Add(this.TxtPwd);
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(251, 30);
-            this.panel5.TabIndex = 8;
+            this.PnlEnterPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
+            this.PnlEnterPwd.Controls.Add(this.BtnShowHide);
+            this.PnlEnterPwd.Controls.Add(this.TxtPwd);
+            this.PnlEnterPwd.Controls.Add(this.PnlInsertPwdRight);
+            this.PnlEnterPwd.Controls.Add(this.PnlInsertPwdLeft);
+            this.PnlEnterPwd.Controls.Add(this.PnlInsertPwdUp);
+            this.PnlEnterPwd.Controls.Add(this.PnlInsertPwdDown);
+            this.PnlEnterPwd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlEnterPwd.Location = new System.Drawing.Point(0, 0);
+            this.PnlEnterPwd.Name = "PnlEnterPwd";
+            this.PnlEnterPwd.Size = new System.Drawing.Size(266, 30);
+            this.PnlEnterPwd.TabIndex = 8;
             // 
-            // BtnShowPwd
+            // BtnShowHide
             // 
-            this.BtnShowPwd.FlatAppearance.BorderSize = 0;
-            this.BtnShowPwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShowPwd.Image = global::MessageNest.Properties.Resources.show;
-            this.BtnShowPwd.Location = new System.Drawing.Point(220, 3);
-            this.BtnShowPwd.Name = "BtnShowPwd";
-            this.BtnShowPwd.Size = new System.Drawing.Size(30, 27);
-            this.BtnShowPwd.TabIndex = 11;
-            this.BtnShowPwd.UseVisualStyleBackColor = true;
-            this.BtnShowPwd.Click += new System.EventHandler(this.BtnShowPwd_Click);
-            // 
-            // BtnHidePwd
-            // 
-            this.BtnHidePwd.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnHidePwd.FlatAppearance.BorderSize = 0;
-            this.BtnHidePwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnHidePwd.Image = ((System.Drawing.Image)(resources.GetObject("BtnHidePwd.Image")));
-            this.BtnHidePwd.Location = new System.Drawing.Point(219, 0);
-            this.BtnHidePwd.Name = "BtnHidePwd";
-            this.BtnHidePwd.Size = new System.Drawing.Size(32, 30);
-            this.BtnHidePwd.TabIndex = 10;
-            this.BtnHidePwd.UseVisualStyleBackColor = true;
-            this.BtnHidePwd.Click += new System.EventHandler(this.BtnHidePwd_Click);
+            this.BtnShowHide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
+            this.BtnShowHide.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnShowHide.FlatAppearance.BorderSize = 0;
+            this.BtnShowHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShowHide.Image = global::MessageNest.Properties.Resources.hide;
+            this.BtnShowHide.Location = new System.Drawing.Point(227, 1);
+            this.BtnShowHide.Name = "BtnShowHide";
+            this.BtnShowHide.Size = new System.Drawing.Size(38, 28);
+            this.BtnShowHide.TabIndex = 10;
+            this.BtnShowHide.UseVisualStyleBackColor = false;
+            this.BtnShowHide.Click += new System.EventHandler(this.BtnShowHide_Click);
             // 
             // TxtPwd
             // 
             this.TxtPwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
             this.TxtPwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtPwd.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPwd.ForeColor = System.Drawing.Color.Silver;
-            this.TxtPwd.Location = new System.Drawing.Point(1, 3);
+            this.TxtPwd.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtPwd.Location = new System.Drawing.Point(7, 4);
             this.TxtPwd.Name = "TxtPwd";
-            this.TxtPwd.Size = new System.Drawing.Size(249, 22);
+            this.TxtPwd.Size = new System.Drawing.Size(256, 22);
             this.TxtPwd.TabIndex = 9;
             this.TxtPwd.Text = "Contraseña";
             this.TxtPwd.Click += new System.EventHandler(this.TxtPwd_Click);
-            this.TxtPwd.TextChanged += new System.EventHandler(this.TxtPwd_TextChanged);
+            this.TxtPwd.Enter += new System.EventHandler(this.TxtPwd_Enter);
+            this.TxtPwd.Leave += new System.EventHandler(this.TxtPwd_Leave);
             // 
-            // panel6
+            // PnlInsertPwdRight
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel6.Location = new System.Drawing.Point(0, 26);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(250, 1);
-            this.panel6.TabIndex = 12;
+            this.PnlInsertPwdRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlInsertPwdRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlInsertPwdRight.Location = new System.Drawing.Point(265, 1);
+            this.PnlInsertPwdRight.Name = "PnlInsertPwdRight";
+            this.PnlInsertPwdRight.Size = new System.Drawing.Size(1, 28);
+            this.PnlInsertPwdRight.TabIndex = 18;
+            // 
+            // PnlInsertPwdLeft
+            // 
+            this.PnlInsertPwdLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlInsertPwdLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlInsertPwdLeft.Location = new System.Drawing.Point(0, 1);
+            this.PnlInsertPwdLeft.Name = "PnlInsertPwdLeft";
+            this.PnlInsertPwdLeft.Size = new System.Drawing.Size(1, 28);
+            this.PnlInsertPwdLeft.TabIndex = 18;
+            // 
+            // PnlInsertPwdUp
+            // 
+            this.PnlInsertPwdUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlInsertPwdUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlInsertPwdUp.Location = new System.Drawing.Point(0, 0);
+            this.PnlInsertPwdUp.Name = "PnlInsertPwdUp";
+            this.PnlInsertPwdUp.Size = new System.Drawing.Size(266, 1);
+            this.PnlInsertPwdUp.TabIndex = 13;
+            // 
+            // PnlInsertPwdDown
+            // 
+            this.PnlInsertPwdDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlInsertPwdDown.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PnlInsertPwdDown.Location = new System.Drawing.Point(0, 29);
+            this.PnlInsertPwdDown.Name = "PnlInsertPwdDown";
+            this.PnlInsertPwdDown.Size = new System.Drawing.Size(266, 1);
+            this.PnlInsertPwdDown.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(72, 311);
+            this.label2.Location = new System.Drawing.Point(66, 386);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 21);
             this.label2.TabIndex = 6;
@@ -328,7 +394,7 @@
             // PbPwd
             // 
             this.PbPwd.Image = global::MessageNest.Properties.Resources.password_protection;
-            this.PbPwd.Location = new System.Drawing.Point(26, 298);
+            this.PbPwd.Location = new System.Drawing.Point(20, 373);
             this.PbPwd.Name = "PbPwd";
             this.PbPwd.Size = new System.Drawing.Size(40, 40);
             this.PbPwd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -339,22 +405,23 @@
             // 
             this.PnlUsr.Controls.Add(this.LblWrongUsr);
             this.PnlUsr.Controls.Add(this.pnlEnterUsr);
-            this.PnlUsr.Location = new System.Drawing.Point(187, 226);
+            this.PnlUsr.Location = new System.Drawing.Point(181, 282);
             this.PnlUsr.Name = "PnlUsr";
-            this.PnlUsr.Size = new System.Drawing.Size(251, 74);
+            this.PnlUsr.Size = new System.Drawing.Size(263, 74);
             this.PnlUsr.TabIndex = 3;
             // 
             // LblWrongUsr
             // 
+            this.LblWrongUsr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblWrongUsr.AutoSize = true;
             this.LblWrongUsr.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblWrongUsr.ForeColor = System.Drawing.Color.IndianRed;
-            this.LblWrongUsr.Location = new System.Drawing.Point(30, 34);
+            this.LblWrongUsr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.LblWrongUsr.Location = new System.Drawing.Point(-3, 33);
             this.LblWrongUsr.Name = "LblWrongUsr";
-            this.LblWrongUsr.Size = new System.Drawing.Size(193, 34);
+            this.LblWrongUsr.Size = new System.Drawing.Size(271, 34);
             this.LblWrongUsr.TabIndex = 5;
-            this.LblWrongUsr.Text = "Nombre de usuario no válido. \r\nInténtalo de nuevo.";
-            this.LblWrongUsr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblWrongUsr.Text = "Nombre de usuario no válido. Inténtalo de \r\nnuevo.";
+            this.LblWrongUsr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LblWrongUsr.Visible = false;
             // 
             // FrmLogin
@@ -362,7 +429,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(467, 600);
+            this.ClientSize = new System.Drawing.Size(467, 669);
             this.Controls.Add(this.PnlLogin);
             this.Controls.Add(this.PnlTop);
             this.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -378,10 +445,10 @@
             this.PnlLogin.ResumeLayout(false);
             this.PnlLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.PnlPwd.ResumeLayout(false);
+            this.PnlPwd.PerformLayout();
+            this.PnlEnterPwd.ResumeLayout(false);
+            this.PnlEnterPwd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbPwd)).EndInit();
             this.PnlUsr.ResumeLayout(false);
             this.PnlUsr.PerformLayout();
@@ -398,24 +465,29 @@
         private System.Windows.Forms.Label LblUserLin;
         private System.Windows.Forms.Panel pnlEnterUsr;
         private System.Windows.Forms.TextBox TxtUsr;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel PnlLogin;
         private System.Windows.Forms.Panel PnlUsr;
         private System.Windows.Forms.Label LblWrongUsr;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel PnlPwd;
         private System.Windows.Forms.Label LblWrongPwd;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel PnlEnterPwd;
         private System.Windows.Forms.TextBox TxtPwd;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox PbPwd;
         private System.Windows.Forms.Button BtnSingIn;
         private System.Windows.Forms.Label LblNoUsrPwd;
-        private System.Windows.Forms.LinkLabel LnkLblCreateAccount;
+        private System.Windows.Forms.LinkLabel LnkLblSignUp;
         private System.Windows.Forms.LinkLabel LnkLblForgotPwd;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button BtnShowPwd;
-        private System.Windows.Forms.Button BtnHidePwd;
+        private System.Windows.Forms.Button BtnShowHide;
+        private System.Windows.Forms.Panel PnlInsertUsrDown;
+        private System.Windows.Forms.Panel PnlInsertUsrUp;
+        private System.Windows.Forms.Panel PnlInsertPwdDown;
+        private System.Windows.Forms.Panel PnlInsertUsrLeft;
+        private System.Windows.Forms.Panel PnlInsertUsrRight;
+        private System.Windows.Forms.Panel PnlInsertPwdUp;
+        private System.Windows.Forms.Panel PnlInsertPwdRight;
+        private System.Windows.Forms.Panel PnlInsertPwdLeft;
     }
 }
 

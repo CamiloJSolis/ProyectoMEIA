@@ -19,3 +19,14 @@ C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archiv
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.exe
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.pdb
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\MEIA\MessageNest\obj\Debug\MessageNest.Forms.FrmCreateUser.resources
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\bin\Debug\MessageNest.exe.config
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\bin\Debug\MessageNest.exe
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\bin\Debug\MessageNest.pdb
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.csproj.AssemblyReference.cache
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.FrmLogin.resources
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.Properties.Resources.resources
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.csproj.GenerateResource.cache
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.exe
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.pdb
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.Forms.FrmSignUp.resources
