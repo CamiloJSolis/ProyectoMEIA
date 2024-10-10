@@ -43,7 +43,6 @@
             this.PnlLogin = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LnkLblSignUp = new System.Windows.Forms.LinkLabel();
-            this.LnkLblForgotPwd = new System.Windows.Forms.LinkLabel();
             this.LblNoUsrPwd = new System.Windows.Forms.Label();
             this.BtnSingIn = new System.Windows.Forms.Button();
             this.PnlPwd = new System.Windows.Forms.Panel();
@@ -197,7 +196,6 @@
             // 
             this.PnlLogin.Controls.Add(this.pictureBox1);
             this.PnlLogin.Controls.Add(this.LnkLblSignUp);
-            this.PnlLogin.Controls.Add(this.LnkLblForgotPwd);
             this.PnlLogin.Controls.Add(this.LblNoUsrPwd);
             this.PnlLogin.Controls.Add(this.BtnSingIn);
             this.PnlLogin.Controls.Add(this.PnlPwd);
@@ -236,17 +234,6 @@
             this.LnkLblSignUp.Text = "Crear nueva cuenta";
             this.LnkLblSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkLblSignUp_LinkClicked);
             // 
-            // LnkLblForgotPwd
-            // 
-            this.LnkLblForgotPwd.AutoSize = true;
-            this.LnkLblForgotPwd.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
-            this.LnkLblForgotPwd.Location = new System.Drawing.Point(157, 501);
-            this.LnkLblForgotPwd.Name = "LnkLblForgotPwd";
-            this.LnkLblForgotPwd.Size = new System.Drawing.Size(157, 17);
-            this.LnkLblForgotPwd.TabIndex = 14;
-            this.LnkLblForgotPwd.TabStop = true;
-            this.LnkLblForgotPwd.Text = "¿Olvidaste tu contraseña?";
-            // 
             // LblNoUsrPwd
             // 
             this.LblNoUsrPwd.AutoSize = true;
@@ -269,7 +256,7 @@
             this.BtnSingIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSingIn.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSingIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.BtnSingIn.Location = new System.Drawing.Point(131, 536);
+            this.BtnSingIn.Location = new System.Drawing.Point(131, 516);
             this.BtnSingIn.Name = "BtnSingIn";
             this.BtnSingIn.Size = new System.Drawing.Size(206, 30);
             this.BtnSingIn.TabIndex = 13;
@@ -477,7 +464,6 @@
         private System.Windows.Forms.Button BtnSingIn;
         private System.Windows.Forms.Label LblNoUsrPwd;
         private System.Windows.Forms.LinkLabel LnkLblSignUp;
-        private System.Windows.Forms.LinkLabel LnkLblForgotPwd;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnShowHide;
         private System.Windows.Forms.Panel PnlInsertUsrDown;

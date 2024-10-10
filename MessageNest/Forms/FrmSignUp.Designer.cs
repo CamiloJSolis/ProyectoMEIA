@@ -32,8 +32,10 @@
             this.BtnCloseSignUp = new System.Windows.Forms.Button();
             this.PnlTopSignUp = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LnkLblForgotPwd = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.BtnCreate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.PnlPwd = new System.Windows.Forms.Panel();
             this.LblWrongPwd = new System.Windows.Forms.Label();
@@ -98,8 +100,6 @@
             this.PnlPhoneUp = new System.Windows.Forms.Panel();
             this.LblWrongPhoneInput = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.LnkLblForgotPwd = new System.Windows.Forms.LinkLabel();
-            this.BtnCreate = new System.Windows.Forms.Button();
             this.PnlTopSignUp.SuspendLayout();
             this.panel1.SuspendLayout();
             this.PnlPwd.SuspendLayout();
@@ -164,6 +164,18 @@
             this.panel1.Size = new System.Drawing.Size(691, 717);
             this.panel1.TabIndex = 0;
             // 
+            // LnkLblForgotPwd
+            // 
+            this.LnkLblForgotPwd.AutoSize = true;
+            this.LnkLblForgotPwd.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.LnkLblForgotPwd.Location = new System.Drawing.Point(286, 552);
+            this.LnkLblForgotPwd.Name = "LnkLblForgotPwd";
+            this.LnkLblForgotPwd.Size = new System.Drawing.Size(126, 17);
+            this.LnkLblForgotPwd.TabIndex = 16;
+            this.LnkLblForgotPwd.TabStop = true;
+            this.LnkLblForgotPwd.Text = "Ya tengo una cuenta";
+            this.LnkLblForgotPwd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkLblForgotPwd_LinkClicked);
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -187,6 +199,23 @@
             this.label3.Size = new System.Drawing.Size(71, 21);
             this.label3.TabIndex = 26;
             this.label3.Text = "Nombre";
+            // 
+            // BtnCreate
+            // 
+            this.BtnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(191)))), ((int)(((byte)(74)))));
+            this.BtnCreate.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnCreate.FlatAppearance.BorderSize = 0;
+            this.BtnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
+            this.BtnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCreate.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.BtnCreate.Location = new System.Drawing.Point(245, 592);
+            this.BtnCreate.Name = "BtnCreate";
+            this.BtnCreate.Size = new System.Drawing.Size(206, 30);
+            this.BtnCreate.TabIndex = 15;
+            this.BtnCreate.Text = "Crear";
+            this.BtnCreate.UseVisualStyleBackColor = false;
+            this.BtnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
             // label4
             // 
@@ -867,9 +896,9 @@
             this.LblWrongPhoneInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.LblWrongPhoneInput.Location = new System.Drawing.Point(-2, 44);
             this.LblWrongPhoneInput.Name = "LblWrongPhoneInput";
-            this.LblWrongPhoneInput.Size = new System.Drawing.Size(164, 17);
+            this.LblWrongPhoneInput.Size = new System.Drawing.Size(203, 17);
             this.LblWrongPhoneInput.TabIndex = 11;
-            this.LblWrongPhoneInput.Text = "Ingrese números enteros.";
+            this.LblWrongPhoneInput.Text = "Debe ingresar números enteros.";
             this.LblWrongPhoneInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LblWrongPhoneInput.Visible = false;
             // 
@@ -883,35 +912,6 @@
             this.label8.Size = new System.Drawing.Size(74, 21);
             this.label8.TabIndex = 29;
             this.label8.Text = "Teléfono";
-            // 
-            // LnkLblForgotPwd
-            // 
-            this.LnkLblForgotPwd.AutoSize = true;
-            this.LnkLblForgotPwd.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
-            this.LnkLblForgotPwd.Location = new System.Drawing.Point(286, 552);
-            this.LnkLblForgotPwd.Name = "LnkLblForgotPwd";
-            this.LnkLblForgotPwd.Size = new System.Drawing.Size(126, 17);
-            this.LnkLblForgotPwd.TabIndex = 16;
-            this.LnkLblForgotPwd.TabStop = true;
-            this.LnkLblForgotPwd.Text = "Ya tengo una cuenta";
-            this.LnkLblForgotPwd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkLblForgotPwd_LinkClicked);
-            // 
-            // BtnCreate
-            // 
-            this.BtnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(191)))), ((int)(((byte)(74)))));
-            this.BtnCreate.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnCreate.FlatAppearance.BorderSize = 0;
-            this.BtnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
-            this.BtnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCreate.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.BtnCreate.Location = new System.Drawing.Point(245, 592);
-            this.BtnCreate.Name = "BtnCreate";
-            this.BtnCreate.Size = new System.Drawing.Size(206, 30);
-            this.BtnCreate.TabIndex = 15;
-            this.BtnCreate.Text = "Crear";
-            this.BtnCreate.UseVisualStyleBackColor = false;
-            this.BtnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
             // FrmSignUp
             // 

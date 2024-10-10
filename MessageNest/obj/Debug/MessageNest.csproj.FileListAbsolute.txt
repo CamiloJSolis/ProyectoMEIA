@@ -30,3 +30,5 @@ C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archiv
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.exe
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.pdb
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.Forms.FrmSignUp.resources
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.Forms.FrmAdmin.resources
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\MessageNest\obj\Debug\MessageNest.Forms.FrmEditAdmin.resources

@@ -18,7 +18,7 @@ namespace MessageNest
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmLogin());
-            //Application.Run(new FrmSignUp());
+            //Application.Run(new FrmAdmin());
         }
     }
 }

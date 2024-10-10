@@ -22,7 +22,7 @@ namespace MessageNest.Forms
 
         private void BtnCloseSignUp_Click(object sender, EventArgs e)
         {
-           DialogResult dialog = MessageBox.Show("¿Está seguro que quiere salir? \n Se perderán todos los datos ingresados.", "Salir", MessageBoxButtons.YesNo);
+           DialogResult dialog = MessageBox.Show("¿Está seguro que des salir? \n Se perderán todos los datos ingresados.", "Salir", MessageBoxButtons.YesNo);
 
             if (dialog == DialogResult.Yes)
             {
