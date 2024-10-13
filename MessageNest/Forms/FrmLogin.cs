@@ -43,6 +43,8 @@ namespace MessageNest
 
         #region Funciones
 
+        // Cambiar de color los panels al ser seleccionados
+
         private void SetUsrPanelsColor(Color color)
         {
             PnlInsertUsrLeft.BackColor = color;
@@ -58,6 +60,8 @@ namespace MessageNest
             PnlInsertPwdUp.BackColor = color;
             PnlInsertPwdDown.BackColor = color;
         }
+
+        // Click
 
         private void BtnSingIn_Click(object sender, EventArgs e)
         {
@@ -76,7 +80,7 @@ namespace MessageNest
             {
                 LblWrongPwd.Visible = true;
 
-                SetUsrPanelsColor(Color.FromArgb(255, 100, 100));
+                SetPwdPanelsColor(Color.FromArgb(255, 100, 100));
             }
             else if (TxtUsr.Text == "Ingrese el usuario" && TxtPwd.Text == "Contraseña")
             {
@@ -90,6 +94,16 @@ namespace MessageNest
 
             }
         }
+
+        private void LnkLblSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmSignUp frmSignUp = new FrmSignUp();
+
+            this.Hide();
+            frmSignUp.Show();
+        }
+
+        // Enter y leave
 
         private void TxtUsr_Enter(object sender, EventArgs e)
         {
@@ -189,7 +203,7 @@ namespace MessageNest
         #endregion
 
 
-        #region Drag form
+        #region Arrastrar form
 
         [DllImport("user32.Dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -203,13 +217,5 @@ namespace MessageNest
         }
 
         #endregion
-
-        private void LnkLblSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FrmSignUp frmSignUp = new FrmSignUp();
-
-            this.Hide();
-            frmSignUp.Show();
-        }
     }
 }

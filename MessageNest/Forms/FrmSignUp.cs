@@ -22,7 +22,7 @@ namespace MessageNest.Forms
 
         private void BtnCloseSignUp_Click(object sender, EventArgs e)
         {
-           DialogResult dialog = MessageBox.Show("¿Está seguro que des salir? \n Se perderán todos los datos ingresados.", "Salir", MessageBoxButtons.YesNo);
+           DialogResult dialog = MessageBox.Show("¿Está seguro que quiere salir? \nSi no ha guardado la información, se perderán todos los datos ingresados.", "Salir", MessageBoxButtons.YesNo);
 
             if (dialog == DialogResult.Yes)
             {
@@ -47,9 +47,9 @@ namespace MessageNest.Forms
 
         #endregion
 
-        #region Funciones
+        #region Cambiar colores
 
-        // Cambiar de color los panels al ser seleccionados
+        // Cambiar de color los panel
 
         private void SetUsrPanelsColor(Color color)
         {
@@ -105,6 +105,151 @@ namespace MessageNest.Forms
             PnlPhoneRight.BackColor = color;
             PnlPhoneUp.BackColor = color;
             PnlPhoneDown.BackColor = color;
+        }
+
+        #endregion
+
+        #region Botones
+
+        private void BtnShowHide_Click(object sender, EventArgs e)
+        {
+            if (TxtNewPwd.PasswordChar == '●')
+            {
+                TxtNewPwd.PasswordChar = '\0';
+                BtnShowHide.Image = Properties.Resources.show;
+            }
+            else if (TxtNewPwd.Text != "Contraseña")
+            {
+                TxtNewPwd.PasswordChar = '●';
+                BtnShowHide.Image = Properties.Resources.hide;
+            }
+        }
+
+        private void BtnCreate_Click(object sender, EventArgs e)
+        {
+            BtnCreate.BackColor = Color.FromArgb(255, 210, 100);
+        }
+
+        #endregion
+
+        #region Funciones
+
+        // Keypress
+
+        private void TxtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                LblWrongPhoneInput.Visible = true;
+            }
+            else
+            {
+                LblWrongPhoneInput.Visible = false;
+            }
+        }
+
+        // Click
+
+        private void TxtNewUsr_Click(object sender, EventArgs e)
+        {
+            if (TxtNewUsr.Text == "Ingrese el usuario")
+            {
+                TxtNewUsr.SelectAll();
+            }
+        }
+
+        private void TxtNewFirstName_Click(object sender, EventArgs e)
+        {
+            if (TxtNewFirstName.Text == "Primer nombre")
+            {
+                TxtNewFirstName.SelectAll();
+            }
+        }
+
+        private void TxtNewFirstSurname_Click(object sender, EventArgs e)
+        {
+            if (TxtNewFirstSurname.Text == "Primer apellido")
+            {
+                TxtNewFirstSurname.SelectAll();
+            }
+        }
+
+        private void TxtNewSecondName_Click(object sender, EventArgs e)
+        {
+            if (TxtNewSecondName.Text == "Segundo nombre")
+            {
+                TxtNewSecondName.SelectAll();
+            }
+        }
+
+        private void TxtNewSecondSurname_Click(object sender, EventArgs e)
+        {
+            if (TxtNewSecondSurname.Text == "Segundo apellido")
+            {
+                TxtNewSecondSurname.SelectAll();
+            }
+        }
+
+        private void TxtNewPwd_Click(object sender, EventArgs e)
+        {
+            if (TxtNewPwd.Text == "Contraseña")
+            {
+                TxtNewPwd.SelectAll();
+            }
+        }
+
+        private void TxtPhone_Click(object sender, EventArgs e)
+        {
+            if (TxtPhone.Text == "0000000000")
+            {
+                TxtPhone.SelectAll();
+            }
+        }
+
+        private void LnkLblForgotPwd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmLogin frmLogin = new FrmLogin();
+
+            this.Hide();
+            frmLogin.Show();
+        }
+
+        // Double click
+
+        private void TxtNewUsr_DoubleClick(object sender, EventArgs e)
+        {
+            TxtNewUsr.SelectAll();
+        }
+
+        private void TxtNewFirstName_DoubleClick(object sender, EventArgs e)
+        {
+            TxtNewFirstName.SelectAll();
+        }
+
+        private void TxtNewFirstSurname_DoubleClick(object sender, EventArgs e)
+        {
+            TxtNewFirstSurname.SelectAll();
+        }
+
+        private void TxtNewSecondName_DoubleClick(object sender, EventArgs e)
+        {
+            TxtNewSecondName.SelectAll();
+        }
+
+        private void TxtNewSecondSurname_DoubleClick(object sender, EventArgs e)
+        {
+            TxtNewSecondSurname.SelectAll();
+        }
+
+        private void TxtNewPwd_DoubleClick(object sender, EventArgs e)
+        {
+            TxtNewPwd.SelectAll();
+        }
+
+        private void TxtPhone_DoubleClick(object sender, EventArgs e)
+        {
+            TxtPhone.SelectAll();
         }
 
         // Enter y leave
@@ -261,68 +406,6 @@ namespace MessageNest.Forms
             }
         }
 
-        // Keypress
-
-        private void TxtPhone_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-                LblWrongPhoneInput.Visible = true;
-            }
-        }
-
-
-        // Click
-
-        private void TxtNewUsr_Click(object sender, EventArgs e)
-        {
-            TxtNewUsr.SelectAll();
-        }
-
-        private void TxtNewFirstName_Click(object sender, EventArgs e)
-        {
-            TxtNewFirstName.SelectAll();
-        }
-
-        private void TxtNewFirstSurname_Click(object sender, EventArgs e)
-        {
-            TxtNewFirstSurname.SelectAll();
-        }
-
-        private void TxtNewSecondName_Click(object sender, EventArgs e)
-        {
-            TxtNewSecondName.SelectAll();
-        }
-
-        private void TxtNewSecondSurname_Click(object sender, EventArgs e)
-        {
-            TxtNewSecondSurname.SelectAll();
-        }
-
-        private void TxtNewPwd_Click(object sender, EventArgs e)
-        {
-            TxtNewPwd.SelectAll();
-        }
-
-        private void TxtPhone_Click(object sender, EventArgs e)
-        {
-            TxtPhone.SelectAll();
-        }
-
-        private void BtnShowHide_Click(object sender, EventArgs e)
-        {
-            if (TxtNewPwd.PasswordChar == '●')
-            {
-                TxtNewPwd.PasswordChar = '\0';
-                BtnShowHide.Image = Properties.Resources.show;
-            }
-            else
-            {
-                TxtNewPwd.PasswordChar = '●';
-                BtnShowHide.Image = Properties.Resources.hide;
-            }
-        }
         #endregion
 
         #region Drag form
@@ -339,18 +422,5 @@ namespace MessageNest.Forms
         }
 
         #endregion
-
-        private void BtnCreate_Click(object sender, EventArgs e)
-        {
-            BtnCreate.BackColor = Color.FromArgb(255, 210, 100);
-        }
-
-        private void LnkLblForgotPwd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FrmLogin frmLogin = new FrmLogin();
-
-            this.Hide();
-            frmLogin.Show();
-        }
     }
 }

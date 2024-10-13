@@ -38,7 +38,7 @@
             this.BtnCreate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.PnlPwd = new System.Windows.Forms.Panel();
-            this.LblWrongPwd = new System.Windows.Forms.Label();
+            this.LbPwdInstruc = new System.Windows.Forms.Label();
             this.PnlEnterPwd = new System.Windows.Forms.Panel();
             this.BtnShowHide = new System.Windows.Forms.Button();
             this.TxtNewPwd = new System.Windows.Forms.TextBox();
@@ -86,7 +86,7 @@
             this.PnlSecondSurnameUp = new System.Windows.Forms.Panel();
             this.pnlEnterNewBD = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DtpNewBD = new System.Windows.Forms.DateTimePicker();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -167,7 +167,7 @@
             // LnkLblForgotPwd
             // 
             this.LnkLblForgotPwd.AutoSize = true;
-            this.LnkLblForgotPwd.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.LnkLblForgotPwd.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
             this.LnkLblForgotPwd.Location = new System.Drawing.Point(286, 552);
             this.LnkLblForgotPwd.Name = "LnkLblForgotPwd";
             this.LnkLblForgotPwd.Size = new System.Drawing.Size(126, 17);
@@ -184,9 +184,9 @@
             this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Location = new System.Drawing.Point(53, 289);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 17);
+            this.label1.Size = new System.Drawing.Size(192, 17);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Puede dejarlo vacío.";
+            this.label1.Text = "Puede dejar este campo vacío.";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
@@ -225,33 +225,32 @@
             this.label4.ForeColor = System.Drawing.Color.Silver;
             this.label4.Location = new System.Drawing.Point(344, 289);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 17);
+            this.label4.Size = new System.Drawing.Size(192, 17);
             this.label4.TabIndex = 30;
-            this.label4.Text = "Puede dejarlo vacío.";
+            this.label4.Text = "Puede dejar este campo vacío.";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PnlPwd
             // 
-            this.PnlPwd.Controls.Add(this.LblWrongPwd);
+            this.PnlPwd.Controls.Add(this.LbPwdInstruc);
             this.PnlPwd.Controls.Add(this.PnlEnterPwd);
             this.PnlPwd.Location = new System.Drawing.Point(53, 344);
             this.PnlPwd.Name = "PnlPwd";
             this.PnlPwd.Size = new System.Drawing.Size(580, 76);
             this.PnlPwd.TabIndex = 25;
             // 
-            // LblWrongPwd
+            // LbPwdInstruc
             // 
-            this.LblWrongPwd.AutoSize = true;
-            this.LblWrongPwd.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblWrongPwd.ForeColor = System.Drawing.Color.Silver;
-            this.LblWrongPwd.Location = new System.Drawing.Point(-3, 36);
-            this.LblWrongPwd.Name = "LblWrongPwd";
-            this.LblWrongPwd.Size = new System.Drawing.Size(577, 34);
-            this.LblWrongPwd.TabIndex = 21;
-            this.LblWrongPwd.Text = "La contraseña debe tener al menos 8 caracteres e incluir una combinación de letra" +
+            this.LbPwdInstruc.AutoSize = true;
+            this.LbPwdInstruc.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbPwdInstruc.ForeColor = System.Drawing.Color.Silver;
+            this.LbPwdInstruc.Location = new System.Drawing.Point(-3, 36);
+            this.LbPwdInstruc.Name = "LbPwdInstruc";
+            this.LbPwdInstruc.Size = new System.Drawing.Size(577, 34);
+            this.LbPwdInstruc.TabIndex = 21;
+            this.LbPwdInstruc.Text = "La contraseña debe tener al menos 8 caracteres e incluir una combinación de letra" +
     "s, números \r\ny caracteres especiales (por ejemplo: @, #, $, etc.)";
-            this.LblWrongPwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LblWrongPwd.Visible = false;
+            this.LbPwdInstruc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PnlEnterPwd
             // 
@@ -295,6 +294,7 @@
             this.TxtNewPwd.TabIndex = 15;
             this.TxtNewPwd.Text = "Contraseña";
             this.TxtNewPwd.Click += new System.EventHandler(this.TxtNewPwd_Click);
+            this.TxtNewPwd.DoubleClick += new System.EventHandler(this.TxtNewPwd_DoubleClick);
             this.TxtNewPwd.Enter += new System.EventHandler(this.TxtNewPwd_Enter);
             this.TxtNewPwd.Leave += new System.EventHandler(this.TxtNewPwd_Leave);
             // 
@@ -402,6 +402,7 @@
             this.TxtNewUsr.TabIndex = 6;
             this.TxtNewUsr.Text = "Ingrese el usuario";
             this.TxtNewUsr.Click += new System.EventHandler(this.TxtNewUsr_Click);
+            this.TxtNewUsr.DoubleClick += new System.EventHandler(this.TxtNewUsr_DoubleClick);
             this.TxtNewUsr.Enter += new System.EventHandler(this.TxtNewUsr_Enter);
             this.TxtNewUsr.Leave += new System.EventHandler(this.TxtNewUsr_Leave);
             // 
@@ -520,10 +521,11 @@
             this.TxtNewFirstName.ForeColor = System.Drawing.Color.DarkGray;
             this.TxtNewFirstName.Location = new System.Drawing.Point(7, 3);
             this.TxtNewFirstName.Name = "TxtNewFirstName";
-            this.TxtNewFirstName.Size = new System.Drawing.Size(272, 22);
+            this.TxtNewFirstName.Size = new System.Drawing.Size(275, 22);
             this.TxtNewFirstName.TabIndex = 6;
             this.TxtNewFirstName.Text = "Primer nombre";
             this.TxtNewFirstName.Click += new System.EventHandler(this.TxtNewFirstName_Click);
+            this.TxtNewFirstName.DoubleClick += new System.EventHandler(this.TxtNewFirstName_DoubleClick);
             this.TxtNewFirstName.Enter += new System.EventHandler(this.TxtNewFirstName_Enter);
             this.TxtNewFirstName.Leave += new System.EventHandler(this.TxtNewFirstName_Leave);
             // 
@@ -588,6 +590,7 @@
             this.TxtNewFirstSurname.TabIndex = 6;
             this.TxtNewFirstSurname.Text = "Primer apellido";
             this.TxtNewFirstSurname.Click += new System.EventHandler(this.TxtNewFirstSurname_Click);
+            this.TxtNewFirstSurname.DoubleClick += new System.EventHandler(this.TxtNewFirstSurname_DoubleClick);
             this.TxtNewFirstSurname.Enter += new System.EventHandler(this.TxtNewFirstSurname_Enter);
             this.TxtNewFirstSurname.Leave += new System.EventHandler(this.TxtNewFirstSurname_Leave);
             // 
@@ -652,6 +655,7 @@
             this.TxtNewSecondName.TabIndex = 6;
             this.TxtNewSecondName.Text = "Segundo nombre";
             this.TxtNewSecondName.Click += new System.EventHandler(this.TxtNewSecondName_Click);
+            this.TxtNewSecondName.DoubleClick += new System.EventHandler(this.TxtNewSecondName_DoubleClick);
             this.TxtNewSecondName.Enter += new System.EventHandler(this.TxtNewSecondName_Enter);
             this.TxtNewSecondName.Leave += new System.EventHandler(this.TxtNewSecondName_Leave);
             // 
@@ -716,6 +720,7 @@
             this.TxtNewSecondSurname.TabIndex = 6;
             this.TxtNewSecondSurname.Text = "Segundo apellido";
             this.TxtNewSecondSurname.Click += new System.EventHandler(this.TxtNewSecondSurname_Click);
+            this.TxtNewSecondSurname.DoubleClick += new System.EventHandler(this.TxtNewSecondSurname_DoubleClick);
             this.TxtNewSecondSurname.Enter += new System.EventHandler(this.TxtNewSecondSurname_Enter);
             this.TxtNewSecondSurname.Leave += new System.EventHandler(this.TxtNewSecondSurname_Leave);
             // 
@@ -750,7 +755,7 @@
             // 
             this.pnlEnterNewBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
             this.pnlEnterNewBD.Controls.Add(this.panel9);
-            this.pnlEnterNewBD.Controls.Add(this.dateTimePicker1);
+            this.pnlEnterNewBD.Controls.Add(this.DtpNewBD);
             this.pnlEnterNewBD.Controls.Add(this.panel10);
             this.pnlEnterNewBD.Controls.Add(this.panel11);
             this.pnlEnterNewBD.Controls.Add(this.panel12);
@@ -768,12 +773,12 @@
             this.panel9.Size = new System.Drawing.Size(1, 30);
             this.panel9.TabIndex = 9;
             // 
-            // dateTimePicker1
+            // DtpNewBD
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(4, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(280, 25);
-            this.dateTimePicker1.TabIndex = 11;
+            this.DtpNewBD.Location = new System.Drawing.Point(4, 4);
+            this.DtpNewBD.Name = "DtpNewBD";
+            this.DtpNewBD.Size = new System.Drawing.Size(280, 25);
+            this.DtpNewBD.TabIndex = 11;
             // 
             // panel10
             // 
@@ -857,6 +862,7 @@
             this.TxtPhone.TabIndex = 6;
             this.TxtPhone.Text = "0000000000";
             this.TxtPhone.Click += new System.EventHandler(this.TxtPhone_Click);
+            this.TxtPhone.DoubleClick += new System.EventHandler(this.TxtPhone_DoubleClick);
             this.TxtPhone.Enter += new System.EventHandler(this.TxtPhone_Enter);
             this.TxtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPhone_KeyPress);
             this.TxtPhone.Leave += new System.EventHandler(this.TxtPhone_Leave);
@@ -896,9 +902,9 @@
             this.LblWrongPhoneInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.LblWrongPhoneInput.Location = new System.Drawing.Point(-2, 44);
             this.LblWrongPhoneInput.Name = "LblWrongPhoneInput";
-            this.LblWrongPhoneInput.Size = new System.Drawing.Size(203, 17);
+            this.LblWrongPhoneInput.Size = new System.Drawing.Size(279, 17);
             this.LblWrongPhoneInput.TabIndex = 11;
-            this.LblWrongPhoneInput.Text = "Debe ingresar números enteros.";
+            this.LblWrongPhoneInput.Text = "Debe ingresar números enteros sin espacios.";
             this.LblWrongPhoneInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LblWrongPhoneInput.Visible = false;
             // 
@@ -966,7 +972,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel PnlPwd;
-        private System.Windows.Forms.Label LblWrongPwd;
+        private System.Windows.Forms.Label LbPwdInstruc;
         private System.Windows.Forms.Panel PnlEnterPwd;
         private System.Windows.Forms.Button BtnShowHide;
         private System.Windows.Forms.TextBox TxtNewPwd;
@@ -1014,7 +1020,7 @@
         private System.Windows.Forms.Panel PnlSecondSurnameUp;
         private System.Windows.Forms.Panel pnlEnterNewBD;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DtpNewBD;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;

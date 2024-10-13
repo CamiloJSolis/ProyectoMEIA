@@ -5,20 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MessageNest.Forms
 {
-    public partial class FrmAdmin : Form
+    public partial class FrmUser : Form
     {
-        public FrmAdmin()
+        public FrmUser()
         {
             InitializeComponent();
-
-            OpenChildForm(new FrmAdminInfo());
         }
 
         #region Call Child Forms
@@ -31,7 +28,7 @@ namespace MessageNest.Forms
             {
                 currentForm.Close();
             }
-            
+
             currentForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -40,47 +37,38 @@ namespace MessageNest.Forms
             PnlChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+
         }
 
         #endregion
 
         #region Botones
 
-        private void BtnCloseAdmin_Click(object sender, EventArgs e)
+        private void BtnCloseUsr_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void BtnCloseAdmin_MouseHover(object sender, EventArgs e)
+        private void BtnCloseUsr_MouseHover(object sender, EventArgs e)
         {
-            BtnCloseAdmin.BackColor = Color.Red;
-            BtnCloseAdmin.Image = Properties.Resources.exit;
+            BtnCloseUsr.BackColor = Color.Red;
+            BtnCloseUsr.Image = Properties.Resources.exit;
         }
 
-        private void BtnCloseAdmin_MouseLeave(object sender, EventArgs e)
+        private void BtnCloseUsr_MouseLeave(object sender, EventArgs e)
         {
-            BtnCloseAdmin.BackColor = Color.FromArgb(40, 40, 40);
-            BtnCloseAdmin.Image = Properties.Resources.close_button;
+            BtnCloseUsr.BackColor = Color.FromArgb(40, 40, 40);
+            BtnCloseUsr.Image = Properties.Resources.close_button;
         }
 
-        private void BtnAdminInfo_Click(object sender, EventArgs e)
+        private void BtnUserInfo_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmAdminInfo());
+            OpenChildForm(new FrmUserInfo());
         }
 
-        private void BtnModifyAdmin_Click(object sender, EventArgs e)
+        private void BtnModifyUsr_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmEditAdmin());
-        }
-
-        private void BtnAddUsr_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FrmAddUser());
-        }
-
-        private void BtnSrchUsr_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FrmSearchUser());
+            OpenChildForm(new FrmEditUser());
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e)
@@ -105,11 +93,12 @@ namespace MessageNest.Forms
         [DllImport("user32.Dll", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void PnlTopAdmin_MouseDown(object sender, MouseEventArgs e)
+        private void PnlTopUser_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0xA1, 0x2, 0);
         }
+
 
         #endregion
     }

@@ -225,7 +225,7 @@
             // LnkLblSignUp
             // 
             this.LnkLblSignUp.AutoSize = true;
-            this.LnkLblSignUp.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.LnkLblSignUp.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
             this.LnkLblSignUp.Location = new System.Drawing.Point(175, 577);
             this.LnkLblSignUp.Name = "LnkLblSignUp";
             this.LnkLblSignUp.Size = new System.Drawing.Size(120, 17);
