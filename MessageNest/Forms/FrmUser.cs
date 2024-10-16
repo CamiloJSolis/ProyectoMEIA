@@ -16,6 +16,7 @@ namespace MessageNest.Forms
         public FrmUser()
         {
             InitializeComponent();
+            OpenChildForm(new FrmUserInfo());
         }
 
         #region Call Child Forms

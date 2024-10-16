@@ -58,6 +58,7 @@
             this.PbPwd = new System.Windows.Forms.PictureBox();
             this.PnlUsr = new System.Windows.Forms.Panel();
             this.LblWrongUsr = new System.Windows.Forms.Label();
+            this.LblWrongUsrPwd = new System.Windows.Forms.Label();
             this.PnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbUserLin)).BeginInit();
             this.pnlEnterUsr.SuspendLayout();
@@ -194,6 +195,7 @@
             // 
             // PnlLogin
             // 
+            this.PnlLogin.Controls.Add(this.LblWrongUsrPwd);
             this.PnlLogin.Controls.Add(this.pictureBox1);
             this.PnlLogin.Controls.Add(this.LnkLblSignUp);
             this.PnlLogin.Controls.Add(this.LblNoUsrPwd);
@@ -411,6 +413,19 @@
             this.LblWrongUsr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LblWrongUsr.Visible = false;
             // 
+            // LblWrongUsrPwd
+            // 
+            this.LblWrongUsrPwd.AutoSize = true;
+            this.LblWrongUsrPwd.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblWrongUsrPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.LblWrongUsrPwd.Location = new System.Drawing.Point(126, 453);
+            this.LblWrongUsrPwd.Name = "LblWrongUsrPwd";
+            this.LblWrongUsrPwd.Size = new System.Drawing.Size(205, 17);
+            this.LblWrongUsrPwd.TabIndex = 17;
+            this.LblWrongUsrPwd.Text = "Usuario o contraseña incorrecto.";
+            this.LblWrongUsrPwd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblWrongUsrPwd.Visible = false;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -474,6 +489,7 @@
         private System.Windows.Forms.Panel PnlInsertPwdUp;
         private System.Windows.Forms.Panel PnlInsertPwdRight;
         private System.Windows.Forms.Panel PnlInsertPwdLeft;
+        private System.Windows.Forms.Label LblWrongUsrPwd;
     }
 }
 

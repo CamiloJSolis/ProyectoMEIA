@@ -1,4 +1,6 @@
-﻿using MessageNest.Forms;
+﻿using MessageNest.Dao;
+using MessageNest.Entities;
+using MessageNest.Forms;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -66,6 +69,7 @@ namespace MessageNest
         private void BtnSingIn_Click(object sender, EventArgs e)
         {
             BtnSingIn.BackColor = Color.FromArgb(255, 210, 100);
+            LblWrongUsrPwd.Visible = false;
             LblWrongUsr.Visible = false;
             LblWrongPwd.Visible = false;
             LblNoUsrPwd.Visible = false;
@@ -89,9 +93,57 @@ namespace MessageNest
                 SetUsrPanelsColor(Color.FromArgb(255, 100, 100));
                 SetPwdPanelsColor(Color.FromArgb(255, 100, 100));
             }
+
+            string userName = TxtUsr.Text.Trim();
+            string password = TxtPwd.Text.Trim();
+
+            UserDao userDao = new UserDao();
+            UserEntity user = userDao.BuscarRegistro(userName,EncryptPassword(password));
+
+            if ( user != null)
+            {
+                if (user.Role == 1)
+                {
+                    FrmAdmin frmAdmin = new FrmAdmin();
+                    this.Hide();
+                    frmAdmin.Show();
+                }
+                else 
+                { 
+                    FrmUser frmUser = new FrmUser();
+                    this.Hide();
+                    frmUser.Show();
+                }
+            }
             else
             {
+                LblWrongUsrPwd.Visible = true;
+                SetUsrPanelsColor(Color.FromArgb(255, 100, 100));
+                SetPwdPanelsColor(Color.FromArgb(255, 100, 100));
+            }
+        }
 
+        private string EncryptPassword(string password)
+        {
+            try
+            {
+                var sha256 = SHA256.Create();
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                var stringBuilder = new StringBuilder();
+
+                foreach (byte b in bytes)
+                {
+                    stringBuilder.AppendFormat("{0:x2}", b);
+                }
+
+                return stringBuilder.ToString().Substring(0, 15);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al encriptar la contraseña: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return password;
             }
         }
 

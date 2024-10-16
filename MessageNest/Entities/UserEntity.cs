@@ -12,10 +12,10 @@ namespace MessageNest.Entities
         private string _name;
         private string _surname;
         private string _passwordEncrypted;
-        private bool _role;
-        private DateTime _birthDate;
-        private int _phoneNumber;
-        private bool _isActive; // Es lo mismo que estatus
+        private int _role;
+        private string _birthDate;
+        private string _phoneNumber;
+        private int _isActive; // Es lo mismo que estatus
 
 
         // Constructor vacio
@@ -27,7 +27,7 @@ namespace MessageNest.Entities
         // Constructor que inicializa las propiedades
 
         public UserEntity(string userName, string name, string surname, string passwordEncrypted,
-            bool role, DateTime birthDate, int phoneNumber, bool isActive)
+            int role, string birthDate, string phoneNumber, int isActive)
         {
             _userName = userName;
             _name = name;
@@ -65,25 +65,25 @@ namespace MessageNest.Entities
             set { _passwordEncrypted = value; }
         }
 
-        public bool Role
+        public int Role
         {
             get { return _role; }
             set { _role = value; }
         }
 
-        public DateTime BirthDate
+        public string BirthDate
         {
             get { return _birthDate; }
             set { _birthDate = value; }
         }
 
-        public int PhoneNumber
+        public string PhoneNumber
         {
             get { return _phoneNumber; }
             set { _phoneNumber = value; }
         }
 
-        public bool IsActive
+        public int IsActive
         {
             get { return _isActive; }
             set { _isActive = value; }

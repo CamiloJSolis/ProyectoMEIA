@@ -246,10 +246,11 @@
             this.LbPwdInstruc.ForeColor = System.Drawing.Color.Silver;
             this.LbPwdInstruc.Location = new System.Drawing.Point(-3, 36);
             this.LbPwdInstruc.Name = "LbPwdInstruc";
-            this.LbPwdInstruc.Size = new System.Drawing.Size(577, 34);
+            this.LbPwdInstruc.Size = new System.Drawing.Size(522, 34);
             this.LbPwdInstruc.TabIndex = 21;
-            this.LbPwdInstruc.Text = "La contraseña debe tener al menos 8 caracteres e incluir una combinación de letra" +
-    "s, números \r\ny caracteres especiales (por ejemplo: @, #, $, etc.)";
+            this.LbPwdInstruc.Text = "La contraseña debe tener al menos 8 caracteres y un un máximo de 15  e incluir un" +
+    "a \r\ncombinación de letras, números y caracteres especiales (por ejemplo: @, #, $" +
+    ", etc.)";
             this.LbPwdInstruc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PnlEnterPwd
@@ -653,7 +654,7 @@
             this.TxtNewSecondName.Name = "TxtNewSecondName";
             this.TxtNewSecondName.Size = new System.Drawing.Size(275, 22);
             this.TxtNewSecondName.TabIndex = 6;
-            this.TxtNewSecondName.Text = "Segundo nombre";
+            this.TxtNewSecondName.Text = "Segundo o tercer nombre";
             this.TxtNewSecondName.Click += new System.EventHandler(this.TxtNewSecondName_Click);
             this.TxtNewSecondName.DoubleClick += new System.EventHandler(this.TxtNewSecondName_DoubleClick);
             this.TxtNewSecondName.Enter += new System.EventHandler(this.TxtNewSecondName_Enter);

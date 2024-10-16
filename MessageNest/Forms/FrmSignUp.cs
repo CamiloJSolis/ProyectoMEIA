@@ -13,6 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MessageNest.Entities;
 using System.Web;
+using System.Security.Cryptography;
 
 namespace MessageNest.Forms
 {
@@ -80,18 +81,86 @@ namespace MessageNest.Forms
                 user.UserName = PadRight(TxtNewUsr.Text, 20);
                 user.Name = VerifyName(TxtNewFirstName.Text, TxtNewSecondName.Text);
                 user.Surname = VerifySurname(TxtNewFirstSurname.Text, TxtNewSecondSurname.Text);
-                user.PasswordEncrypted = TxtNewPwd.Text;
-                user.Role = SetRole(userDao.firstUser);
-                user.BirthDate = DtpNewBD.Value;
-                user.PhoneNumber = GetPhoneNumber(TxtPhone.Text);
-                user.IsActive = true;
+                user.PasswordEncrypted = EncryptPassword(TxtNewPwd.Text);
+                user.Role = SetRole(userDao.firstUser) ? 1 : 0;
+                user.BirthDate = DtpNewBD.Value.ToString("dd/MM/yyyy").PadRight(10);
+                user.PhoneNumber = PadRight(TxtPhone.Text, 10);
+                user.IsActive = true ? 1 : 0;  // Estatus como '1' (activo) o '0' (inactivo)
 
-                userDao.AgregarRegistro(user);
+                bool isAdded = userDao.AgregarRegistro(user);
+
+                if(isAdded)
+                {
+                    DialogResult dialogResult = new DialogResult();
+                    
+                    dialogResult = MessageBox.Show("¿Desea agregar otro usuario?", "Crear usuario", 
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if(dialogResult == DialogResult.No)
+                    {
+                        FrmLogin frmLogin = new FrmLogin();
+
+                        this.Hide();
+                        frmLogin.Show();
+                    }
+                    else
+                    {
+                        ClearFields();
+                    }
+                }
             }
             else
             {
                 MessageBox.Show("La contraseña no cumple con el nivel mínimo de seguridad.");
             }
+        }
+
+        private void ClearFields()
+        {
+            //TxtNewUsr.Text = "ngrese el usuario";
+            //TxtNewFirstName.Text = "Primer nombre"; 
+            //TxtNewSecondName.Text = "Segundo o tercer nombre"; 
+            //TxtNewFirstSurname.Text = "Primer apellido"; 
+            //TxtNewSecondSurname.Text = "Segundo apellido";
+            //TxtNewPwd.Text = "Contraseña";
+            //TxtPhone.Text = "0000000000";
+
+            //TxtNewUsr.Clear();
+            //TxtNewFirstName.Clear();
+            //TxtNewSecondName.Clear();
+            //TxtNewFirstSurname.Clear();
+            //TxtNewSecondSurname.Clear();
+            //TxtNewPwd.Clear();
+            //TxtPhone.Clear();
+
+            this.Hide();
+            FrmSignUp frmSignUp = new FrmSignUp();
+            frmSignUp.Show();
+
+            //this.Refresh();
+        }
+
+        private string EncryptPassword(string password)
+        {
+            var sha256 = SHA256.Create();
+            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+            var stringBuilder = new StringBuilder();
+
+            //StringBuilder stringBuilder = new StringBuilder(bytes.Length * 2);
+
+            //for (int i = 0; i < bytes.Length; i++)
+            //{
+            //    // Escribe como hexadecimal
+            //    sb.Append(bytes[i].ToString("x2"));
+            //}
+
+            foreach (byte b in bytes)
+            {
+                stringBuilder.AppendFormat("{0:x2}", b);
+            }
+
+            return stringBuilder.ToString().Substring(0,15);
         }
 
         private void CorrectInput (string userName, string firstName, string firstLastName, DateTime birthDate)
@@ -143,23 +212,23 @@ namespace MessageNest.Forms
             bool hasLowerCase = password.Any(char.IsLower);
             bool hasDigit = password.Any(char.IsDigit);
             bool hasMinimumLength = password.Length >= 8;
+            bool hasMaxLength = password.Length <= 15;
 
-            return hasUpperCase && hasLowerCase && hasDigit && hasMinimumLength;
+            return hasUpperCase && hasLowerCase && hasDigit && hasMinimumLength && hasMaxLength;
         }
 
         private string VerifyName(string firstName, string secondName)
         {
             string completeName;
 
-            if (TxtNewSecondName.Text != "Segundo nombre")
+            if (TxtNewSecondName.Text != "Segundo o tercer nombre")
             {
                 completeName = $"{firstName} {secondName}";
-                PadRight(completeName, 30);
-                return completeName;
+                return PadRight(completeName, 30);
             }
             else
             { 
-                return firstName ;
+                return PadRight(firstName, 30);
             }
         }
 
@@ -170,12 +239,11 @@ namespace MessageNest.Forms
             if (TxtNewSecondSurname.Text != "Segundo apellido")
             {
                 completeSurname = $"{firstSurname} {secondSurname}";
-                PadRight(completeSurname, 30);
-                return completeSurname;
+                return PadRight(completeSurname, 30);
             }
             else
             {
-                return firstSurname;
+                return PadRight(firstSurname, 30);
             }
         }
 
@@ -190,15 +258,6 @@ namespace MessageNest.Forms
             {
                 return role = false; // 0 user
             }
-        }
-
-        private int GetPhoneNumber(string phoneNumber)
-        {
-            int parsedPhoneNumber;
-            string correctPhoneNumInput = PadRight(TxtPhone.Text, 10);
-            int.TryParse(correctPhoneNumInput, out parsedPhoneNumber);
-
-            return parsedPhoneNumber;
         }
 
         private string PadRight(string input, int length)
@@ -323,7 +382,7 @@ namespace MessageNest.Forms
 
         private void TxtNewSecondName_Click(object sender, EventArgs e)
         {
-            if (TxtNewSecondName.Text == "Segundo nombre")
+            if (TxtNewSecondName.Text == "Segundo o tercer nombre")
             {
                 TxtNewSecondName.SelectAll();
             }
@@ -413,12 +472,19 @@ namespace MessageNest.Forms
 
         private void TxtNewUsr_Leave(object sender, EventArgs e)
         {
-            if (TxtNewUsr.Text == "")
+            try 
             {
-                TxtNewUsr.Text = "Ingrese el usuario";
+                if (TxtNewUsr.Text == "")
+                {
+                    TxtNewUsr.Text = "Ingrese el usuario";
 
-                TxtNewUsr.ForeColor = Color.DarkGray;
-                SetUsrPanelsColor(Color.FromArgb(50, 53, 60));
+                    TxtNewUsr.ForeColor = Color.DarkGray;
+                    SetUsrPanelsColor(Color.FromArgb(50, 53, 60));
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"Error con los txt: {ex}");
             }
         }
 
@@ -468,7 +534,7 @@ namespace MessageNest.Forms
 
         private void TxtNewSecondName_Enter(object sender, EventArgs e)
         {
-            if (TxtNewSecondName.Text == "Segundo nombre")
+            if (TxtNewSecondName.Text == "Segundo o tercer nombre")
             {
                 TxtNewSecondName.Text = "";
 
@@ -481,7 +547,7 @@ namespace MessageNest.Forms
         {
             if (TxtNewSecondName.Text == "")
             {
-                TxtNewSecondName.Text = "Segundo nombre";
+                TxtNewSecondName.Text = "Segundo o tercer nombre";
 
                 TxtNewSecondName.ForeColor = Color.DarkGray;
                 SetSecondNamePanelsColor(Color.FromArgb(50, 53, 60));
