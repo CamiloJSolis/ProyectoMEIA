@@ -66,6 +66,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlSearchUsr = new System.Windows.Forms.Panel();
+            this.BtnSearch = new System.Windows.Forms.Button();
             this.PnlSearchtUsrRight = new System.Windows.Forms.Panel();
             this.TxtSearchUsr = new System.Windows.Forms.TextBox();
             this.PnlSearchUsrLeft = new System.Windows.Forms.Panel();
@@ -554,6 +555,7 @@
             // pnlSearchUsr
             // 
             this.pnlSearchUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.pnlSearchUsr.Controls.Add(this.BtnSearch);
             this.pnlSearchUsr.Controls.Add(this.PnlSearchtUsrRight);
             this.pnlSearchUsr.Controls.Add(this.TxtSearchUsr);
             this.pnlSearchUsr.Controls.Add(this.PnlSearchUsrLeft);
@@ -563,6 +565,18 @@
             this.pnlSearchUsr.Name = "pnlSearchUsr";
             this.pnlSearchUsr.Size = new System.Drawing.Size(592, 34);
             this.pnlSearchUsr.TabIndex = 5;
+            // 
+            // BtnSearch
+            // 
+            this.BtnSearch.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnSearch.FlatAppearance.BorderSize = 0;
+            this.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSearch.Image = global::MessageNest.Properties.Resources.search_icon;
+            this.BtnSearch.Location = new System.Drawing.Point(553, 1);
+            this.BtnSearch.Name = "BtnSearch";
+            this.BtnSearch.Size = new System.Drawing.Size(38, 32);
+            this.BtnSearch.TabIndex = 11;
+            this.BtnSearch.UseVisualStyleBackColor = true;
             // 
             // PnlSearchtUsrRight
             // 
@@ -1402,5 +1416,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button BtnSaveChanges;
         private System.Windows.Forms.TabControl TabCtrlUsrSearch;
+        private System.Windows.Forms.Button BtnSearch;
     }
 }
