@@ -484,8 +484,8 @@
             // FwlPnlName
             // 
             this.FwlPnlName.Controls.Add(this.PnlEnterNewFirstName);
-            this.FwlPnlName.Controls.Add(this.PnlEnterNewFirstSurname);
             this.FwlPnlName.Controls.Add(this.PnlEnterNewSecondName);
+            this.FwlPnlName.Controls.Add(this.PnlEnterNewFirstSurname);
             this.FwlPnlName.Controls.Add(this.PnlEnterNewSecondSurname);
             this.FwlPnlName.Location = new System.Drawing.Point(53, 220);
             this.FwlPnlName.Name = "FwlPnlName";
@@ -565,7 +565,7 @@
             this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameLeft);
             this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameDown);
             this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameUp);
-            this.PnlEnterNewFirstSurname.Location = new System.Drawing.Point(294, 3);
+            this.PnlEnterNewFirstSurname.Location = new System.Drawing.Point(3, 36);
             this.PnlEnterNewFirstSurname.Name = "PnlEnterNewFirstSurname";
             this.PnlEnterNewFirstSurname.Size = new System.Drawing.Size(285, 27);
             this.PnlEnterNewFirstSurname.TabIndex = 12;
@@ -630,7 +630,7 @@
             this.PnlEnterNewSecondName.Controls.Add(this.PnlSecondNameLeft);
             this.PnlEnterNewSecondName.Controls.Add(this.PnlSecondNameDown);
             this.PnlEnterNewSecondName.Controls.Add(this.PnlSecondNameUp);
-            this.PnlEnterNewSecondName.Location = new System.Drawing.Point(3, 36);
+            this.PnlEnterNewSecondName.Location = new System.Drawing.Point(294, 3);
             this.PnlEnterNewSecondName.Name = "PnlEnterNewSecondName";
             this.PnlEnterNewSecondName.Size = new System.Drawing.Size(285, 27);
             this.PnlEnterNewSecondName.TabIndex = 11;

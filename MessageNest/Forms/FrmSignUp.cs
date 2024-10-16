@@ -117,27 +117,9 @@ namespace MessageNest.Forms
 
         private void ClearFields()
         {
-            //TxtNewUsr.Text = "ngrese el usuario";
-            //TxtNewFirstName.Text = "Primer nombre"; 
-            //TxtNewSecondName.Text = "Segundo o tercer nombre"; 
-            //TxtNewFirstSurname.Text = "Primer apellido"; 
-            //TxtNewSecondSurname.Text = "Segundo apellido";
-            //TxtNewPwd.Text = "Contraseña";
-            //TxtPhone.Text = "0000000000";
-
-            //TxtNewUsr.Clear();
-            //TxtNewFirstName.Clear();
-            //TxtNewSecondName.Clear();
-            //TxtNewFirstSurname.Clear();
-            //TxtNewSecondSurname.Clear();
-            //TxtNewPwd.Clear();
-            //TxtPhone.Clear();
-
             this.Hide();
             FrmSignUp frmSignUp = new FrmSignUp();
             frmSignUp.Show();
-
-            //this.Refresh();
         }
 
         private string EncryptPassword(string password)
@@ -146,14 +128,6 @@ namespace MessageNest.Forms
             byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
 
             var stringBuilder = new StringBuilder();
-
-            //StringBuilder stringBuilder = new StringBuilder(bytes.Length * 2);
-
-            //for (int i = 0; i < bytes.Length; i++)
-            //{
-            //    // Escribe como hexadecimal
-            //    sb.Append(bytes[i].ToString("x2"));
-            //}
 
             foreach (byte b in bytes)
             {

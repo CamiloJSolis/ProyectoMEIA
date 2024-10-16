@@ -1,8 +1,11 @@
-﻿using System;
+﻿using MessageNest.Dao;
+using MessageNest.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
@@ -14,11 +17,14 @@ namespace MessageNest.Forms
 {
     public partial class FrmAdmin : Form
     {
-        public FrmAdmin()
+        private UserEntity _currentUser;
+
+        public FrmAdmin(UserEntity user)
         {
             InitializeComponent();
+            _currentUser = user;
 
-            OpenChildForm(new FrmAdminInfo());
+            OpenChildForm(new FrmAdminInfo(_currentUser));
         }
 
         #region Call Child Forms
@@ -31,7 +37,7 @@ namespace MessageNest.Forms
             {
                 currentForm.Close();
             }
-            
+
             currentForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -65,12 +71,12 @@ namespace MessageNest.Forms
 
         private void BtnAdminInfo_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmAdminInfo());
+            OpenChildForm(new FrmAdminInfo(_currentUser));
         }
 
         private void BtnModifyAdmin_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmEditAdmin());
+            OpenChildForm(new FrmEditAdmin(_currentUser));
         }
 
         private void BtnAddUsr_Click(object sender, EventArgs e)
@@ -112,5 +118,35 @@ namespace MessageNest.Forms
         }
 
         #endregion
+
+        private void BtnBackup_Click(object sender, EventArgs e)
+        {
+            string source = @"C:\MEIA\user.txt";
+            Backup(source);
+        }
+
+        private void Backup(string source)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                string destinationFolder = folderBrowserDialog.SelectedPath;
+                //string fileName = Path.GetFileName(source);
+                string fileName = "Backup.txt";
+                string destinationPath = Path.Combine(destinationFolder, fileName);
+
+                try
+                {
+                    File.Copy(source, destinationPath, overwrite: true);
+                    MessageBox.Show("Archivo almacenado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Ocurrió un error al guardar el archivo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
     }
 }

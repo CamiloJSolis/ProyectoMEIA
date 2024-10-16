@@ -69,24 +69,23 @@ namespace MessageNest
         private void BtnSingIn_Click(object sender, EventArgs e)
         {
             BtnSingIn.BackColor = Color.FromArgb(255, 210, 100);
-            LblWrongUsrPwd.Visible = false;
-            LblWrongUsr.Visible = false;
-            LblWrongPwd.Visible = false;
-            LblNoUsrPwd.Visible = false;
+            ResetLabelsAndColors();
 
             if (TxtUsr.Text == "Ingrese el usuario" && TxtPwd.Text != "Contraseña")
             {
                 LblWrongUsr.Visible = true;
-
                 SetUsrPanelsColor(Color.FromArgb(255, 100, 100));
+                return;
             }
-            else if (TxtPwd.Text == "Contraseña" && TxtUsr.Text != "Ingrese el usuario")
+            
+            if (TxtPwd.Text == "Contraseña" && TxtUsr.Text != "Ingrese el usuario")
             {
                 LblWrongPwd.Visible = true;
-
                 SetPwdPanelsColor(Color.FromArgb(255, 100, 100));
+                return;
             }
-            else if (TxtUsr.Text == "Ingrese el usuario" && TxtPwd.Text == "Contraseña")
+            
+            if (TxtUsr.Text == "Ingrese el usuario" && TxtPwd.Text == "Contraseña")
             {
                 LblNoUsrPwd.Visible = true;
 
@@ -102,17 +101,24 @@ namespace MessageNest
 
             if ( user != null)
             {
-                if (user.Role == 1)
+                if(user.IsActive == 1)
                 {
-                    FrmAdmin frmAdmin = new FrmAdmin();
-                    this.Hide();
-                    frmAdmin.Show();
+                    if (user.Role == 1)
+                    {
+                        FrmAdmin frmAdmin = new FrmAdmin(user);
+                        this.Hide();
+                        frmAdmin.Show();
+                    }
+                    else
+                    {
+                        FrmUser frmUser = new FrmUser(user);
+                        this.Hide();
+                        frmUser.Show();
+                    }
                 }
-                else 
-                { 
-                    FrmUser frmUser = new FrmUser();
-                    this.Hide();
-                    frmUser.Show();
+                else
+                {
+                    MessageBox.Show("El usuario no esta activo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
@@ -121,6 +127,17 @@ namespace MessageNest
                 SetUsrPanelsColor(Color.FromArgb(255, 100, 100));
                 SetPwdPanelsColor(Color.FromArgb(255, 100, 100));
             }
+        }
+
+        private void ResetLabelsAndColors()
+        {
+            LblWrongUsrPwd.Visible = false;
+            LblWrongUsr.Visible = false;
+            LblWrongPwd.Visible = false;
+            LblNoUsrPwd.Visible = false;
+
+            SetUsrPanelsColor(Color.FromArgb(30, 30, 30));
+            SetUsrPanelsColor(Color.FromArgb(30, 30, 30));
         }
 
         private string EncryptPassword(string password)

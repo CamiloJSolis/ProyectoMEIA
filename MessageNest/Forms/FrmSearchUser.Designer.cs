@@ -103,18 +103,18 @@
             this.PnlFirstNameLeft = new System.Windows.Forms.Panel();
             this.PnlFirstNameDown = new System.Windows.Forms.Panel();
             this.PnlFirstNameUp = new System.Windows.Forms.Panel();
-            this.PnlAdminFirstSurname = new System.Windows.Forms.Panel();
-            this.PnlFirstSurnameRight = new System.Windows.Forms.Panel();
-            this.TxtAdminFirstSurname = new System.Windows.Forms.TextBox();
-            this.PnlFirstSurnameLeft = new System.Windows.Forms.Panel();
-            this.PnlFirstSurnameDown = new System.Windows.Forms.Panel();
-            this.PnlFirstSurnameUp = new System.Windows.Forms.Panel();
             this.PnlEnterNewSecondName = new System.Windows.Forms.Panel();
             this.PnlSecondNameRight = new System.Windows.Forms.Panel();
             this.TxtAdminSecondName = new System.Windows.Forms.TextBox();
             this.PnlSecondNameLeft = new System.Windows.Forms.Panel();
             this.PnlSecondNameDown = new System.Windows.Forms.Panel();
             this.PnlSecondNameUp = new System.Windows.Forms.Panel();
+            this.PnlAdminFirstSurname = new System.Windows.Forms.Panel();
+            this.PnlFirstSurnameRight = new System.Windows.Forms.Panel();
+            this.TxtAdminFirstSurname = new System.Windows.Forms.TextBox();
+            this.PnlFirstSurnameLeft = new System.Windows.Forms.Panel();
+            this.PnlFirstSurnameDown = new System.Windows.Forms.Panel();
+            this.PnlFirstSurnameUp = new System.Windows.Forms.Panel();
             this.PnlEnterNewSecondSurname = new System.Windows.Forms.Panel();
             this.PnlSecondSurnameRight = new System.Windows.Forms.Panel();
             this.TxtAdminSecondSurname = new System.Windows.Forms.TextBox();
@@ -149,8 +149,8 @@
             this.pnlEnterUsr.SuspendLayout();
             this.FwlPnlName.SuspendLayout();
             this.PnlEnterNewFirstName.SuspendLayout();
-            this.PnlAdminFirstSurname.SuspendLayout();
             this.PnlEnterNewSecondName.SuspendLayout();
+            this.PnlAdminFirstSurname.SuspendLayout();
             this.PnlEnterNewSecondSurname.SuspendLayout();
             this.pnlEnterNewBD.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -577,6 +577,7 @@
             this.BtnSearch.Size = new System.Drawing.Size(38, 32);
             this.BtnSearch.TabIndex = 11;
             this.BtnSearch.UseVisualStyleBackColor = true;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // PnlSearchtUsrRight
             // 
@@ -910,8 +911,8 @@
             // FwlPnlName
             // 
             this.FwlPnlName.Controls.Add(this.PnlEnterNewFirstName);
-            this.FwlPnlName.Controls.Add(this.PnlAdminFirstSurname);
             this.FwlPnlName.Controls.Add(this.PnlEnterNewSecondName);
+            this.FwlPnlName.Controls.Add(this.PnlAdminFirstSurname);
             this.FwlPnlName.Controls.Add(this.PnlEnterNewSecondSurname);
             this.FwlPnlName.Location = new System.Drawing.Point(92, 192);
             this.FwlPnlName.Name = "FwlPnlName";
@@ -979,67 +980,6 @@
             this.PnlFirstNameUp.Size = new System.Drawing.Size(291, 1);
             this.PnlFirstNameUp.TabIndex = 8;
             // 
-            // PnlAdminFirstSurname
-            // 
-            this.PnlAdminFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameRight);
-            this.PnlAdminFirstSurname.Controls.Add(this.TxtAdminFirstSurname);
-            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameLeft);
-            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameDown);
-            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameUp);
-            this.PnlAdminFirstSurname.Location = new System.Drawing.Point(300, 3);
-            this.PnlAdminFirstSurname.Name = "PnlAdminFirstSurname";
-            this.PnlAdminFirstSurname.Size = new System.Drawing.Size(291, 27);
-            this.PnlAdminFirstSurname.TabIndex = 12;
-            // 
-            // PnlFirstSurnameRight
-            // 
-            this.PnlFirstSurnameRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlFirstSurnameRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PnlFirstSurnameRight.Location = new System.Drawing.Point(290, 1);
-            this.PnlFirstSurnameRight.Name = "PnlFirstSurnameRight";
-            this.PnlFirstSurnameRight.Size = new System.Drawing.Size(1, 25);
-            this.PnlFirstSurnameRight.TabIndex = 9;
-            // 
-            // TxtAdminFirstSurname
-            // 
-            this.TxtAdminFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtAdminFirstSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtAdminFirstSurname.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAdminFirstSurname.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtAdminFirstSurname.Location = new System.Drawing.Point(7, 4);
-            this.TxtAdminFirstSurname.Name = "TxtAdminFirstSurname";
-            this.TxtAdminFirstSurname.ReadOnly = true;
-            this.TxtAdminFirstSurname.Size = new System.Drawing.Size(280, 22);
-            this.TxtAdminFirstSurname.TabIndex = 6;
-            // 
-            // PnlFirstSurnameLeft
-            // 
-            this.PnlFirstSurnameLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlFirstSurnameLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlFirstSurnameLeft.Location = new System.Drawing.Point(0, 1);
-            this.PnlFirstSurnameLeft.Name = "PnlFirstSurnameLeft";
-            this.PnlFirstSurnameLeft.Size = new System.Drawing.Size(1, 25);
-            this.PnlFirstSurnameLeft.TabIndex = 7;
-            // 
-            // PnlFirstSurnameDown
-            // 
-            this.PnlFirstSurnameDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlFirstSurnameDown.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlFirstSurnameDown.Location = new System.Drawing.Point(0, 26);
-            this.PnlFirstSurnameDown.Name = "PnlFirstSurnameDown";
-            this.PnlFirstSurnameDown.Size = new System.Drawing.Size(291, 1);
-            this.PnlFirstSurnameDown.TabIndex = 10;
-            // 
-            // PnlFirstSurnameUp
-            // 
-            this.PnlFirstSurnameUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlFirstSurnameUp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlFirstSurnameUp.Location = new System.Drawing.Point(0, 0);
-            this.PnlFirstSurnameUp.Name = "PnlFirstSurnameUp";
-            this.PnlFirstSurnameUp.Size = new System.Drawing.Size(291, 1);
-            this.PnlFirstSurnameUp.TabIndex = 8;
-            // 
             // PnlEnterNewSecondName
             // 
             this.PnlEnterNewSecondName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
@@ -1048,7 +988,7 @@
             this.PnlEnterNewSecondName.Controls.Add(this.PnlSecondNameLeft);
             this.PnlEnterNewSecondName.Controls.Add(this.PnlSecondNameDown);
             this.PnlEnterNewSecondName.Controls.Add(this.PnlSecondNameUp);
-            this.PnlEnterNewSecondName.Location = new System.Drawing.Point(3, 36);
+            this.PnlEnterNewSecondName.Location = new System.Drawing.Point(300, 3);
             this.PnlEnterNewSecondName.Name = "PnlEnterNewSecondName";
             this.PnlEnterNewSecondName.Size = new System.Drawing.Size(291, 27);
             this.PnlEnterNewSecondName.TabIndex = 11;
@@ -1100,6 +1040,67 @@
             this.PnlSecondNameUp.Name = "PnlSecondNameUp";
             this.PnlSecondNameUp.Size = new System.Drawing.Size(291, 1);
             this.PnlSecondNameUp.TabIndex = 8;
+            // 
+            // PnlAdminFirstSurname
+            // 
+            this.PnlAdminFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameRight);
+            this.PnlAdminFirstSurname.Controls.Add(this.TxtAdminFirstSurname);
+            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameLeft);
+            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameDown);
+            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameUp);
+            this.PnlAdminFirstSurname.Location = new System.Drawing.Point(3, 36);
+            this.PnlAdminFirstSurname.Name = "PnlAdminFirstSurname";
+            this.PnlAdminFirstSurname.Size = new System.Drawing.Size(291, 27);
+            this.PnlAdminFirstSurname.TabIndex = 12;
+            // 
+            // PnlFirstSurnameRight
+            // 
+            this.PnlFirstSurnameRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlFirstSurnameRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlFirstSurnameRight.Location = new System.Drawing.Point(290, 1);
+            this.PnlFirstSurnameRight.Name = "PnlFirstSurnameRight";
+            this.PnlFirstSurnameRight.Size = new System.Drawing.Size(1, 25);
+            this.PnlFirstSurnameRight.TabIndex = 9;
+            // 
+            // TxtAdminFirstSurname
+            // 
+            this.TxtAdminFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.TxtAdminFirstSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtAdminFirstSurname.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtAdminFirstSurname.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtAdminFirstSurname.Location = new System.Drawing.Point(7, 4);
+            this.TxtAdminFirstSurname.Name = "TxtAdminFirstSurname";
+            this.TxtAdminFirstSurname.ReadOnly = true;
+            this.TxtAdminFirstSurname.Size = new System.Drawing.Size(280, 22);
+            this.TxtAdminFirstSurname.TabIndex = 6;
+            // 
+            // PnlFirstSurnameLeft
+            // 
+            this.PnlFirstSurnameLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlFirstSurnameLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlFirstSurnameLeft.Location = new System.Drawing.Point(0, 1);
+            this.PnlFirstSurnameLeft.Name = "PnlFirstSurnameLeft";
+            this.PnlFirstSurnameLeft.Size = new System.Drawing.Size(1, 25);
+            this.PnlFirstSurnameLeft.TabIndex = 7;
+            // 
+            // PnlFirstSurnameDown
+            // 
+            this.PnlFirstSurnameDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlFirstSurnameDown.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PnlFirstSurnameDown.Location = new System.Drawing.Point(0, 26);
+            this.PnlFirstSurnameDown.Name = "PnlFirstSurnameDown";
+            this.PnlFirstSurnameDown.Size = new System.Drawing.Size(291, 1);
+            this.PnlFirstSurnameDown.TabIndex = 10;
+            // 
+            // PnlFirstSurnameUp
+            // 
+            this.PnlFirstSurnameUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlFirstSurnameUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlFirstSurnameUp.Location = new System.Drawing.Point(0, 0);
+            this.PnlFirstSurnameUp.Name = "PnlFirstSurnameUp";
+            this.PnlFirstSurnameUp.Size = new System.Drawing.Size(291, 1);
+            this.PnlFirstSurnameUp.TabIndex = 8;
             // 
             // PnlEnterNewSecondSurname
             // 
@@ -1300,10 +1301,10 @@
             this.FwlPnlName.ResumeLayout(false);
             this.PnlEnterNewFirstName.ResumeLayout(false);
             this.PnlEnterNewFirstName.PerformLayout();
-            this.PnlAdminFirstSurname.ResumeLayout(false);
-            this.PnlAdminFirstSurname.PerformLayout();
             this.PnlEnterNewSecondName.ResumeLayout(false);
             this.PnlEnterNewSecondName.PerformLayout();
+            this.PnlAdminFirstSurname.ResumeLayout(false);
+            this.PnlAdminFirstSurname.PerformLayout();
             this.PnlEnterNewSecondSurname.ResumeLayout(false);
             this.PnlEnterNewSecondSurname.PerformLayout();
             this.pnlEnterNewBD.ResumeLayout(false);

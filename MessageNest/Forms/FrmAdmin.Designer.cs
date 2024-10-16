@@ -118,6 +118,7 @@
             this.BtnBackup.TabIndex = 3;
             this.BtnBackup.Text = "Respaldo";
             this.BtnBackup.UseVisualStyleBackColor = false;
+            this.BtnBackup.Click += new System.EventHandler(this.BtnBackup_Click);
             // 
             // BtnModifyAdmin
             // 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MessageNest.Dao;
+using MessageNest.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +43,20 @@ namespace MessageNest.Forms
         private void TxtSearchUsr_Leave(object sender, EventArgs e)
         {
             SetSearchUserPanelsColor(Color.FromArgb(50, 50, 50));
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            string userName = TxtSearchUsr.Text.Trim();
+
+            UserDao userDao = new UserDao();
+            UserEntity user = new UserEntity();
+
+            if (user != null)
+            {
+                MessageBox.Show("Se encontrío el usuario", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //TrvUsers.
+            }
         }
     }
 }

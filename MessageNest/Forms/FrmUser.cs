@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MessageNest.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,14 @@ namespace MessageNest.Forms
 {
     public partial class FrmUser : Form
     {
-        public FrmUser()
+        private UserEntity _currentUser;
+
+        public FrmUser(UserEntity user)
         {
             InitializeComponent();
-            OpenChildForm(new FrmUserInfo());
+            _currentUser = user;
+
+            OpenChildForm(new FrmUserInfo(_currentUser));
         }
 
         #region Call Child Forms
@@ -64,7 +69,7 @@ namespace MessageNest.Forms
 
         private void BtnUserInfo_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmUserInfo());
+            OpenChildForm(new FrmUserInfo(_currentUser));
         }
 
         private void BtnModifyUsr_Click(object sender, EventArgs e)

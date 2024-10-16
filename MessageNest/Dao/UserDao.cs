@@ -11,6 +11,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MessageNest.Dao
 {
@@ -24,7 +25,7 @@ namespace MessageNest.Dao
         {
             filePath = Path.Combine(dirPath, "user.txt");
             firstUser = IsFirstUser(filePath);
-    }
+         }
 
         public bool AgregarRegistro(UserEntity user)
         {
@@ -117,6 +118,33 @@ namespace MessageNest.Dao
         private bool IsFirstUser(string filePath)
         {
             return !File.Exists(filePath) || new FileInfo(filePath).Length == 0;
+        }
+
+        public void ModifyUser(string userName, string newPhone, string newBirthDay, string newPassword)
+        {
+            string tempFilePath = Path.Combine(dirPath, "user_temp.txt");
+
+            if (File.Exists(filePath))
+            {
+                string[] lines = File.ReadAllLines(filePath);
+                StreamWriter sw = new StreamWriter(tempFilePath);
+               
+                foreach (string line in lines)
+                {
+                    string[] fields = line.Split(';');
+                    if (fields[0] == userName)
+                    {
+                        //fields[3] = sw.WriteLine($"{newPassword}");
+                        sw.WriteLine($"{newPassword};{newBirthDay};{newPhone};");
+                    }
+                    else
+                    {
+                        sw.WriteLine(line);
+                    }
+                }
+                File.Delete(filePath);
+                File.Move(tempFilePath, filePath);
+            }
         }
     }
 }

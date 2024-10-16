@@ -1,9 +1,12 @@
-﻿using System;
+﻿using MessageNest.Dao;
+using MessageNest.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -102,6 +105,188 @@ namespace MessageNest.Forms
             }
         }
 
+        private void BtnCreate_Click(object sender, EventArgs e)
+        {
+            BtnCreate.BackColor = Color.FromArgb(255, 210, 100);
+
+            UserEntity user = new UserEntity();
+            UserDao userDao = new UserDao();
+
+            string password = TxtNewUsrPwd.Text;
+
+            CorrectInput(TxtNewUsr.Text, TxtNewUsrFirstName.Text, TxtNewUsrFirstSurname.Text, DtpNewUsrBD.Value);
+
+            if (IsPasswordSecure(password))
+            {
+                user.UserName = PadRight(TxtNewUsr.Text, 20);
+                user.Name = VerifyName(TxtNewUsrFirstName.Text, TxtNewUsrSecondName.Text);
+                user.Surname = VerifySurname(TxtNewUsrFirstSurname.Text, TxtNewUsrSecondSurname.Text);
+                user.PasswordEncrypted = EncryptPassword(TxtNewUsrPwd.Text);
+                user.Role = SetRole(userDao.firstUser) ? 1 : 0;
+                user.BirthDate = DtpNewUsrBD.Value.ToString("dd/MM/yyyy").PadRight(10);
+                user.PhoneNumber = PadRight(TxtNewUsrPhone.Text, 10);
+                user.IsActive = true ? 1 : 0;  // Estatus como '1' (activo) o '0' (inactivo)
+
+                bool isAdded = userDao.AgregarRegistro(user);
+
+                if (isAdded)
+                {
+                    DialogResult dialogResult = new DialogResult();
+
+                    dialogResult = MessageBox.Show("¿Desea agregar otro usuario?", "Crear usuario",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.No)
+                    {
+                        FrmLogin frmLogin = new FrmLogin();
+
+                        this.Hide();
+                        frmLogin.Show();
+                    }
+                    else
+                    {
+                        ClearFields();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("La contraseña no cumple con el nivel mínimo de seguridad.");
+            }
+
+        }
+
+        private void ClearFields()
+        {
+            this.Close();
+            this.Show();
+        }
+
+        private string EncryptPassword(string password)
+        {
+            var sha256 = SHA256.Create();
+            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+            var stringBuilder = new StringBuilder();
+
+            foreach (byte b in bytes)
+            {
+                stringBuilder.AppendFormat("{0:x2}", b);
+            }
+
+            return stringBuilder.ToString().Substring(0, 15);
+        }
+
+        private void CorrectInput(string userName, string firstName, string firstLastName, DateTime birthDate)
+        {
+            IsUsercorrect(userName);
+
+            if (TxtNewUsrFirstName.Text == "Primer nombre")
+            {
+                MessageBox.Show("Debe ingresar su primer nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            if (TxtNewUsrFirstSurname.Text == "Primer apellido")
+            {
+                MessageBox.Show("Debe ingresar su primer apellido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            if (DtpNewUsrBD.Value == DateTime.Now.Date)
+            {
+                MessageBox.Show("Debe ingresar una fecha válida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private bool IsUsercorrect(string userName)
+        {
+            bool hasNumbers = userName.Any(char.IsNumber);
+            bool hasUnderscore = HasUnderscore(userName);
+            bool hasMinLength = userName.Length >= 5;
+            bool hasMaxLength = userName.Length <= 20;
+            bool hasInvalidChar = userName.Any(c => !char.IsLetterOrDigit(c) && c != '_');
+
+            if (!hasMinLength || !hasMaxLength || hasInvalidChar)
+            {
+                MessageBox.Show("Usuario inválido.Debe tener entre 5 y 20 caracteres y solo contener letras, números y guiones bajos."
+                    , "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool HasUnderscore(string userName)
+        {
+            return userName.Contains('_');
+        }
+
+        private bool IsPasswordSecure(string password)
+        {
+            bool hasUpperCase = password.Any(char.IsUpper);
+            bool hasLowerCase = password.Any(char.IsLower);
+            bool hasDigit = password.Any(char.IsDigit);
+            bool hasMinimumLength = password.Length >= 8;
+            bool hasMaxLength = password.Length <= 15;
+
+            return hasUpperCase && hasLowerCase && hasDigit && hasMinimumLength && hasMaxLength;
+        }
+
+        private string VerifyName(string firstName, string secondName)
+        {
+            string completeName;
+
+            if (TxtNewUsrSecondName.Text != "Segundo o tercer nombre")
+            {
+                completeName = $"{firstName} {secondName}";
+                return PadRight(completeName, 30);
+            }
+            else
+            {
+                return PadRight(firstName, 30);
+            }
+        }
+
+        private string VerifySurname(string firstSurname, string secondSurname)
+        {
+            string completeSurname;
+
+            if (TxtNewUsrSecondSurname.Text != "Segundo apellido")
+            {
+                completeSurname = $"{firstSurname} {secondSurname}";
+                return PadRight(completeSurname, 30);
+            }
+            else
+            {
+                return PadRight(firstSurname, 30);
+            }
+        }
+
+        private bool SetRole(bool isEmpty)
+        {
+            bool role = true;
+            if (isEmpty == true)
+            {
+                return role; // 1 para admin
+            }
+            else
+            {
+                return role = false; // 0 user
+            }
+        }
+
+        private string PadRight(string input, int length)
+        {
+            if (input.Length < length)
+            {
+                return input.PadRight(length, ' ');
+            }
+            else if (input.Length > length)
+            {
+                return input.Substring(0, length); // Recorta si excede la longitud
+            }
+            return input;
+        }
+
         #endregion
 
         #region Funciones
@@ -149,7 +334,7 @@ namespace MessageNest.Forms
 
         private void TxtNewUsrSecondName_Click(object sender, EventArgs e)
         {
-            if (TxtNewUsrSecondName.Text == "Segundo nombre")
+            if (TxtNewUsrSecondName.Text == "Segundo o tercer nombre")
             {
                 TxtNewUsrSecondName.SelectAll();
             }      
@@ -249,7 +434,7 @@ namespace MessageNest.Forms
 
         private void TxtNewUsrSecondName_Enter(object sender, EventArgs e)
         {
-            if (TxtNewUsrSecondName.Text == "Segundo nombre")
+            if (TxtNewUsrSecondName.Text == "Segundo o tercer nombre")
             {
                 TxtNewUsrSecondName.Text = "";
 
@@ -262,7 +447,7 @@ namespace MessageNest.Forms
         {
             if (TxtNewUsrSecondName.Text == "")
             {
-                TxtNewUsrSecondName.Text = "Segundo nombre";
+                TxtNewUsrSecondName.Text = "Segundo o tercer nombre";
 
                 TxtNewUsrSecondName.ForeColor = Color.DarkGray;
                 SetNewSecondNamePanelsColor(Color.FromArgb(50, 50, 50));
