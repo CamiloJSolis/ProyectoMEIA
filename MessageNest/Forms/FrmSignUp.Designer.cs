@@ -857,6 +857,7 @@
             this.TxtPhone.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPhone.ForeColor = System.Drawing.Color.DarkGray;
             this.TxtPhone.Location = new System.Drawing.Point(7, 4);
+            this.TxtPhone.MaxLength = 10;
             this.TxtPhone.Name = "TxtPhone";
             this.TxtPhone.Size = new System.Drawing.Size(273, 22);
             this.TxtPhone.TabIndex = 6;
