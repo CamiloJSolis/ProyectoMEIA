@@ -18,16 +18,16 @@ namespace MessageNest.Dao
     public class UserDao
     {
         private string dirPath = @"C:\MEIA";
-        private string  filePath;
+        private string filePath;
         public bool firstUser;
 
         public UserDao()
         {
             filePath = Path.Combine(dirPath, "user.txt");
             firstUser = IsFirstUser(filePath);
-         }
+        }
 
-        public bool AgregarRegistro(UserEntity user)
+        public bool AgregarUsuario(UserEntity user)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace MessageNest.Dao
                     writer.WriteLine(userRecord);
                 }
 
-                MessageBox.Show("El usuario ha sido creado exitosamente.", "Éxito", 
+                MessageBox.Show("El usuario ha sido creado exitosamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return true;
@@ -61,55 +61,91 @@ namespace MessageNest.Dao
             }
         }
 
-        public UserEntity BuscarRegistro(string userName, string password)
+        public UserEntity AutenticarUsuario(string userName, string password)
         {
             try
             {
-                string[] lines = { };
-                if(File.Exists(filePath))
+                var user = ObtenerUsuario(userName);
+                if (user != null)
                 {
-                    lines = File.ReadAllLines(filePath);
-
-                    foreach (string line in lines)
+                    if (user.PasswordEncrypted.Trim().Equals(password))
                     {
-                        string[] fields = line.Split(';');
-                        if (fields[0].Trim().Equals(userName))
-                        {
-                            if (fields[3].Trim().Equals(password))
-                            {
-                                int status = int.Parse(fields[7].Trim());
-                                return new UserEntity
-                                {
-                                    UserName = fields[0].Trim(),
-                                    Name = fields[1].Trim(),
-                                    Surname = fields[2].Trim(),
-                                    PasswordEncrypted = fields[3].Trim(),
-                                    Role = int.Parse(fields[4].Trim()),
-                                    BirthDate = fields[5].Trim(),
-                                    PhoneNumber = fields[6].Trim(),
-                                    IsActive = status
-                                };
-                            }
-                            else
-                            {
-                                MessageBox.Show("Contraseña incorrecta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return null;
-                            }
-                        }
-
+                        return user;
                     }
-                    MessageBox.Show("El nombre de usuario no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return null;
+                    else
+                    {
+                        MessageBox.Show("Contraseña incorrecta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return null;
+                    }
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al autenticar el usuario: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public UserEntity BuscarUsuario(string userName)
+        {
+            try
+            {
+                var user = ObtenerUsuario(userName);
+                if (user != null)
+                {
+                    return user;
                 }
                 else
                 {
-                    MessageBox.Show("El archivo de usuarios no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error al buscar el usuario: {ex}", "Error", 
+                MessageBox.Show($"Ocurrió un error al buscar el usuario: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        private UserEntity ObtenerUsuario(string userName)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("El archivo de usuarios no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return null;
+                }
+
+                string[] lines = { };
+                lines = File.ReadAllLines(filePath);
+
+                foreach (string line in lines)
+                {
+                    string[] fields = line.Split(';');
+                    if (fields[0].Trim().Equals(userName))
+                    {
+                        return new UserEntity
+                        {
+                            UserName = fields[0].Trim(),
+                            Name = fields[1].Trim(),
+                            Surname = fields[2].Trim(),
+                            PasswordEncrypted = fields[3].Trim(),
+                            Role = int.Parse(fields[4].Trim()),
+                            BirthDate = fields[5].Trim(),
+                            PhoneNumber = fields[6].Trim(),
+                            IsActive = int.Parse(fields[7].Trim())
+                        };
+
+                    }
+                }
+                MessageBox.Show("El nombre de usuario no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al buscar el usuario: {ex}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
@@ -120,30 +156,51 @@ namespace MessageNest.Dao
             return !File.Exists(filePath) || new FileInfo(filePath).Length == 0;
         }
 
-        public void ModifyUser(string userName, string newPhone, string newBirthDay, string newPassword)
+        public bool ModificarUsuario(string userName, string newEncryptedPassword, string newBirthDate, string newPhoneNumber, int isActive)
         {
-            string tempFilePath = Path.Combine(dirPath, "user_temp.txt");
-
-            if (File.Exists(filePath))
+            try
             {
-                string[] lines = File.ReadAllLines(filePath);
-                StreamWriter sw = new StreamWriter(tempFilePath);
-               
-                foreach (string line in lines)
+                if (!File.Exists(filePath))
                 {
-                    string[] fields = line.Split(';');
-                    if (fields[0] == userName)
+                    MessageBox.Show("El archivo de usuarios no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                string[] lines = File.ReadAllLines(filePath);
+                bool foundUser = false;
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    string[] fields = lines[i].Split(';');
+                    if (fields[0].Trim().Equals(userName))
                     {
-                        //fields[3] = sw.WriteLine($"{newPassword}");
-                        sw.WriteLine($"{newPassword};{newBirthDay};{newPhone};");
-                    }
-                    else
-                    {
-                        sw.WriteLine(line);
+                        fields[3] = newEncryptedPassword;
+                        fields[5] = newBirthDate;
+                        fields[6] = newPhoneNumber;
+                        fields[7] = isActive.ToString();
+
+                        lines[i] = string.Join(";", fields);
+                        foundUser = true;
+                        break;
                     }
                 }
-                File.Delete(filePath);
-                File.Move(tempFilePath, filePath);
+
+                if (!foundUser)
+                {
+                    MessageBox.Show("El nombre de usuario no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                File.WriteAllLines(filePath, lines);
+
+                MessageBox.Show("El usuario ha sido modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al modificar el usuario: {ex}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
     }

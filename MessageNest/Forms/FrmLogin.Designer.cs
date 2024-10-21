@@ -41,6 +41,7 @@
             this.PnlInsertUsrDown = new System.Windows.Forms.Panel();
             this.PnlInsertUsrUp = new System.Windows.Forms.Panel();
             this.PnlLogin = new System.Windows.Forms.Panel();
+            this.LblWrongUsrPwd = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LnkLblSignUp = new System.Windows.Forms.LinkLabel();
             this.LblNoUsrPwd = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.PbPwd = new System.Windows.Forms.PictureBox();
             this.PnlUsr = new System.Windows.Forms.Panel();
             this.LblWrongUsr = new System.Windows.Forms.Label();
-            this.LblWrongUsrPwd = new System.Windows.Forms.Label();
             this.PnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbUserLin)).BeginInit();
             this.pnlEnterUsr.SuspendLayout();
@@ -212,6 +212,19 @@
             this.PnlLogin.Name = "PnlLogin";
             this.PnlLogin.Size = new System.Drawing.Size(467, 637);
             this.PnlLogin.TabIndex = 2;
+            // 
+            // LblWrongUsrPwd
+            // 
+            this.LblWrongUsrPwd.AutoSize = true;
+            this.LblWrongUsrPwd.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblWrongUsrPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.LblWrongUsrPwd.Location = new System.Drawing.Point(135, 453);
+            this.LblWrongUsrPwd.Name = "LblWrongUsrPwd";
+            this.LblWrongUsrPwd.Size = new System.Drawing.Size(205, 17);
+            this.LblWrongUsrPwd.TabIndex = 17;
+            this.LblWrongUsrPwd.Text = "Usuario o contraseña incorrecto.";
+            this.LblWrongUsrPwd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblWrongUsrPwd.Visible = false;
             // 
             // pictureBox1
             // 
@@ -412,19 +425,6 @@
             this.LblWrongUsr.Text = "Nombre de usuario no válido. Inténtalo de \r\nnuevo.";
             this.LblWrongUsr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LblWrongUsr.Visible = false;
-            // 
-            // LblWrongUsrPwd
-            // 
-            this.LblWrongUsrPwd.AutoSize = true;
-            this.LblWrongUsrPwd.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblWrongUsrPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.LblWrongUsrPwd.Location = new System.Drawing.Point(126, 453);
-            this.LblWrongUsrPwd.Name = "LblWrongUsrPwd";
-            this.LblWrongUsrPwd.Size = new System.Drawing.Size(205, 17);
-            this.LblWrongUsrPwd.TabIndex = 17;
-            this.LblWrongUsrPwd.Text = "Usuario o contraseña incorrecto.";
-            this.LblWrongUsrPwd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LblWrongUsrPwd.Visible = false;
             // 
             // FrmLogin
             // 

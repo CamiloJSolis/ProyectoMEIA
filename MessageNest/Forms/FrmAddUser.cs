@@ -113,10 +113,10 @@ namespace MessageNest.Forms
             UserDao userDao = new UserDao();
 
             string password = TxtNewUsrPwd.Text;
-
+            string userName = TxtNewUsr.Text;
             CorrectInput(TxtNewUsr.Text, TxtNewUsrFirstName.Text, TxtNewUsrFirstSurname.Text, DtpNewUsrBD.Value);
 
-            if (IsPasswordSecure(password))
+            if (IsPasswordSecure(password) && IsUsercorrect(userName))
             {
                 user.UserName = PadRight(TxtNewUsr.Text, 20);
                 user.Name = VerifyName(TxtNewUsrFirstName.Text, TxtNewUsrSecondName.Text);
@@ -127,7 +127,7 @@ namespace MessageNest.Forms
                 user.PhoneNumber = PadRight(TxtNewUsrPhone.Text, 10);
                 user.IsActive = true ? 1 : 0;  // Estatus como '1' (activo) o '0' (inactivo)
 
-                bool isAdded = userDao.AgregarRegistro(user);
+                bool isAdded = userDao.AgregarUsuario(user);
 
                 if (isAdded)
                 {
@@ -137,13 +137,6 @@ namespace MessageNest.Forms
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (dialogResult == DialogResult.No)
-                    {
-                        FrmLogin frmLogin = new FrmLogin();
-
-                        this.Hide();
-                        frmLogin.Show();
-                    }
-                    else
                     {
                         ClearFields();
                     }

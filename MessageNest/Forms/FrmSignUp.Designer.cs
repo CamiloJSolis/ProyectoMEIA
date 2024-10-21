@@ -66,18 +66,18 @@
             this.PnlFirstNameLeft = new System.Windows.Forms.Panel();
             this.PnlFirstNameDown = new System.Windows.Forms.Panel();
             this.PnlFirstNameUp = new System.Windows.Forms.Panel();
-            this.PnlEnterNewFirstSurname = new System.Windows.Forms.Panel();
-            this.PnlFirstSurnameRight = new System.Windows.Forms.Panel();
-            this.TxtNewFirstSurname = new System.Windows.Forms.TextBox();
-            this.PnlFirstSurnameLeft = new System.Windows.Forms.Panel();
-            this.PnlFirstSurnameDown = new System.Windows.Forms.Panel();
-            this.PnlFirstSurnameUp = new System.Windows.Forms.Panel();
             this.PnlEnterNewSecondName = new System.Windows.Forms.Panel();
             this.PnlSecondNameRight = new System.Windows.Forms.Panel();
             this.TxtNewSecondName = new System.Windows.Forms.TextBox();
             this.PnlSecondNameLeft = new System.Windows.Forms.Panel();
             this.PnlSecondNameDown = new System.Windows.Forms.Panel();
             this.PnlSecondNameUp = new System.Windows.Forms.Panel();
+            this.PnlEnterNewFirstSurname = new System.Windows.Forms.Panel();
+            this.PnlFirstSurnameRight = new System.Windows.Forms.Panel();
+            this.TxtNewFirstSurname = new System.Windows.Forms.TextBox();
+            this.PnlFirstSurnameLeft = new System.Windows.Forms.Panel();
+            this.PnlFirstSurnameDown = new System.Windows.Forms.Panel();
+            this.PnlFirstSurnameUp = new System.Windows.Forms.Panel();
             this.PnlEnterNewSecondSurname = new System.Windows.Forms.Panel();
             this.PnlSecondSurnameRight = new System.Windows.Forms.Panel();
             this.TxtNewSecondSurname = new System.Windows.Forms.TextBox();
@@ -100,6 +100,8 @@
             this.PnlPhoneUp = new System.Windows.Forms.Panel();
             this.LblWrongPhoneInput = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.PnlTopSignUp.SuspendLayout();
             this.panel1.SuspendLayout();
             this.PnlPwd.SuspendLayout();
@@ -108,8 +110,8 @@
             this.pnlEnterNewUsr.SuspendLayout();
             this.FwlPnlName.SuspendLayout();
             this.PnlEnterNewFirstName.SuspendLayout();
-            this.PnlEnterNewFirstSurname.SuspendLayout();
             this.PnlEnterNewSecondName.SuspendLayout();
+            this.PnlEnterNewFirstSurname.SuspendLayout();
             this.PnlEnterNewSecondSurname.SuspendLayout();
             this.pnlEnterNewBD.SuspendLayout();
             this.PnlNewPhone.SuspendLayout();
@@ -144,10 +146,8 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.LnkLblForgotPwd);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.BtnCreate);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.PnlPwd);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.PnlNewUsr);
@@ -168,7 +168,7 @@
             // 
             this.LnkLblForgotPwd.AutoSize = true;
             this.LnkLblForgotPwd.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
-            this.LnkLblForgotPwd.Location = new System.Drawing.Point(286, 552);
+            this.LnkLblForgotPwd.Location = new System.Drawing.Point(286, 579);
             this.LnkLblForgotPwd.Name = "LnkLblForgotPwd";
             this.LnkLblForgotPwd.Size = new System.Drawing.Size(126, 17);
             this.LnkLblForgotPwd.TabIndex = 16;
@@ -182,7 +182,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(53, 289);
+            this.label1.Location = new System.Drawing.Point(294, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(192, 17);
             this.label1.TabIndex = 28;
@@ -209,7 +209,7 @@
             this.BtnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCreate.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.BtnCreate.Location = new System.Drawing.Point(245, 592);
+            this.BtnCreate.Location = new System.Drawing.Point(245, 619);
             this.BtnCreate.Name = "BtnCreate";
             this.BtnCreate.Size = new System.Drawing.Size(206, 30);
             this.BtnCreate.TabIndex = 15;
@@ -223,7 +223,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(344, 289);
+            this.label4.Location = new System.Drawing.Point(294, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(192, 17);
             this.label4.TabIndex = 30;
@@ -234,7 +234,7 @@
             // 
             this.PnlPwd.Controls.Add(this.LbPwdInstruc);
             this.PnlPwd.Controls.Add(this.PnlEnterPwd);
-            this.PnlPwd.Location = new System.Drawing.Point(53, 344);
+            this.PnlPwd.Location = new System.Drawing.Point(53, 371);
             this.PnlPwd.Name = "PnlPwd";
             this.PnlPwd.Size = new System.Drawing.Size(580, 76);
             this.PnlPwd.TabIndex = 25;
@@ -340,7 +340,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(50, 316);
+            this.label2.Location = new System.Drawing.Point(50, 343);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 21);
             this.label2.TabIndex = 24;
@@ -485,11 +485,15 @@
             // 
             this.FwlPnlName.Controls.Add(this.PnlEnterNewFirstName);
             this.FwlPnlName.Controls.Add(this.PnlEnterNewSecondName);
+            this.FwlPnlName.Controls.Add(this.panel2);
+            this.FwlPnlName.Controls.Add(this.label4);
             this.FwlPnlName.Controls.Add(this.PnlEnterNewFirstSurname);
             this.FwlPnlName.Controls.Add(this.PnlEnterNewSecondSurname);
+            this.FwlPnlName.Controls.Add(this.panel3);
+            this.FwlPnlName.Controls.Add(this.label1);
             this.FwlPnlName.Location = new System.Drawing.Point(53, 220);
             this.FwlPnlName.Name = "FwlPnlName";
-            this.FwlPnlName.Size = new System.Drawing.Size(588, 66);
+            this.FwlPnlName.Size = new System.Drawing.Size(588, 120);
             this.FwlPnlName.TabIndex = 27;
             // 
             // PnlEnterNewFirstName
@@ -557,71 +561,6 @@
             this.PnlFirstNameUp.Size = new System.Drawing.Size(285, 1);
             this.PnlFirstNameUp.TabIndex = 8;
             // 
-            // PnlEnterNewFirstSurname
-            // 
-            this.PnlEnterNewFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
-            this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameRight);
-            this.PnlEnterNewFirstSurname.Controls.Add(this.TxtNewFirstSurname);
-            this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameLeft);
-            this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameDown);
-            this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameUp);
-            this.PnlEnterNewFirstSurname.Location = new System.Drawing.Point(3, 36);
-            this.PnlEnterNewFirstSurname.Name = "PnlEnterNewFirstSurname";
-            this.PnlEnterNewFirstSurname.Size = new System.Drawing.Size(285, 27);
-            this.PnlEnterNewFirstSurname.TabIndex = 12;
-            // 
-            // PnlFirstSurnameRight
-            // 
-            this.PnlFirstSurnameRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.PnlFirstSurnameRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PnlFirstSurnameRight.Location = new System.Drawing.Point(284, 1);
-            this.PnlFirstSurnameRight.Name = "PnlFirstSurnameRight";
-            this.PnlFirstSurnameRight.Size = new System.Drawing.Size(1, 25);
-            this.PnlFirstSurnameRight.TabIndex = 9;
-            // 
-            // TxtNewFirstSurname
-            // 
-            this.TxtNewFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
-            this.TxtNewFirstSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtNewFirstSurname.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNewFirstSurname.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtNewFirstSurname.Location = new System.Drawing.Point(7, 4);
-            this.TxtNewFirstSurname.Name = "TxtNewFirstSurname";
-            this.TxtNewFirstSurname.Size = new System.Drawing.Size(275, 22);
-            this.TxtNewFirstSurname.TabIndex = 6;
-            this.TxtNewFirstSurname.Text = "Primer apellido";
-            this.TxtNewFirstSurname.Click += new System.EventHandler(this.TxtNewFirstSurname_Click);
-            this.TxtNewFirstSurname.DoubleClick += new System.EventHandler(this.TxtNewFirstSurname_DoubleClick);
-            this.TxtNewFirstSurname.Enter += new System.EventHandler(this.TxtNewFirstSurname_Enter);
-            this.TxtNewFirstSurname.Leave += new System.EventHandler(this.TxtNewFirstSurname_Leave);
-            // 
-            // PnlFirstSurnameLeft
-            // 
-            this.PnlFirstSurnameLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.PnlFirstSurnameLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlFirstSurnameLeft.Location = new System.Drawing.Point(0, 1);
-            this.PnlFirstSurnameLeft.Name = "PnlFirstSurnameLeft";
-            this.PnlFirstSurnameLeft.Size = new System.Drawing.Size(1, 25);
-            this.PnlFirstSurnameLeft.TabIndex = 7;
-            // 
-            // PnlFirstSurnameDown
-            // 
-            this.PnlFirstSurnameDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.PnlFirstSurnameDown.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlFirstSurnameDown.Location = new System.Drawing.Point(0, 26);
-            this.PnlFirstSurnameDown.Name = "PnlFirstSurnameDown";
-            this.PnlFirstSurnameDown.Size = new System.Drawing.Size(285, 1);
-            this.PnlFirstSurnameDown.TabIndex = 10;
-            // 
-            // PnlFirstSurnameUp
-            // 
-            this.PnlFirstSurnameUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.PnlFirstSurnameUp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlFirstSurnameUp.Location = new System.Drawing.Point(0, 0);
-            this.PnlFirstSurnameUp.Name = "PnlFirstSurnameUp";
-            this.PnlFirstSurnameUp.Size = new System.Drawing.Size(285, 1);
-            this.PnlFirstSurnameUp.TabIndex = 8;
-            // 
             // PnlEnterNewSecondName
             // 
             this.PnlEnterNewSecondName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
@@ -687,6 +626,71 @@
             this.PnlSecondNameUp.Size = new System.Drawing.Size(285, 1);
             this.PnlSecondNameUp.TabIndex = 8;
             // 
+            // PnlEnterNewFirstSurname
+            // 
+            this.PnlEnterNewFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
+            this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameRight);
+            this.PnlEnterNewFirstSurname.Controls.Add(this.TxtNewFirstSurname);
+            this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameLeft);
+            this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameDown);
+            this.PnlEnterNewFirstSurname.Controls.Add(this.PnlFirstSurnameUp);
+            this.PnlEnterNewFirstSurname.Location = new System.Drawing.Point(3, 59);
+            this.PnlEnterNewFirstSurname.Name = "PnlEnterNewFirstSurname";
+            this.PnlEnterNewFirstSurname.Size = new System.Drawing.Size(285, 27);
+            this.PnlEnterNewFirstSurname.TabIndex = 12;
+            // 
+            // PnlFirstSurnameRight
+            // 
+            this.PnlFirstSurnameRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlFirstSurnameRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlFirstSurnameRight.Location = new System.Drawing.Point(284, 1);
+            this.PnlFirstSurnameRight.Name = "PnlFirstSurnameRight";
+            this.PnlFirstSurnameRight.Size = new System.Drawing.Size(1, 25);
+            this.PnlFirstSurnameRight.TabIndex = 9;
+            // 
+            // TxtNewFirstSurname
+            // 
+            this.TxtNewFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
+            this.TxtNewFirstSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtNewFirstSurname.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNewFirstSurname.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtNewFirstSurname.Location = new System.Drawing.Point(7, 4);
+            this.TxtNewFirstSurname.Name = "TxtNewFirstSurname";
+            this.TxtNewFirstSurname.Size = new System.Drawing.Size(275, 22);
+            this.TxtNewFirstSurname.TabIndex = 6;
+            this.TxtNewFirstSurname.Text = "Primer apellido";
+            this.TxtNewFirstSurname.Click += new System.EventHandler(this.TxtNewFirstSurname_Click);
+            this.TxtNewFirstSurname.DoubleClick += new System.EventHandler(this.TxtNewFirstSurname_DoubleClick);
+            this.TxtNewFirstSurname.Enter += new System.EventHandler(this.TxtNewFirstSurname_Enter);
+            this.TxtNewFirstSurname.Leave += new System.EventHandler(this.TxtNewFirstSurname_Leave);
+            // 
+            // PnlFirstSurnameLeft
+            // 
+            this.PnlFirstSurnameLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlFirstSurnameLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlFirstSurnameLeft.Location = new System.Drawing.Point(0, 1);
+            this.PnlFirstSurnameLeft.Name = "PnlFirstSurnameLeft";
+            this.PnlFirstSurnameLeft.Size = new System.Drawing.Size(1, 25);
+            this.PnlFirstSurnameLeft.TabIndex = 7;
+            // 
+            // PnlFirstSurnameDown
+            // 
+            this.PnlFirstSurnameDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlFirstSurnameDown.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PnlFirstSurnameDown.Location = new System.Drawing.Point(0, 26);
+            this.PnlFirstSurnameDown.Name = "PnlFirstSurnameDown";
+            this.PnlFirstSurnameDown.Size = new System.Drawing.Size(285, 1);
+            this.PnlFirstSurnameDown.TabIndex = 10;
+            // 
+            // PnlFirstSurnameUp
+            // 
+            this.PnlFirstSurnameUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PnlFirstSurnameUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlFirstSurnameUp.Location = new System.Drawing.Point(0, 0);
+            this.PnlFirstSurnameUp.Name = "PnlFirstSurnameUp";
+            this.PnlFirstSurnameUp.Size = new System.Drawing.Size(285, 1);
+            this.PnlFirstSurnameUp.TabIndex = 8;
+            // 
             // PnlEnterNewSecondSurname
             // 
             this.PnlEnterNewSecondSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
@@ -695,7 +699,7 @@
             this.PnlEnterNewSecondSurname.Controls.Add(this.PnlSecondSurnameLeft);
             this.PnlEnterNewSecondSurname.Controls.Add(this.PnlSecondSurnameDown);
             this.PnlEnterNewSecondSurname.Controls.Add(this.PnlSecondSurnameUp);
-            this.PnlEnterNewSecondSurname.Location = new System.Drawing.Point(294, 36);
+            this.PnlEnterNewSecondSurname.Location = new System.Drawing.Point(294, 59);
             this.PnlEnterNewSecondSurname.Name = "PnlEnterNewSecondSurname";
             this.PnlEnterNewSecondSurname.Size = new System.Drawing.Size(285, 27);
             this.PnlEnterNewSecondSurname.TabIndex = 13;
@@ -760,7 +764,7 @@
             this.pnlEnterNewBD.Controls.Add(this.panel10);
             this.pnlEnterNewBD.Controls.Add(this.panel11);
             this.pnlEnterNewBD.Controls.Add(this.panel12);
-            this.pnlEnterNewBD.Location = new System.Drawing.Point(345, 460);
+            this.pnlEnterNewBD.Location = new System.Drawing.Point(345, 487);
             this.pnlEnterNewBD.Name = "pnlEnterNewBD";
             this.pnlEnterNewBD.Size = new System.Drawing.Size(288, 32);
             this.pnlEnterNewBD.TabIndex = 23;
@@ -813,7 +817,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(344, 432);
+            this.label12.Location = new System.Drawing.Point(344, 459);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(162, 21);
             this.label12.TabIndex = 32;
@@ -823,7 +827,7 @@
             // 
             this.PnlNewPhone.Controls.Add(this.pnlEnterNewPhone);
             this.PnlNewPhone.Controls.Add(this.LblWrongPhoneInput);
-            this.PnlNewPhone.Location = new System.Drawing.Point(54, 460);
+            this.PnlNewPhone.Location = new System.Drawing.Point(54, 487);
             this.PnlNewPhone.Name = "PnlNewPhone";
             this.PnlNewPhone.Size = new System.Drawing.Size(285, 74);
             this.PnlNewPhone.TabIndex = 31;
@@ -915,11 +919,25 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(50, 432);
+            this.label8.Location = new System.Drawing.Point(50, 459);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 21);
             this.label8.TabIndex = 29;
             this.label8.Text = "Teléfono";
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(3, 36);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(285, 17);
+            this.panel2.TabIndex = 33;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(3, 92);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(285, 17);
+            this.panel3.TabIndex = 34;
             // 
             // FrmSignUp
             // 
@@ -948,12 +966,13 @@
             this.pnlEnterNewUsr.ResumeLayout(false);
             this.pnlEnterNewUsr.PerformLayout();
             this.FwlPnlName.ResumeLayout(false);
+            this.FwlPnlName.PerformLayout();
             this.PnlEnterNewFirstName.ResumeLayout(false);
             this.PnlEnterNewFirstName.PerformLayout();
-            this.PnlEnterNewFirstSurname.ResumeLayout(false);
-            this.PnlEnterNewFirstSurname.PerformLayout();
             this.PnlEnterNewSecondName.ResumeLayout(false);
             this.PnlEnterNewSecondName.PerformLayout();
+            this.PnlEnterNewFirstSurname.ResumeLayout(false);
+            this.PnlEnterNewFirstSurname.PerformLayout();
             this.PnlEnterNewSecondSurname.ResumeLayout(false);
             this.PnlEnterNewSecondSurname.PerformLayout();
             this.pnlEnterNewBD.ResumeLayout(false);
@@ -1038,5 +1057,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.LinkLabel LnkLblForgotPwd;
         private System.Windows.Forms.Button BtnCreate;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }

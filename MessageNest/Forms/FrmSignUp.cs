@@ -73,10 +73,11 @@ namespace MessageNest.Forms
             UserDao userDao = new UserDao();
 
             string password = TxtNewPwd.Text;
+            string userName = TxtNewUsr.Text;
 
             CorrectInput(TxtNewUsr.Text, TxtNewFirstName.Text, TxtNewFirstSurname.Text, DtpNewBD.Value);
 
-            if (IsPasswordSecure(password))
+            if (IsPasswordSecure(password) && IsUsercorrect(userName))
             {
                 user.UserName = PadRight(TxtNewUsr.Text, 20);
                 user.Name = VerifyName(TxtNewFirstName.Text, TxtNewSecondName.Text);
@@ -87,7 +88,7 @@ namespace MessageNest.Forms
                 user.PhoneNumber = PadRight(TxtPhone.Text, 10);
                 user.IsActive = true ? 1 : 0;  // Estatus como '1' (activo) o '0' (inactivo)
 
-                bool isAdded = userDao.AgregarRegistro(user);
+                bool isAdded = userDao.AgregarUsuario(user);
 
                 if(isAdded)
                 {

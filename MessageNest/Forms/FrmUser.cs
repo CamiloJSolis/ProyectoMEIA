@@ -74,7 +74,7 @@ namespace MessageNest.Forms
 
         private void BtnModifyUsr_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmEditUser());
+            OpenChildForm(new FrmEditUser(_currentUser));
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e)

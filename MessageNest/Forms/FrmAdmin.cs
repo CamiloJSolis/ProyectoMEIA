@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace MessageNest.Forms
@@ -102,6 +103,53 @@ namespace MessageNest.Forms
             }
         }
 
+        private void BtnBackup_Click(object sender, EventArgs e)
+        {
+            string sourceFolder = @"C:\MEIA";
+            Backup(sourceFolder);
+        }
+
+        private void Backup(string sourceFolder)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                string destinationFolder = Path.Combine(folderBrowserDialog.SelectedPath, "Backup");
+                Directory.CreateDirectory(destinationFolder);
+
+                try
+                {
+                string[] files = Directory.GetFiles(sourceFolder);
+               
+                foreach (string file in files)
+                {
+                    string fileName = Path.GetFileName(file);
+                    string destiny = Path.Combine(destinationFolder, fileName);
+                    File.Copy(file, destiny, true);
+                }
+
+                string[] folders = Directory.GetDirectories(sourceFolder);
+
+                foreach (string folder in folders)
+                {
+                    string dirName = Path.GetFileName(folder);
+                    string destiniy = Path.Combine(destinationFolder, dirName);
+                    
+                   Directory.CreateDirectory(destiniy);
+                   Backup(destiniy);
+                }
+
+                    MessageBox.Show("Carpeta almacenada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error al guardar la carpeta: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
         #endregion
 
         #region Arrastrar Form
@@ -118,35 +166,5 @@ namespace MessageNest.Forms
         }
 
         #endregion
-
-        private void BtnBackup_Click(object sender, EventArgs e)
-        {
-            string source = @"C:\MEIA\user.txt";
-            Backup(source);
-        }
-
-        private void Backup(string source)
-        {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-            {
-                string destinationFolder = folderBrowserDialog.SelectedPath;
-                //string fileName = Path.GetFileName(source);
-                string fileName = "Backup.txt";
-                string destinationPath = Path.Combine(destinationFolder, fileName);
-
-                try
-                {
-                    File.Copy(source, destinationPath, overwrite: true);
-                    MessageBox.Show("Archivo almacenado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch
-                {
-                    MessageBox.Show("Ocurrió un error al guardar el archivo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-            }
-        }
     }
 }

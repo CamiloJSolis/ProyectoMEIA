@@ -29,23 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSearchUser));
-            this.LblWrongPhoneInput = new System.Windows.Forms.Label();
-            this.CmbxActive = new System.Windows.Forms.ComboBox();
+            this.CmbxFoundActive = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.PnlPhoneDown = new System.Windows.Forms.Panel();
-            this.PnlPhoneUp = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PnlPhoneRight = new System.Windows.Forms.Panel();
-            this.TxtDminPhone = new System.Windows.Forms.TextBox();
             this.BtnModify = new System.Windows.Forms.Button();
-            this.pnlEnterNewPhone = new System.Windows.Forms.Panel();
-            this.PnlPhoneLeft = new System.Windows.Forms.Panel();
             this.BtnShowHide = new System.Windows.Forms.Button();
-            this.TxtAdminPwd = new System.Windows.Forms.TextBox();
+            this.TxtFoundPwd = new System.Windows.Forms.TextBox();
             this.PnlInsertPwdRight = new System.Windows.Forms.Panel();
             this.PnlInsertPwdLeft = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,14 +45,13 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.BtnClean = new System.Windows.Forms.Button();
-            this.PnlNewPhone = new System.Windows.Forms.Panel();
             this.PnlPhone = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.TxtAdminPhone = new System.Windows.Forms.TextBox();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
+            this.PnlPhoneRight = new System.Windows.Forms.Panel();
+            this.TxtFoundPhone = new System.Windows.Forms.TextBox();
+            this.PnlPhoneLeft = new System.Windows.Forms.Panel();
+            this.PnlPhoneDown = new System.Windows.Forms.Panel();
+            this.PnlPhoneUp = new System.Windows.Forms.Panel();
             this.TabCtrlUsr = new System.Windows.Forms.TabPage();
             this.TrvUsers = new System.Windows.Forms.TreeView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -76,8 +67,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TabPageDetails = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
-            this.pnlAdminRolBD = new System.Windows.Forms.Panel();
-            this.CmbxRol = new System.Windows.Forms.ComboBox();
+            this.pnlUsrRolBD = new System.Windows.Forms.Panel();
+            this.CmbxFoundRol = new System.Windows.Forms.ComboBox();
             this.PnlRolRight = new System.Windows.Forms.Panel();
             this.PnlRolLeft = new System.Windows.Forms.Panel();
             this.PnlRolDown = new System.Windows.Forms.Panel();
@@ -88,10 +79,10 @@
             this.PnlEnterPwd = new System.Windows.Forms.Panel();
             this.PnlInsertPwdUp = new System.Windows.Forms.Panel();
             this.PnlInsertPwdDown = new System.Windows.Forms.Panel();
-            this.PnlAdmin = new System.Windows.Forms.Panel();
+            this.PnlFoundUser = new System.Windows.Forms.Panel();
             this.pnlEnterUsr = new System.Windows.Forms.Panel();
             this.PnlInsertUsrRight = new System.Windows.Forms.Panel();
-            this.TxtAdminUsr = new System.Windows.Forms.TextBox();
+            this.TxtFoundUsr = new System.Windows.Forms.TextBox();
             this.PnlInsertUsrLeft = new System.Windows.Forms.Panel();
             this.PnlInsertUsrDown = new System.Windows.Forms.Panel();
             this.PnlInsertUsrUp = new System.Windows.Forms.Panel();
@@ -99,42 +90,40 @@
             this.FwlPnlName = new System.Windows.Forms.FlowLayoutPanel();
             this.PnlEnterNewFirstName = new System.Windows.Forms.Panel();
             this.PnlFirstNameRight = new System.Windows.Forms.Panel();
-            this.TxtAdminFirstName = new System.Windows.Forms.TextBox();
+            this.TxtFoundFirstName = new System.Windows.Forms.TextBox();
             this.PnlFirstNameLeft = new System.Windows.Forms.Panel();
             this.PnlFirstNameDown = new System.Windows.Forms.Panel();
             this.PnlFirstNameUp = new System.Windows.Forms.Panel();
             this.PnlEnterNewSecondName = new System.Windows.Forms.Panel();
             this.PnlSecondNameRight = new System.Windows.Forms.Panel();
-            this.TxtAdminSecondName = new System.Windows.Forms.TextBox();
+            this.TxtFoundSecondName = new System.Windows.Forms.TextBox();
             this.PnlSecondNameLeft = new System.Windows.Forms.Panel();
             this.PnlSecondNameDown = new System.Windows.Forms.Panel();
             this.PnlSecondNameUp = new System.Windows.Forms.Panel();
             this.PnlAdminFirstSurname = new System.Windows.Forms.Panel();
             this.PnlFirstSurnameRight = new System.Windows.Forms.Panel();
-            this.TxtAdminFirstSurname = new System.Windows.Forms.TextBox();
+            this.TxtFoundFirstSurname = new System.Windows.Forms.TextBox();
             this.PnlFirstSurnameLeft = new System.Windows.Forms.Panel();
             this.PnlFirstSurnameDown = new System.Windows.Forms.Panel();
             this.PnlFirstSurnameUp = new System.Windows.Forms.Panel();
             this.PnlEnterNewSecondSurname = new System.Windows.Forms.Panel();
             this.PnlSecondSurnameRight = new System.Windows.Forms.Panel();
-            this.TxtAdminSecondSurname = new System.Windows.Forms.TextBox();
+            this.TxtFoundSecondSurname = new System.Windows.Forms.TextBox();
             this.PnlSecondSurnameLeft = new System.Windows.Forms.Panel();
             this.PnlSecondSurnameDown = new System.Windows.Forms.Panel();
             this.PnlSecondSurnameUp = new System.Windows.Forms.Panel();
             this.pnlEnterNewBD = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.DtpAdminBD = new System.Windows.Forms.DateTimePicker();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
+            this.PnlBDRight = new System.Windows.Forms.Panel();
+            this.DtpFoundBD = new System.Windows.Forms.DateTimePicker();
+            this.PnlBDLeft = new System.Windows.Forms.Panel();
+            this.PnlBDDown = new System.Windows.Forms.Panel();
+            this.PnlBDUp = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.BtnSaveChanges = new System.Windows.Forms.Button();
             this.TabCtrlUsrSearch = new System.Windows.Forms.TabControl();
             this.panel1.SuspendLayout();
-            this.pnlEnterNewPhone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.PnlNewPhone.SuspendLayout();
             this.PnlPhone.SuspendLayout();
             this.panel8.SuspendLayout();
             this.TabCtrlUsr.SuspendLayout();
@@ -142,10 +131,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlSearchUsr.SuspendLayout();
             this.TabPageDetails.SuspendLayout();
-            this.pnlAdminRolBD.SuspendLayout();
+            this.pnlUsrRolBD.SuspendLayout();
             this.PnlPwd.SuspendLayout();
             this.PnlEnterPwd.SuspendLayout();
-            this.PnlAdmin.SuspendLayout();
+            this.PnlFoundUser.SuspendLayout();
             this.pnlEnterUsr.SuspendLayout();
             this.FwlPnlName.SuspendLayout();
             this.PnlEnterNewFirstName.SuspendLayout();
@@ -153,43 +142,29 @@
             this.PnlAdminFirstSurname.SuspendLayout();
             this.PnlEnterNewSecondSurname.SuspendLayout();
             this.pnlEnterNewBD.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.TabCtrlUsrSearch.SuspendLayout();
             this.SuspendLayout();
             // 
-            // LblWrongPhoneInput
+            // CmbxFoundActive
             // 
-            this.LblWrongPhoneInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblWrongPhoneInput.AutoSize = true;
-            this.LblWrongPhoneInput.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblWrongPhoneInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.LblWrongPhoneInput.Location = new System.Drawing.Point(-1, 33);
-            this.LblWrongPhoneInput.Name = "LblWrongPhoneInput";
-            this.LblWrongPhoneInput.Size = new System.Drawing.Size(203, 17);
-            this.LblWrongPhoneInput.TabIndex = 72;
-            this.LblWrongPhoneInput.Text = "Debe ingresar números enteros.";
-            this.LblWrongPhoneInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LblWrongPhoneInput.Visible = false;
-            // 
-            // CmbxActive
-            // 
-            this.CmbxActive.AutoCompleteCustomSource.AddRange(new string[] {
+            this.CmbxFoundActive.AutoCompleteCustomSource.AddRange(new string[] {
             "Sí",
             "No"});
-            this.CmbxActive.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.CmbxActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.CmbxActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbxActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CmbxActive.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbxActive.ForeColor = System.Drawing.Color.White;
-            this.CmbxActive.FormattingEnabled = true;
-            this.CmbxActive.Items.AddRange(new object[] {
+            this.CmbxFoundActive.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.CmbxFoundActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.CmbxFoundActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbxFoundActive.Enabled = false;
+            this.CmbxFoundActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CmbxFoundActive.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbxFoundActive.ForeColor = System.Drawing.Color.White;
+            this.CmbxFoundActive.FormattingEnabled = true;
+            this.CmbxFoundActive.Items.AddRange(new object[] {
             "Sí",
             "No"});
-            this.CmbxActive.Location = new System.Drawing.Point(3, 1);
-            this.CmbxActive.Name = "CmbxActive";
-            this.CmbxActive.Size = new System.Drawing.Size(288, 29);
-            this.CmbxActive.TabIndex = 11;
+            this.CmbxFoundActive.Location = new System.Drawing.Point(3, 1);
+            this.CmbxFoundActive.Name = "CmbxFoundActive";
+            this.CmbxFoundActive.Size = new System.Drawing.Size(288, 29);
+            this.CmbxFoundActive.TabIndex = 11;
             // 
             // panel2
             // 
@@ -227,39 +202,10 @@
             this.panel5.Size = new System.Drawing.Size(292, 1);
             this.panel5.TabIndex = 8;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(169, -29);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 21);
-            this.label8.TabIndex = 66;
-            this.label8.Text = "Teléfono";
-            // 
-            // PnlPhoneDown
-            // 
-            this.PnlPhoneDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlPhoneDown.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlPhoneDown.Location = new System.Drawing.Point(0, 29);
-            this.PnlPhoneDown.Name = "PnlPhoneDown";
-            this.PnlPhoneDown.Size = new System.Drawing.Size(285, 1);
-            this.PnlPhoneDown.TabIndex = 10;
-            // 
-            // PnlPhoneUp
-            // 
-            this.PnlPhoneUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlPhoneUp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlPhoneUp.Location = new System.Drawing.Point(0, 0);
-            this.PnlPhoneUp.Name = "PnlPhoneUp";
-            this.PnlPhoneUp.Size = new System.Drawing.Size(285, 1);
-            this.PnlPhoneUp.TabIndex = 8;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.panel1.Controls.Add(this.CmbxActive);
+            this.panel1.Controls.Add(this.CmbxFoundActive);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel4);
@@ -268,27 +214,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(292, 33);
             this.panel1.TabIndex = 97;
-            // 
-            // PnlPhoneRight
-            // 
-            this.PnlPhoneRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlPhoneRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PnlPhoneRight.Location = new System.Drawing.Point(284, 1);
-            this.PnlPhoneRight.Name = "PnlPhoneRight";
-            this.PnlPhoneRight.Size = new System.Drawing.Size(1, 28);
-            this.PnlPhoneRight.TabIndex = 9;
-            // 
-            // TxtDminPhone
-            // 
-            this.TxtDminPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtDminPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtDminPhone.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDminPhone.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtDminPhone.Location = new System.Drawing.Point(7, 4);
-            this.TxtDminPhone.Name = "TxtDminPhone";
-            this.TxtDminPhone.Size = new System.Drawing.Size(273, 22);
-            this.TxtDminPhone.TabIndex = 6;
-            this.TxtDminPhone.Text = "0000000000";
             // 
             // BtnModify
             // 
@@ -305,29 +230,7 @@
             this.BtnModify.TabIndex = 92;
             this.BtnModify.Text = "Modificar";
             this.BtnModify.UseVisualStyleBackColor = false;
-            // 
-            // pnlEnterNewPhone
-            // 
-            this.pnlEnterNewPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.pnlEnterNewPhone.Controls.Add(this.PnlPhoneRight);
-            this.pnlEnterNewPhone.Controls.Add(this.TxtDminPhone);
-            this.pnlEnterNewPhone.Controls.Add(this.PnlPhoneLeft);
-            this.pnlEnterNewPhone.Controls.Add(this.PnlPhoneDown);
-            this.pnlEnterNewPhone.Controls.Add(this.PnlPhoneUp);
-            this.pnlEnterNewPhone.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlEnterNewPhone.Location = new System.Drawing.Point(0, 0);
-            this.pnlEnterNewPhone.Name = "pnlEnterNewPhone";
-            this.pnlEnterNewPhone.Size = new System.Drawing.Size(285, 30);
-            this.pnlEnterNewPhone.TabIndex = 5;
-            // 
-            // PnlPhoneLeft
-            // 
-            this.PnlPhoneLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlPhoneLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlPhoneLeft.Location = new System.Drawing.Point(0, 1);
-            this.PnlPhoneLeft.Name = "PnlPhoneLeft";
-            this.PnlPhoneLeft.Size = new System.Drawing.Size(1, 28);
-            this.PnlPhoneLeft.TabIndex = 7;
+            this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
             // BtnShowHide
             // 
@@ -342,18 +245,19 @@
             this.BtnShowHide.TabIndex = 16;
             this.BtnShowHide.UseVisualStyleBackColor = false;
             // 
-            // TxtAdminPwd
+            // TxtFoundPwd
             // 
-            this.TxtAdminPwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtAdminPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtAdminPwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtAdminPwd.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAdminPwd.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtAdminPwd.Location = new System.Drawing.Point(7, 4);
-            this.TxtAdminPwd.Name = "TxtAdminPwd";
-            this.TxtAdminPwd.ReadOnly = true;
-            this.TxtAdminPwd.Size = new System.Drawing.Size(582, 22);
-            this.TxtAdminPwd.TabIndex = 15;
+            this.TxtFoundPwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtFoundPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.TxtFoundPwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtFoundPwd.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFoundPwd.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtFoundPwd.Location = new System.Drawing.Point(7, 4);
+            this.TxtFoundPwd.Name = "TxtFoundPwd";
+            this.TxtFoundPwd.ReadOnly = true;
+            this.TxtFoundPwd.Size = new System.Drawing.Size(582, 22);
+            this.TxtFoundPwd.TabIndex = 15;
+            this.TxtFoundPwd.Leave += new System.EventHandler(this.TxtFoundPwd_Leave);
             // 
             // PnlInsertPwdRight
             // 
@@ -432,15 +336,7 @@
             this.BtnClean.TabIndex = 93;
             this.BtnClean.Text = "Limpiar";
             this.BtnClean.UseVisualStyleBackColor = false;
-            // 
-            // PnlNewPhone
-            // 
-            this.PnlNewPhone.Controls.Add(this.LblWrongPhoneInput);
-            this.PnlNewPhone.Controls.Add(this.pnlEnterNewPhone);
-            this.PnlNewPhone.Location = new System.Drawing.Point(170, 0);
-            this.PnlNewPhone.Name = "PnlNewPhone";
-            this.PnlNewPhone.Size = new System.Drawing.Size(285, 74);
-            this.PnlNewPhone.TabIndex = 67;
+            this.BtnClean.Click += new System.EventHandler(this.BtnClean_Click);
             // 
             // PnlPhone
             // 
@@ -453,64 +349,68 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.panel8.Controls.Add(this.panel13);
-            this.panel8.Controls.Add(this.TxtAdminPhone);
-            this.panel8.Controls.Add(this.panel14);
-            this.panel8.Controls.Add(this.panel15);
-            this.panel8.Controls.Add(this.panel16);
+            this.panel8.Controls.Add(this.PnlPhoneRight);
+            this.panel8.Controls.Add(this.TxtFoundPhone);
+            this.panel8.Controls.Add(this.PnlPhoneLeft);
+            this.panel8.Controls.Add(this.PnlPhoneDown);
+            this.panel8.Controls.Add(this.PnlPhoneUp);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(292, 30);
             this.panel8.TabIndex = 5;
             // 
-            // panel13
+            // PnlPhoneRight
             // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel13.Location = new System.Drawing.Point(291, 1);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1, 28);
-            this.panel13.TabIndex = 9;
+            this.PnlPhoneRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlPhoneRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlPhoneRight.Location = new System.Drawing.Point(291, 1);
+            this.PnlPhoneRight.Name = "PnlPhoneRight";
+            this.PnlPhoneRight.Size = new System.Drawing.Size(1, 28);
+            this.PnlPhoneRight.TabIndex = 9;
             // 
-            // TxtAdminPhone
+            // TxtFoundPhone
             // 
-            this.TxtAdminPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtAdminPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtAdminPhone.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAdminPhone.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtAdminPhone.Location = new System.Drawing.Point(7, 4);
-            this.TxtAdminPhone.Name = "TxtAdminPhone";
-            this.TxtAdminPhone.Size = new System.Drawing.Size(273, 22);
-            this.TxtAdminPhone.TabIndex = 6;
-            this.TxtAdminPhone.Text = "0000000000";
+            this.TxtFoundPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.TxtFoundPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtFoundPhone.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFoundPhone.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtFoundPhone.Location = new System.Drawing.Point(7, 4);
+            this.TxtFoundPhone.Name = "TxtFoundPhone";
+            this.TxtFoundPhone.ReadOnly = true;
+            this.TxtFoundPhone.Size = new System.Drawing.Size(273, 22);
+            this.TxtFoundPhone.TabIndex = 6;
+            this.TxtFoundPhone.Text = "0000000000";
+            this.TxtFoundPhone.Enter += new System.EventHandler(this.TxtFoundPhone_Enter);
+            this.TxtFoundPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFoundPhone_KeyPress);
+            this.TxtFoundPhone.Leave += new System.EventHandler(this.TxtFoundPhone_Leave);
             // 
-            // panel14
+            // PnlPhoneLeft
             // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel14.Location = new System.Drawing.Point(0, 1);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1, 28);
-            this.panel14.TabIndex = 7;
+            this.PnlPhoneLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlPhoneLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlPhoneLeft.Location = new System.Drawing.Point(0, 1);
+            this.PnlPhoneLeft.Name = "PnlPhoneLeft";
+            this.PnlPhoneLeft.Size = new System.Drawing.Size(1, 28);
+            this.PnlPhoneLeft.TabIndex = 7;
             // 
-            // panel15
+            // PnlPhoneDown
             // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel15.Location = new System.Drawing.Point(0, 29);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(292, 1);
-            this.panel15.TabIndex = 10;
+            this.PnlPhoneDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlPhoneDown.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PnlPhoneDown.Location = new System.Drawing.Point(0, 29);
+            this.PnlPhoneDown.Name = "PnlPhoneDown";
+            this.PnlPhoneDown.Size = new System.Drawing.Size(292, 1);
+            this.PnlPhoneDown.TabIndex = 10;
             // 
-            // panel16
+            // PnlPhoneUp
             // 
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(0, 0);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(292, 1);
-            this.panel16.TabIndex = 8;
+            this.PnlPhoneUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlPhoneUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlPhoneUp.Location = new System.Drawing.Point(0, 0);
+            this.PnlPhoneUp.Name = "PnlPhoneUp";
+            this.PnlPhoneUp.Size = new System.Drawing.Size(292, 1);
+            this.PnlPhoneUp.TabIndex = 8;
             // 
             // TabCtrlUsr
             // 
@@ -666,12 +566,12 @@
             this.TabPageDetails.Controls.Add(this.BtnModify);
             this.TabPageDetails.Controls.Add(this.PnlPhone);
             this.TabPageDetails.Controls.Add(this.label5);
-            this.TabPageDetails.Controls.Add(this.pnlAdminRolBD);
+            this.TabPageDetails.Controls.Add(this.pnlUsrRolBD);
             this.TabPageDetails.Controls.Add(this.label1);
             this.TabPageDetails.Controls.Add(this.label3);
             this.TabPageDetails.Controls.Add(this.PnlPwd);
             this.TabPageDetails.Controls.Add(this.label2);
-            this.TabPageDetails.Controls.Add(this.PnlAdmin);
+            this.TabPageDetails.Controls.Add(this.PnlFoundUser);
             this.TabPageDetails.Controls.Add(this.LblUserLin);
             this.TabPageDetails.Controls.Add(this.FwlPnlName);
             this.TabPageDetails.Controls.Add(this.pnlEnterNewBD);
@@ -695,38 +595,39 @@
             this.label5.TabIndex = 90;
             this.label5.Text = "Teléfono";
             // 
-            // pnlAdminRolBD
+            // pnlUsrRolBD
             // 
-            this.pnlAdminRolBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.pnlAdminRolBD.Controls.Add(this.CmbxRol);
-            this.pnlAdminRolBD.Controls.Add(this.PnlRolRight);
-            this.pnlAdminRolBD.Controls.Add(this.PnlRolLeft);
-            this.pnlAdminRolBD.Controls.Add(this.PnlRolDown);
-            this.pnlAdminRolBD.Controls.Add(this.PNLRolUp);
-            this.pnlAdminRolBD.Location = new System.Drawing.Point(91, 440);
-            this.pnlAdminRolBD.Name = "pnlAdminRolBD";
-            this.pnlAdminRolBD.Size = new System.Drawing.Size(295, 33);
-            this.pnlAdminRolBD.TabIndex = 88;
+            this.pnlUsrRolBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.pnlUsrRolBD.Controls.Add(this.CmbxFoundRol);
+            this.pnlUsrRolBD.Controls.Add(this.PnlRolRight);
+            this.pnlUsrRolBD.Controls.Add(this.PnlRolLeft);
+            this.pnlUsrRolBD.Controls.Add(this.PnlRolDown);
+            this.pnlUsrRolBD.Controls.Add(this.PNLRolUp);
+            this.pnlUsrRolBD.Location = new System.Drawing.Point(91, 440);
+            this.pnlUsrRolBD.Name = "pnlUsrRolBD";
+            this.pnlUsrRolBD.Size = new System.Drawing.Size(295, 33);
+            this.pnlUsrRolBD.TabIndex = 88;
             // 
-            // CmbxRol
+            // CmbxFoundRol
             // 
-            this.CmbxRol.AutoCompleteCustomSource.AddRange(new string[] {
+            this.CmbxFoundRol.AutoCompleteCustomSource.AddRange(new string[] {
             "Administrador",
             "Usuario"});
-            this.CmbxRol.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.CmbxRol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.CmbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbxRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CmbxRol.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbxRol.ForeColor = System.Drawing.Color.White;
-            this.CmbxRol.FormattingEnabled = true;
-            this.CmbxRol.Items.AddRange(new object[] {
+            this.CmbxFoundRol.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.CmbxFoundRol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.CmbxFoundRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbxFoundRol.Enabled = false;
+            this.CmbxFoundRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CmbxFoundRol.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbxFoundRol.ForeColor = System.Drawing.Color.White;
+            this.CmbxFoundRol.FormattingEnabled = true;
+            this.CmbxFoundRol.Items.AddRange(new object[] {
             "Administrador",
             "Usuario"});
-            this.CmbxRol.Location = new System.Drawing.Point(3, 1);
-            this.CmbxRol.Name = "CmbxRol";
-            this.CmbxRol.Size = new System.Drawing.Size(288, 29);
-            this.CmbxRol.TabIndex = 11;
+            this.CmbxFoundRol.Location = new System.Drawing.Point(3, 1);
+            this.CmbxFoundRol.Name = "CmbxFoundRol";
+            this.CmbxFoundRol.Size = new System.Drawing.Size(288, 29);
+            this.CmbxFoundRol.TabIndex = 11;
             // 
             // PnlRolRight
             // 
@@ -798,7 +699,7 @@
             // 
             this.PnlEnterPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.PnlEnterPwd.Controls.Add(this.BtnShowHide);
-            this.PnlEnterPwd.Controls.Add(this.TxtAdminPwd);
+            this.PnlEnterPwd.Controls.Add(this.TxtFoundPwd);
             this.PnlEnterPwd.Controls.Add(this.PnlInsertPwdRight);
             this.PnlEnterPwd.Controls.Add(this.PnlInsertPwdLeft);
             this.PnlEnterPwd.Controls.Add(this.PnlInsertPwdUp);
@@ -827,19 +728,19 @@
             this.PnlInsertPwdDown.Size = new System.Drawing.Size(592, 1);
             this.PnlInsertPwdDown.TabIndex = 12;
             // 
-            // PnlAdmin
+            // PnlFoundUser
             // 
-            this.PnlAdmin.Controls.Add(this.pnlEnterUsr);
-            this.PnlAdmin.Location = new System.Drawing.Point(92, 118);
-            this.PnlAdmin.Name = "PnlAdmin";
-            this.PnlAdmin.Size = new System.Drawing.Size(592, 34);
-            this.PnlAdmin.TabIndex = 78;
+            this.PnlFoundUser.Controls.Add(this.pnlEnterUsr);
+            this.PnlFoundUser.Location = new System.Drawing.Point(92, 118);
+            this.PnlFoundUser.Name = "PnlFoundUser";
+            this.PnlFoundUser.Size = new System.Drawing.Size(592, 34);
+            this.PnlFoundUser.TabIndex = 78;
             // 
             // pnlEnterUsr
             // 
             this.pnlEnterUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.pnlEnterUsr.Controls.Add(this.PnlInsertUsrRight);
-            this.pnlEnterUsr.Controls.Add(this.TxtAdminUsr);
+            this.pnlEnterUsr.Controls.Add(this.TxtFoundUsr);
             this.pnlEnterUsr.Controls.Add(this.PnlInsertUsrLeft);
             this.pnlEnterUsr.Controls.Add(this.PnlInsertUsrDown);
             this.pnlEnterUsr.Controls.Add(this.PnlInsertUsrUp);
@@ -858,17 +759,17 @@
             this.PnlInsertUsrRight.Size = new System.Drawing.Size(1, 28);
             this.PnlInsertUsrRight.TabIndex = 9;
             // 
-            // TxtAdminUsr
+            // TxtFoundUsr
             // 
-            this.TxtAdminUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtAdminUsr.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtAdminUsr.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAdminUsr.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtAdminUsr.Location = new System.Drawing.Point(7, 4);
-            this.TxtAdminUsr.Name = "TxtAdminUsr";
-            this.TxtAdminUsr.ReadOnly = true;
-            this.TxtAdminUsr.Size = new System.Drawing.Size(582, 22);
-            this.TxtAdminUsr.TabIndex = 6;
+            this.TxtFoundUsr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.TxtFoundUsr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtFoundUsr.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFoundUsr.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtFoundUsr.Location = new System.Drawing.Point(7, 4);
+            this.TxtFoundUsr.Name = "TxtFoundUsr";
+            this.TxtFoundUsr.ReadOnly = true;
+            this.TxtFoundUsr.Size = new System.Drawing.Size(582, 22);
+            this.TxtFoundUsr.TabIndex = 6;
             // 
             // PnlInsertUsrLeft
             // 
@@ -923,7 +824,7 @@
             // 
             this.PnlEnterNewFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.PnlEnterNewFirstName.Controls.Add(this.PnlFirstNameRight);
-            this.PnlEnterNewFirstName.Controls.Add(this.TxtAdminFirstName);
+            this.PnlEnterNewFirstName.Controls.Add(this.TxtFoundFirstName);
             this.PnlEnterNewFirstName.Controls.Add(this.PnlFirstNameLeft);
             this.PnlEnterNewFirstName.Controls.Add(this.PnlFirstNameDown);
             this.PnlEnterNewFirstName.Controls.Add(this.PnlFirstNameUp);
@@ -941,17 +842,17 @@
             this.PnlFirstNameRight.Size = new System.Drawing.Size(1, 25);
             this.PnlFirstNameRight.TabIndex = 9;
             // 
-            // TxtAdminFirstName
+            // TxtFoundFirstName
             // 
-            this.TxtAdminFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtAdminFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtAdminFirstName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAdminFirstName.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtAdminFirstName.Location = new System.Drawing.Point(7, 3);
-            this.TxtAdminFirstName.Name = "TxtAdminFirstName";
-            this.TxtAdminFirstName.ReadOnly = true;
-            this.TxtAdminFirstName.Size = new System.Drawing.Size(280, 22);
-            this.TxtAdminFirstName.TabIndex = 6;
+            this.TxtFoundFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.TxtFoundFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtFoundFirstName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFoundFirstName.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtFoundFirstName.Location = new System.Drawing.Point(7, 3);
+            this.TxtFoundFirstName.Name = "TxtFoundFirstName";
+            this.TxtFoundFirstName.ReadOnly = true;
+            this.TxtFoundFirstName.Size = new System.Drawing.Size(280, 22);
+            this.TxtFoundFirstName.TabIndex = 6;
             // 
             // PnlFirstNameLeft
             // 
@@ -984,7 +885,7 @@
             // 
             this.PnlEnterNewSecondName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.PnlEnterNewSecondName.Controls.Add(this.PnlSecondNameRight);
-            this.PnlEnterNewSecondName.Controls.Add(this.TxtAdminSecondName);
+            this.PnlEnterNewSecondName.Controls.Add(this.TxtFoundSecondName);
             this.PnlEnterNewSecondName.Controls.Add(this.PnlSecondNameLeft);
             this.PnlEnterNewSecondName.Controls.Add(this.PnlSecondNameDown);
             this.PnlEnterNewSecondName.Controls.Add(this.PnlSecondNameUp);
@@ -1002,17 +903,17 @@
             this.PnlSecondNameRight.Size = new System.Drawing.Size(1, 25);
             this.PnlSecondNameRight.TabIndex = 9;
             // 
-            // TxtAdminSecondName
+            // TxtFoundSecondName
             // 
-            this.TxtAdminSecondName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtAdminSecondName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtAdminSecondName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAdminSecondName.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtAdminSecondName.Location = new System.Drawing.Point(7, 3);
-            this.TxtAdminSecondName.Name = "TxtAdminSecondName";
-            this.TxtAdminSecondName.ReadOnly = true;
-            this.TxtAdminSecondName.Size = new System.Drawing.Size(280, 22);
-            this.TxtAdminSecondName.TabIndex = 6;
+            this.TxtFoundSecondName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.TxtFoundSecondName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtFoundSecondName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFoundSecondName.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtFoundSecondName.Location = new System.Drawing.Point(7, 3);
+            this.TxtFoundSecondName.Name = "TxtFoundSecondName";
+            this.TxtFoundSecondName.ReadOnly = true;
+            this.TxtFoundSecondName.Size = new System.Drawing.Size(280, 22);
+            this.TxtFoundSecondName.TabIndex = 6;
             // 
             // PnlSecondNameLeft
             // 
@@ -1045,7 +946,7 @@
             // 
             this.PnlAdminFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameRight);
-            this.PnlAdminFirstSurname.Controls.Add(this.TxtAdminFirstSurname);
+            this.PnlAdminFirstSurname.Controls.Add(this.TxtFoundFirstSurname);
             this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameLeft);
             this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameDown);
             this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameUp);
@@ -1063,17 +964,17 @@
             this.PnlFirstSurnameRight.Size = new System.Drawing.Size(1, 25);
             this.PnlFirstSurnameRight.TabIndex = 9;
             // 
-            // TxtAdminFirstSurname
+            // TxtFoundFirstSurname
             // 
-            this.TxtAdminFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtAdminFirstSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtAdminFirstSurname.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAdminFirstSurname.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtAdminFirstSurname.Location = new System.Drawing.Point(7, 4);
-            this.TxtAdminFirstSurname.Name = "TxtAdminFirstSurname";
-            this.TxtAdminFirstSurname.ReadOnly = true;
-            this.TxtAdminFirstSurname.Size = new System.Drawing.Size(280, 22);
-            this.TxtAdminFirstSurname.TabIndex = 6;
+            this.TxtFoundFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.TxtFoundFirstSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtFoundFirstSurname.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFoundFirstSurname.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtFoundFirstSurname.Location = new System.Drawing.Point(7, 4);
+            this.TxtFoundFirstSurname.Name = "TxtFoundFirstSurname";
+            this.TxtFoundFirstSurname.ReadOnly = true;
+            this.TxtFoundFirstSurname.Size = new System.Drawing.Size(280, 22);
+            this.TxtFoundFirstSurname.TabIndex = 6;
             // 
             // PnlFirstSurnameLeft
             // 
@@ -1106,7 +1007,7 @@
             // 
             this.PnlEnterNewSecondSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.PnlEnterNewSecondSurname.Controls.Add(this.PnlSecondSurnameRight);
-            this.PnlEnterNewSecondSurname.Controls.Add(this.TxtAdminSecondSurname);
+            this.PnlEnterNewSecondSurname.Controls.Add(this.TxtFoundSecondSurname);
             this.PnlEnterNewSecondSurname.Controls.Add(this.PnlSecondSurnameLeft);
             this.PnlEnterNewSecondSurname.Controls.Add(this.PnlSecondSurnameDown);
             this.PnlEnterNewSecondSurname.Controls.Add(this.PnlSecondSurnameUp);
@@ -1124,17 +1025,17 @@
             this.PnlSecondSurnameRight.Size = new System.Drawing.Size(1, 25);
             this.PnlSecondSurnameRight.TabIndex = 9;
             // 
-            // TxtAdminSecondSurname
+            // TxtFoundSecondSurname
             // 
-            this.TxtAdminSecondSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtAdminSecondSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtAdminSecondSurname.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAdminSecondSurname.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtAdminSecondSurname.Location = new System.Drawing.Point(7, 3);
-            this.TxtAdminSecondSurname.Name = "TxtAdminSecondSurname";
-            this.TxtAdminSecondSurname.ReadOnly = true;
-            this.TxtAdminSecondSurname.Size = new System.Drawing.Size(280, 22);
-            this.TxtAdminSecondSurname.TabIndex = 6;
+            this.TxtFoundSecondSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.TxtFoundSecondSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtFoundSecondSurname.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFoundSecondSurname.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtFoundSecondSurname.Location = new System.Drawing.Point(7, 3);
+            this.TxtFoundSecondSurname.Name = "TxtFoundSecondSurname";
+            this.TxtFoundSecondSurname.ReadOnly = true;
+            this.TxtFoundSecondSurname.Size = new System.Drawing.Size(280, 22);
+            this.TxtFoundSecondSurname.TabIndex = 6;
             // 
             // PnlSecondSurnameLeft
             // 
@@ -1166,60 +1067,61 @@
             // pnlEnterNewBD
             // 
             this.pnlEnterNewBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.pnlEnterNewBD.Controls.Add(this.panel9);
-            this.pnlEnterNewBD.Controls.Add(this.DtpAdminBD);
-            this.pnlEnterNewBD.Controls.Add(this.panel10);
-            this.pnlEnterNewBD.Controls.Add(this.panel11);
-            this.pnlEnterNewBD.Controls.Add(this.panel12);
+            this.pnlEnterNewBD.Controls.Add(this.PnlBDRight);
+            this.pnlEnterNewBD.Controls.Add(this.DtpFoundBD);
+            this.pnlEnterNewBD.Controls.Add(this.PnlBDLeft);
+            this.pnlEnterNewBD.Controls.Add(this.PnlBDDown);
+            this.pnlEnterNewBD.Controls.Add(this.PnlBDUp);
             this.pnlEnterNewBD.Location = new System.Drawing.Point(91, 367);
             this.pnlEnterNewBD.Name = "pnlEnterNewBD";
             this.pnlEnterNewBD.Size = new System.Drawing.Size(295, 32);
             this.pnlEnterNewBD.TabIndex = 79;
             // 
-            // panel9
+            // PnlBDRight
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel9.Location = new System.Drawing.Point(294, 1);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1, 30);
-            this.panel9.TabIndex = 9;
+            this.PnlBDRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlBDRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlBDRight.Location = new System.Drawing.Point(294, 1);
+            this.PnlBDRight.Name = "PnlBDRight";
+            this.PnlBDRight.Size = new System.Drawing.Size(1, 30);
+            this.PnlBDRight.TabIndex = 9;
             // 
-            // DtpAdminBD
+            // DtpFoundBD
             // 
-            this.DtpAdminBD.Location = new System.Drawing.Point(4, 5);
-            this.DtpAdminBD.Name = "DtpAdminBD";
-            this.DtpAdminBD.Size = new System.Drawing.Size(287, 22);
-            this.DtpAdminBD.TabIndex = 11;
+            this.DtpFoundBD.Enabled = false;
+            this.DtpFoundBD.Location = new System.Drawing.Point(4, 5);
+            this.DtpFoundBD.Name = "DtpFoundBD";
+            this.DtpFoundBD.Size = new System.Drawing.Size(287, 22);
+            this.DtpFoundBD.TabIndex = 11;
+            this.DtpFoundBD.CloseUp += new System.EventHandler(this.DtpFoundBD_CloseUp);
+            this.DtpFoundBD.DropDown += new System.EventHandler(this.DtpFoundBD_DropDown);
             // 
-            // panel10
+            // PnlBDLeft
             // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(0, 1);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1, 30);
-            this.panel10.TabIndex = 7;
+            this.PnlBDLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlBDLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlBDLeft.Location = new System.Drawing.Point(0, 1);
+            this.PnlBDLeft.Name = "PnlBDLeft";
+            this.PnlBDLeft.Size = new System.Drawing.Size(1, 30);
+            this.PnlBDLeft.TabIndex = 7;
             // 
-            // panel11
+            // PnlBDDown
             // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel11.Location = new System.Drawing.Point(0, 31);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(295, 1);
-            this.panel11.TabIndex = 10;
+            this.PnlBDDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlBDDown.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PnlBDDown.Location = new System.Drawing.Point(0, 31);
+            this.PnlBDDown.Name = "PnlBDDown";
+            this.PnlBDDown.Size = new System.Drawing.Size(295, 1);
+            this.PnlBDDown.TabIndex = 10;
             // 
-            // panel12
+            // PnlBDUp
             // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel12.Controls.Add(this.PnlNewPhone);
-            this.panel12.Controls.Add(this.label8);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(295, 1);
-            this.panel12.TabIndex = 8;
+            this.PnlBDUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlBDUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlBDUp.Location = new System.Drawing.Point(0, 0);
+            this.PnlBDUp.Name = "PnlBDUp";
+            this.PnlBDUp.Size = new System.Drawing.Size(295, 1);
+            this.PnlBDUp.TabIndex = 8;
             // 
             // label12
             // 
@@ -1236,6 +1138,7 @@
             // 
             this.BtnSaveChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(191)))), ((int)(((byte)(74)))));
             this.BtnSaveChanges.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnSaveChanges.Enabled = false;
             this.BtnSaveChanges.FlatAppearance.BorderSize = 0;
             this.BtnSaveChanges.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
             this.BtnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1247,6 +1150,7 @@
             this.BtnSaveChanges.TabIndex = 76;
             this.BtnSaveChanges.Text = "Guardar";
             this.BtnSaveChanges.UseVisualStyleBackColor = false;
+            this.BtnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
             // 
             // TabCtrlUsrSearch
             // 
@@ -1274,12 +1178,8 @@
             this.Name = "FrmSearchUser";
             this.Text = "FrmSearchUser";
             this.panel1.ResumeLayout(false);
-            this.pnlEnterNewPhone.ResumeLayout(false);
-            this.pnlEnterNewPhone.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.PnlNewPhone.ResumeLayout(false);
-            this.PnlNewPhone.PerformLayout();
             this.PnlPhone.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -1291,11 +1191,11 @@
             this.pnlSearchUsr.PerformLayout();
             this.TabPageDetails.ResumeLayout(false);
             this.TabPageDetails.PerformLayout();
-            this.pnlAdminRolBD.ResumeLayout(false);
+            this.pnlUsrRolBD.ResumeLayout(false);
             this.PnlPwd.ResumeLayout(false);
             this.PnlEnterPwd.ResumeLayout(false);
             this.PnlEnterPwd.PerformLayout();
-            this.PnlAdmin.ResumeLayout(false);
+            this.PnlFoundUser.ResumeLayout(false);
             this.pnlEnterUsr.ResumeLayout(false);
             this.pnlEnterUsr.PerformLayout();
             this.FwlPnlName.ResumeLayout(false);
@@ -1308,32 +1208,21 @@
             this.PnlEnterNewSecondSurname.ResumeLayout(false);
             this.PnlEnterNewSecondSurname.PerformLayout();
             this.pnlEnterNewBD.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.TabCtrlUsrSearch.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LblWrongPhoneInput;
-        private System.Windows.Forms.ComboBox CmbxActive;
+        private System.Windows.Forms.ComboBox CmbxFoundActive;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel PnlPhoneDown;
-        private System.Windows.Forms.Panel PnlPhoneUp;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel PnlPhoneRight;
-        private System.Windows.Forms.TextBox TxtDminPhone;
         private System.Windows.Forms.Button BtnModify;
-        private System.Windows.Forms.Panel pnlEnterNewPhone;
-        private System.Windows.Forms.Panel PnlPhoneLeft;
         private System.Windows.Forms.Button BtnShowHide;
-        private System.Windows.Forms.TextBox TxtAdminPwd;
+        private System.Windows.Forms.TextBox TxtFoundPwd;
         private System.Windows.Forms.Panel PnlInsertPwdRight;
         private System.Windows.Forms.Panel PnlInsertPwdLeft;
         private System.Windows.Forms.Label label7;
@@ -1341,14 +1230,13 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BtnClean;
-        private System.Windows.Forms.Panel PnlNewPhone;
         private System.Windows.Forms.Panel PnlPhone;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox TxtAdminPhone;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel PnlPhoneRight;
+        private System.Windows.Forms.TextBox TxtFoundPhone;
+        private System.Windows.Forms.Panel PnlPhoneLeft;
+        private System.Windows.Forms.Panel PnlPhoneDown;
+        private System.Windows.Forms.Panel PnlPhoneUp;
         private System.Windows.Forms.TabPage TabCtrlUsr;
         private System.Windows.Forms.TreeView TrvUsers;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -1363,8 +1251,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage TabPageDetails;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel pnlAdminRolBD;
-        private System.Windows.Forms.ComboBox CmbxRol;
+        private System.Windows.Forms.Panel pnlUsrRolBD;
+        private System.Windows.Forms.ComboBox CmbxFoundRol;
         private System.Windows.Forms.Panel PnlRolRight;
         private System.Windows.Forms.Panel PnlRolLeft;
         private System.Windows.Forms.Panel PnlRolDown;
@@ -1375,10 +1263,10 @@
         private System.Windows.Forms.Panel PnlEnterPwd;
         private System.Windows.Forms.Panel PnlInsertPwdUp;
         private System.Windows.Forms.Panel PnlInsertPwdDown;
-        private System.Windows.Forms.Panel PnlAdmin;
+        private System.Windows.Forms.Panel PnlFoundUser;
         private System.Windows.Forms.Panel pnlEnterUsr;
         private System.Windows.Forms.Panel PnlInsertUsrRight;
-        private System.Windows.Forms.TextBox TxtAdminUsr;
+        private System.Windows.Forms.TextBox TxtFoundUsr;
         private System.Windows.Forms.Panel PnlInsertUsrLeft;
         private System.Windows.Forms.Panel PnlInsertUsrDown;
         private System.Windows.Forms.Panel PnlInsertUsrUp;
@@ -1386,34 +1274,34 @@
         private System.Windows.Forms.FlowLayoutPanel FwlPnlName;
         private System.Windows.Forms.Panel PnlEnterNewFirstName;
         private System.Windows.Forms.Panel PnlFirstNameRight;
-        private System.Windows.Forms.TextBox TxtAdminFirstName;
+        private System.Windows.Forms.TextBox TxtFoundFirstName;
         private System.Windows.Forms.Panel PnlFirstNameLeft;
         private System.Windows.Forms.Panel PnlFirstNameDown;
         private System.Windows.Forms.Panel PnlFirstNameUp;
         private System.Windows.Forms.Panel PnlAdminFirstSurname;
         private System.Windows.Forms.Panel PnlFirstSurnameRight;
-        private System.Windows.Forms.TextBox TxtAdminFirstSurname;
+        private System.Windows.Forms.TextBox TxtFoundFirstSurname;
         private System.Windows.Forms.Panel PnlFirstSurnameLeft;
         private System.Windows.Forms.Panel PnlFirstSurnameDown;
         private System.Windows.Forms.Panel PnlFirstSurnameUp;
         private System.Windows.Forms.Panel PnlEnterNewSecondName;
         private System.Windows.Forms.Panel PnlSecondNameRight;
-        private System.Windows.Forms.TextBox TxtAdminSecondName;
+        private System.Windows.Forms.TextBox TxtFoundSecondName;
         private System.Windows.Forms.Panel PnlSecondNameLeft;
         private System.Windows.Forms.Panel PnlSecondNameDown;
         private System.Windows.Forms.Panel PnlSecondNameUp;
         private System.Windows.Forms.Panel PnlEnterNewSecondSurname;
         private System.Windows.Forms.Panel PnlSecondSurnameRight;
-        private System.Windows.Forms.TextBox TxtAdminSecondSurname;
+        private System.Windows.Forms.TextBox TxtFoundSecondSurname;
         private System.Windows.Forms.Panel PnlSecondSurnameLeft;
         private System.Windows.Forms.Panel PnlSecondSurnameDown;
         private System.Windows.Forms.Panel PnlSecondSurnameUp;
         private System.Windows.Forms.Panel pnlEnterNewBD;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.DateTimePicker DtpAdminBD;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel PnlBDRight;
+        private System.Windows.Forms.DateTimePicker DtpFoundBD;
+        private System.Windows.Forms.Panel PnlBDLeft;
+        private System.Windows.Forms.Panel PnlBDDown;
+        private System.Windows.Forms.Panel PnlBDUp;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button BtnSaveChanges;
         private System.Windows.Forms.TabControl TabCtrlUsrSearch;

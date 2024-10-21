@@ -3,28 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|c:\\users\\dell\\onedrive\\documentos\\url\\2024\\iis\\manejo e implementacion de archivos\\proyecto\\proyectomeiafase1\\messagenest\\forms\\frmadmininfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|solutionrelative:forms\\frmadmininfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|c:\\users\\dell\\onedrive\\documentos\\url\\2024\\iis\\manejo e implementacion de archivos\\proyecto\\proyectomeiafase1\\messagenest\\forms\\frmedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|solutionrelative:forms\\frmedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\forms\\frmeditadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|solutionrelative:forms\\frmeditadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|c:\\users\\dell\\onedrive\\documentos\\url\\2024\\iis\\manejo e implementacion de archivos\\proyecto\\proyectomeiafase1\\messagenest\\forms\\frmedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|solutionrelative:forms\\frmedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\forms\\frmsignup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|solutionrelative:forms\\frmsignup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|c:\\users\\dell\\onedrive\\documentos\\url\\2024\\iis\\manejo e implementacion de archivos\\proyecto\\proyectomeiafase1\\messagenest\\forms\\frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|solutionrelative:forms\\frmuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\forms\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|solutionrelative:forms\\frmadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\forms\\frmsignup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|solutionrelative:forms\\frmsignup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|solutionrelative:forms\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|c:\\users\\dell\\onedrive\\documentos\\url\\2024\\iis\\manejo e implementacion de archivos\\proyecto\\proyectomeiafase1\\messagenest\\forms\\frmeditadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D63B71B1-9FA4-416E-9CC4-E4B37F914F7C}|MessageNest.csproj|solutionrelative:forms\\frmeditadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,45 +26,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FrmEditAdmin.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmEditAdmin.cs",
-              "RelativeDocumentMoniker": "Forms\\FrmEditAdmin.cs",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmEditAdmin.cs",
-              "RelativeToolTip": "Forms\\FrmEditAdmin.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAADkAAAAtAAAAAAAAAA==",
+              "Title": "FrmEditUser.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmEditUser.cs",
+              "RelativeDocumentMoniker": "Forms\\FrmEditUser.cs",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmEditUser.cs [Design]",
+              "RelativeToolTip": "Forms\\FrmEditUser.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T18:27:11.638Z",
-              "IsPinned": true
+              "WhenOpened": "2024-10-21T05:21:28.966Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmSignUp.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmSignUp.cs",
-              "RelativeDocumentMoniker": "Forms\\FrmSignUp.cs",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmSignUp.cs [Design]",
-              "RelativeToolTip": "Forms\\FrmSignUp.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "FrmEditUser.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmEditUser.cs",
+              "RelativeDocumentMoniker": "Forms\\FrmEditUser.cs",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmEditUser.cs",
+              "RelativeToolTip": "Forms\\FrmEditUser.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAABUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T18:30:43.148Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrmSignUp.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmSignUp.cs",
-              "RelativeDocumentMoniker": "Forms\\FrmSignUp.cs",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmSignUp.cs",
-              "RelativeToolTip": "Forms\\FrmSignUp.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAAAHkAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T18:30:44.336Z",
-              "IsPinned": true
+              "WhenOpened": "2024-10-21T05:21:32.78Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -84,39 +65,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FrmAdminInfo.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmAdminInfo.cs",
-              "RelativeDocumentMoniker": "Forms\\FrmAdminInfo.cs",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmAdminInfo.cs [Design]",
-              "RelativeToolTip": "Forms\\FrmAdminInfo.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "FrmUser.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmUser.cs",
+              "RelativeDocumentMoniker": "Forms\\FrmUser.cs",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmUser.cs",
+              "RelativeToolTip": "Forms\\FrmUser.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAEwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:08:37.461Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-21T06:13:36.951Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FrmAdmin.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmAdmin.cs",
-              "RelativeDocumentMoniker": "Forms\\FrmAdmin.cs",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmAdmin.cs",
-              "RelativeToolTip": "Forms\\FrmAdmin.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAowE4AAAA3AAAAAAAAAA==",
+              "Title": "FrmEditAdmin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmEditAdmin.cs",
+              "RelativeDocumentMoniker": "Forms\\FrmEditAdmin.cs",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmEditAdmin.cs [Design]",
+              "RelativeToolTip": "Forms\\FrmEditAdmin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:07:12.836Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FrmLogin.cs",
-              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmLogin.cs",
-              "RelativeDocumentMoniker": "Forms\\FrmLogin.cs",
-              "ToolTip": "C:\\Users\\Dell\\OneDrive\\Documentos\\URL\\2024\\IIS\\Manejo e implementacion de archivos\\Proyecto\\ProyectoMEIAFase1\\MessageNest\\Forms\\FrmLogin.cs",
-              "RelativeToolTip": "Forms\\FrmLogin.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAHgAAAB8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T18:36:26.708Z"
+              "WhenOpened": "2024-10-21T05:21:26.468Z",
+              "EditorCaption": " [Design]"
             }
           ]
         },

@@ -36,25 +36,24 @@
             this.PnlFirstNameLeft = new System.Windows.Forms.Panel();
             this.PnlFirstNameDown = new System.Windows.Forms.Panel();
             this.PnlFirstNameUp = new System.Windows.Forms.Panel();
-            this.PnlAdminFirstSurname = new System.Windows.Forms.Panel();
-            this.PnlFirstSurnameRight = new System.Windows.Forms.Panel();
-            this.TxtUsrFirstSurname = new System.Windows.Forms.TextBox();
-            this.PnlFirstSurnameLeft = new System.Windows.Forms.Panel();
-            this.PnlFirstSurnameDown = new System.Windows.Forms.Panel();
-            this.PnlFirstSurnameUp = new System.Windows.Forms.Panel();
             this.PnlEnterNewSecondName = new System.Windows.Forms.Panel();
             this.PnlSecondNameRight = new System.Windows.Forms.Panel();
             this.TxtUsrSecondName = new System.Windows.Forms.TextBox();
             this.PnlSecondNameLeft = new System.Windows.Forms.Panel();
             this.PnlSecondNameDown = new System.Windows.Forms.Panel();
             this.PnlSecondNameUp = new System.Windows.Forms.Panel();
+            this.PnlAdminFirstSurname = new System.Windows.Forms.Panel();
+            this.PnlFirstSurnameRight = new System.Windows.Forms.Panel();
+            this.TxtUsrFirstSurname = new System.Windows.Forms.TextBox();
+            this.PnlFirstSurnameLeft = new System.Windows.Forms.Panel();
+            this.PnlFirstSurnameDown = new System.Windows.Forms.Panel();
+            this.PnlFirstSurnameUp = new System.Windows.Forms.Panel();
             this.PnlEnterNewSecondSurname = new System.Windows.Forms.Panel();
             this.PnlSecondSurnameRight = new System.Windows.Forms.Panel();
             this.TxtUsrSecondSurname = new System.Windows.Forms.TextBox();
             this.PnlSecondSurnameLeft = new System.Windows.Forms.Panel();
             this.PnlSecondSurnameDown = new System.Windows.Forms.Panel();
             this.PnlSecondSurnameUp = new System.Windows.Forms.Panel();
-            this.BtnSaveChanges = new System.Windows.Forms.Button();
             this.PnlEnterNewBD = new System.Windows.Forms.Panel();
             this.PnlUsrBdRight = new System.Windows.Forms.Panel();
             this.DtpUsrBD = new System.Windows.Forms.DateTimePicker();
@@ -100,22 +99,15 @@
             this.PnlUsrNewPwdLeft = new System.Windows.Forms.Panel();
             this.PnlUsrNewPwdUp = new System.Windows.Forms.Panel();
             this.PnlUsrNewPwdDown = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.PnlPwd = new System.Windows.Forms.Panel();
-            this.PnlEnterPwd = new System.Windows.Forms.Panel();
-            this.BtnShowHide = new System.Windows.Forms.Button();
-            this.TxtUsrPwd = new System.Windows.Forms.TextBox();
-            this.PnlUsrPwdRight = new System.Windows.Forms.Panel();
-            this.PnlUsrPwdLeft = new System.Windows.Forms.Panel();
-            this.PnlUsrPwdUp = new System.Windows.Forms.Panel();
-            this.PnlUsrPwdDown = new System.Windows.Forms.Panel();
             this.LblNewPd = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblWrongPhoneInput = new System.Windows.Forms.Label();
+            this.BtnModify = new System.Windows.Forms.Button();
+            this.BtnSaveChanges = new System.Windows.Forms.Button();
             this.FwlPnlName.SuspendLayout();
             this.PnlEnterNewFirstName.SuspendLayout();
-            this.PnlAdminFirstSurname.SuspendLayout();
             this.PnlEnterNewSecondName.SuspendLayout();
+            this.PnlAdminFirstSurname.SuspendLayout();
             this.PnlEnterNewSecondSurname.SuspendLayout();
             this.PnlEnterNewBD.SuspendLayout();
             this.pnlAdminRolBD.SuspendLayout();
@@ -126,8 +118,6 @@
             this.pnlEnterUsr.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.PnlPwd.SuspendLayout();
-            this.PnlEnterPwd.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblUserLin
@@ -135,7 +125,7 @@
             this.LblUserLin.AutoSize = true;
             this.LblUserLin.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblUserLin.ForeColor = System.Drawing.Color.White;
-            this.LblUserLin.Location = new System.Drawing.Point(92, 26);
+            this.LblUserLin.Location = new System.Drawing.Point(93, 61);
             this.LblUserLin.Name = "LblUserLin";
             this.LblUserLin.Size = new System.Drawing.Size(65, 21);
             this.LblUserLin.TabIndex = 138;
@@ -147,7 +137,7 @@
             this.FwlPnlName.Controls.Add(this.PnlEnterNewSecondName);
             this.FwlPnlName.Controls.Add(this.PnlAdminFirstSurname);
             this.FwlPnlName.Controls.Add(this.PnlEnterNewSecondSurname);
-            this.FwlPnlName.Location = new System.Drawing.Point(96, 127);
+            this.FwlPnlName.Location = new System.Drawing.Point(97, 162);
             this.FwlPnlName.Name = "FwlPnlName";
             this.FwlPnlName.Size = new System.Drawing.Size(597, 66);
             this.FwlPnlName.TabIndex = 144;
@@ -213,67 +203,6 @@
             this.PnlFirstNameUp.Size = new System.Drawing.Size(291, 1);
             this.PnlFirstNameUp.TabIndex = 8;
             // 
-            // PnlAdminFirstSurname
-            // 
-            this.PnlAdminFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameRight);
-            this.PnlAdminFirstSurname.Controls.Add(this.TxtUsrFirstSurname);
-            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameLeft);
-            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameDown);
-            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameUp);
-            this.PnlAdminFirstSurname.Location = new System.Drawing.Point(3, 36);
-            this.PnlAdminFirstSurname.Name = "PnlAdminFirstSurname";
-            this.PnlAdminFirstSurname.Size = new System.Drawing.Size(291, 27);
-            this.PnlAdminFirstSurname.TabIndex = 12;
-            // 
-            // PnlFirstSurnameRight
-            // 
-            this.PnlFirstSurnameRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlFirstSurnameRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PnlFirstSurnameRight.Location = new System.Drawing.Point(290, 1);
-            this.PnlFirstSurnameRight.Name = "PnlFirstSurnameRight";
-            this.PnlFirstSurnameRight.Size = new System.Drawing.Size(1, 25);
-            this.PnlFirstSurnameRight.TabIndex = 9;
-            // 
-            // TxtUsrFirstSurname
-            // 
-            this.TxtUsrFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtUsrFirstSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtUsrFirstSurname.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUsrFirstSurname.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtUsrFirstSurname.Location = new System.Drawing.Point(7, 4);
-            this.TxtUsrFirstSurname.Name = "TxtUsrFirstSurname";
-            this.TxtUsrFirstSurname.ReadOnly = true;
-            this.TxtUsrFirstSurname.Size = new System.Drawing.Size(280, 22);
-            this.TxtUsrFirstSurname.TabIndex = 6;
-            // 
-            // PnlFirstSurnameLeft
-            // 
-            this.PnlFirstSurnameLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlFirstSurnameLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlFirstSurnameLeft.Location = new System.Drawing.Point(0, 1);
-            this.PnlFirstSurnameLeft.Name = "PnlFirstSurnameLeft";
-            this.PnlFirstSurnameLeft.Size = new System.Drawing.Size(1, 25);
-            this.PnlFirstSurnameLeft.TabIndex = 7;
-            // 
-            // PnlFirstSurnameDown
-            // 
-            this.PnlFirstSurnameDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlFirstSurnameDown.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlFirstSurnameDown.Location = new System.Drawing.Point(0, 26);
-            this.PnlFirstSurnameDown.Name = "PnlFirstSurnameDown";
-            this.PnlFirstSurnameDown.Size = new System.Drawing.Size(291, 1);
-            this.PnlFirstSurnameDown.TabIndex = 10;
-            // 
-            // PnlFirstSurnameUp
-            // 
-            this.PnlFirstSurnameUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlFirstSurnameUp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlFirstSurnameUp.Location = new System.Drawing.Point(0, 0);
-            this.PnlFirstSurnameUp.Name = "PnlFirstSurnameUp";
-            this.PnlFirstSurnameUp.Size = new System.Drawing.Size(291, 1);
-            this.PnlFirstSurnameUp.TabIndex = 8;
-            // 
             // PnlEnterNewSecondName
             // 
             this.PnlEnterNewSecondName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
@@ -334,6 +263,67 @@
             this.PnlSecondNameUp.Name = "PnlSecondNameUp";
             this.PnlSecondNameUp.Size = new System.Drawing.Size(291, 1);
             this.PnlSecondNameUp.TabIndex = 8;
+            // 
+            // PnlAdminFirstSurname
+            // 
+            this.PnlAdminFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameRight);
+            this.PnlAdminFirstSurname.Controls.Add(this.TxtUsrFirstSurname);
+            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameLeft);
+            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameDown);
+            this.PnlAdminFirstSurname.Controls.Add(this.PnlFirstSurnameUp);
+            this.PnlAdminFirstSurname.Location = new System.Drawing.Point(3, 36);
+            this.PnlAdminFirstSurname.Name = "PnlAdminFirstSurname";
+            this.PnlAdminFirstSurname.Size = new System.Drawing.Size(291, 27);
+            this.PnlAdminFirstSurname.TabIndex = 12;
+            // 
+            // PnlFirstSurnameRight
+            // 
+            this.PnlFirstSurnameRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlFirstSurnameRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlFirstSurnameRight.Location = new System.Drawing.Point(290, 1);
+            this.PnlFirstSurnameRight.Name = "PnlFirstSurnameRight";
+            this.PnlFirstSurnameRight.Size = new System.Drawing.Size(1, 25);
+            this.PnlFirstSurnameRight.TabIndex = 9;
+            // 
+            // TxtUsrFirstSurname
+            // 
+            this.TxtUsrFirstSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.TxtUsrFirstSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtUsrFirstSurname.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtUsrFirstSurname.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtUsrFirstSurname.Location = new System.Drawing.Point(7, 4);
+            this.TxtUsrFirstSurname.Name = "TxtUsrFirstSurname";
+            this.TxtUsrFirstSurname.ReadOnly = true;
+            this.TxtUsrFirstSurname.Size = new System.Drawing.Size(280, 22);
+            this.TxtUsrFirstSurname.TabIndex = 6;
+            // 
+            // PnlFirstSurnameLeft
+            // 
+            this.PnlFirstSurnameLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlFirstSurnameLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlFirstSurnameLeft.Location = new System.Drawing.Point(0, 1);
+            this.PnlFirstSurnameLeft.Name = "PnlFirstSurnameLeft";
+            this.PnlFirstSurnameLeft.Size = new System.Drawing.Size(1, 25);
+            this.PnlFirstSurnameLeft.TabIndex = 7;
+            // 
+            // PnlFirstSurnameDown
+            // 
+            this.PnlFirstSurnameDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlFirstSurnameDown.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PnlFirstSurnameDown.Location = new System.Drawing.Point(0, 26);
+            this.PnlFirstSurnameDown.Name = "PnlFirstSurnameDown";
+            this.PnlFirstSurnameDown.Size = new System.Drawing.Size(291, 1);
+            this.PnlFirstSurnameDown.TabIndex = 10;
+            // 
+            // PnlFirstSurnameUp
+            // 
+            this.PnlFirstSurnameUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PnlFirstSurnameUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlFirstSurnameUp.Location = new System.Drawing.Point(0, 0);
+            this.PnlFirstSurnameUp.Name = "PnlFirstSurnameUp";
+            this.PnlFirstSurnameUp.Size = new System.Drawing.Size(291, 1);
+            this.PnlFirstSurnameUp.TabIndex = 8;
             // 
             // PnlEnterNewSecondSurname
             // 
@@ -396,22 +386,6 @@
             this.PnlSecondSurnameUp.Size = new System.Drawing.Size(291, 1);
             this.PnlSecondSurnameUp.TabIndex = 8;
             // 
-            // BtnSaveChanges
-            // 
-            this.BtnSaveChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(191)))), ((int)(((byte)(74)))));
-            this.BtnSaveChanges.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnSaveChanges.FlatAppearance.BorderSize = 0;
-            this.BtnSaveChanges.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
-            this.BtnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSaveChanges.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSaveChanges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.BtnSaveChanges.Location = new System.Drawing.Point(293, 571);
-            this.BtnSaveChanges.Name = "BtnSaveChanges";
-            this.BtnSaveChanges.Size = new System.Drawing.Size(206, 30);
-            this.BtnSaveChanges.TabIndex = 137;
-            this.BtnSaveChanges.Text = "Guardar";
-            this.BtnSaveChanges.UseVisualStyleBackColor = false;
-            // 
             // PnlEnterNewBD
             // 
             this.PnlEnterNewBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
@@ -420,7 +394,7 @@
             this.PnlEnterNewBD.Controls.Add(this.PnlUsrBdLeft);
             this.PnlEnterNewBD.Controls.Add(this.PnlUsrBdDown);
             this.PnlEnterNewBD.Controls.Add(this.PnlUsrBdUp);
-            this.PnlEnterNewBD.Location = new System.Drawing.Point(96, 414);
+            this.PnlEnterNewBD.Location = new System.Drawing.Point(97, 384);
             this.PnlEnterNewBD.Name = "PnlEnterNewBD";
             this.PnlEnterNewBD.Size = new System.Drawing.Size(294, 32);
             this.PnlEnterNewBD.TabIndex = 140;
@@ -436,6 +410,7 @@
             // 
             // DtpUsrBD
             // 
+            this.DtpUsrBD.Enabled = false;
             this.DtpUsrBD.Font = new System.Drawing.Font("Yu Gothic UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpUsrBD.Location = new System.Drawing.Point(7, 5);
             this.DtpUsrBD.Name = "DtpUsrBD";
@@ -476,7 +451,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(92, 390);
+            this.label12.Location = new System.Drawing.Point(93, 360);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(162, 21);
             this.label12.TabIndex = 145;
@@ -487,7 +462,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(392, 390);
+            this.label5.Location = new System.Drawing.Point(393, 360);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 21);
             this.label5.TabIndex = 151;
@@ -501,7 +476,7 @@
             this.pnlAdminRolBD.Controls.Add(this.PnlRolLeft);
             this.pnlAdminRolBD.Controls.Add(this.PnlRolDown);
             this.pnlAdminRolBD.Controls.Add(this.PNLRolUp);
-            this.pnlAdminRolBD.Location = new System.Drawing.Point(95, 493);
+            this.pnlAdminRolBD.Location = new System.Drawing.Point(96, 462);
             this.pnlAdminRolBD.Name = "pnlAdminRolBD";
             this.pnlAdminRolBD.Size = new System.Drawing.Size(295, 33);
             this.pnlAdminRolBD.TabIndex = 149;
@@ -514,6 +489,7 @@
             this.CmbxRol.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CmbxRol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.CmbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbxRol.Enabled = false;
             this.CmbxRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbxRol.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbxRol.ForeColor = System.Drawing.Color.White;
@@ -523,7 +499,7 @@
             "Usuario"});
             this.CmbxRol.Location = new System.Drawing.Point(3, 1);
             this.CmbxRol.Name = "CmbxRol";
-            this.CmbxRol.Size = new System.Drawing.Size(288, 29);
+            this.CmbxRol.Size = new System.Drawing.Size(291, 29);
             this.CmbxRol.TabIndex = 11;
             // 
             // PnlRolRight
@@ -567,7 +543,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(92, 466);
+            this.label1.Location = new System.Drawing.Point(92, 438);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 21);
             this.label1.TabIndex = 150;
@@ -578,7 +554,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(394, 469);
+            this.label7.Location = new System.Drawing.Point(395, 438);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 21);
             this.label7.TabIndex = 154;
@@ -587,7 +563,7 @@
             // PnlPhone
             // 
             this.PnlPhone.Controls.Add(this.PnlUserPhone);
-            this.PnlPhone.Location = new System.Drawing.Point(396, 414);
+            this.PnlPhone.Location = new System.Drawing.Point(397, 384);
             this.PnlPhone.Name = "PnlPhone";
             this.PnlPhone.Size = new System.Drawing.Size(292, 32);
             this.PnlPhone.TabIndex = 152;
@@ -623,6 +599,7 @@
             this.TxtUsrPhone.ForeColor = System.Drawing.Color.DarkGray;
             this.TxtUsrPhone.Location = new System.Drawing.Point(7, 4);
             this.TxtUsrPhone.Name = "TxtUsrPhone";
+            this.TxtUsrPhone.ReadOnly = true;
             this.TxtUsrPhone.Size = new System.Drawing.Size(283, 22);
             this.TxtUsrPhone.TabIndex = 6;
             this.TxtUsrPhone.Text = "0000000000";
@@ -665,7 +642,7 @@
             this.panel7.Controls.Add(this.panel18);
             this.panel7.Controls.Add(this.panel19);
             this.panel7.Controls.Add(this.panel20);
-            this.panel7.Location = new System.Drawing.Point(396, 493);
+            this.panel7.Location = new System.Drawing.Point(397, 462);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(292, 33);
             this.panel7.TabIndex = 153;
@@ -678,6 +655,7 @@
             this.CmbxActive.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CmbxActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.CmbxActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbxActive.Enabled = false;
             this.CmbxActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbxActive.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbxActive.ForeColor = System.Drawing.Color.White;
@@ -731,7 +709,7 @@
             this.LblWrongPwd.AutoSize = true;
             this.LblWrongPwd.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblWrongPwd.ForeColor = System.Drawing.Color.Silver;
-            this.LblWrongPwd.Location = new System.Drawing.Point(93, 343);
+            this.LblWrongPwd.Location = new System.Drawing.Point(94, 305);
             this.LblWrongPwd.Name = "LblWrongPwd";
             this.LblWrongPwd.Size = new System.Drawing.Size(577, 34);
             this.LblWrongPwd.TabIndex = 148;
@@ -742,7 +720,7 @@
             // PnlAdmin
             // 
             this.PnlAdmin.Controls.Add(this.pnlEnterUsr);
-            this.PnlAdmin.Location = new System.Drawing.Point(96, 53);
+            this.PnlAdmin.Location = new System.Drawing.Point(97, 88);
             this.PnlAdmin.Name = "PnlAdmin";
             this.PnlAdmin.Size = new System.Drawing.Size(592, 34);
             this.PnlAdmin.TabIndex = 139;
@@ -812,7 +790,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(95, 307);
+            this.panel1.Location = new System.Drawing.Point(96, 269);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(592, 33);
             this.panel1.TabIndex = 147;
@@ -855,6 +833,7 @@
             this.TxtUsrNewPwd.ForeColor = System.Drawing.Color.DarkGray;
             this.TxtUsrNewPwd.Location = new System.Drawing.Point(7, 4);
             this.TxtUsrNewPwd.Name = "TxtUsrNewPwd";
+            this.TxtUsrNewPwd.ReadOnly = true;
             this.TxtUsrNewPwd.Size = new System.Drawing.Size(582, 22);
             this.TxtUsrNewPwd.TabIndex = 15;
             this.TxtUsrNewPwd.Text = "Contraseña";
@@ -898,109 +877,12 @@
             this.PnlUsrNewPwdDown.Size = new System.Drawing.Size(592, 1);
             this.PnlUsrNewPwdDown.TabIndex = 12;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(92, 206);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 21);
-            this.label2.TabIndex = 141;
-            this.label2.Text = "Contraseña";
-            // 
-            // PnlPwd
-            // 
-            this.PnlPwd.Controls.Add(this.PnlEnterPwd);
-            this.PnlPwd.Location = new System.Drawing.Point(95, 234);
-            this.PnlPwd.Name = "PnlPwd";
-            this.PnlPwd.Size = new System.Drawing.Size(592, 33);
-            this.PnlPwd.TabIndex = 142;
-            // 
-            // PnlEnterPwd
-            // 
-            this.PnlEnterPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.PnlEnterPwd.Controls.Add(this.BtnShowHide);
-            this.PnlEnterPwd.Controls.Add(this.TxtUsrPwd);
-            this.PnlEnterPwd.Controls.Add(this.PnlUsrPwdRight);
-            this.PnlEnterPwd.Controls.Add(this.PnlUsrPwdLeft);
-            this.PnlEnterPwd.Controls.Add(this.PnlUsrPwdUp);
-            this.PnlEnterPwd.Controls.Add(this.PnlUsrPwdDown);
-            this.PnlEnterPwd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlEnterPwd.Location = new System.Drawing.Point(0, 0);
-            this.PnlEnterPwd.Name = "PnlEnterPwd";
-            this.PnlEnterPwd.Size = new System.Drawing.Size(592, 30);
-            this.PnlEnterPwd.TabIndex = 20;
-            // 
-            // BtnShowHide
-            // 
-            this.BtnShowHide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.BtnShowHide.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnShowHide.FlatAppearance.BorderSize = 0;
-            this.BtnShowHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShowHide.Image = global::MessageNest.Properties.Resources.hide;
-            this.BtnShowHide.Location = new System.Drawing.Point(553, 1);
-            this.BtnShowHide.Name = "BtnShowHide";
-            this.BtnShowHide.Size = new System.Drawing.Size(38, 28);
-            this.BtnShowHide.TabIndex = 16;
-            this.BtnShowHide.UseVisualStyleBackColor = false;
-            // 
-            // TxtUsrPwd
-            // 
-            this.TxtUsrPwd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtUsrPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtUsrPwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtUsrPwd.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUsrPwd.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtUsrPwd.Location = new System.Drawing.Point(7, 4);
-            this.TxtUsrPwd.Multiline = true;
-            this.TxtUsrPwd.Name = "TxtUsrPwd";
-            this.TxtUsrPwd.ReadOnly = true;
-            this.TxtUsrPwd.Size = new System.Drawing.Size(582, 20);
-            this.TxtUsrPwd.TabIndex = 15;
-            // 
-            // PnlUsrPwdRight
-            // 
-            this.PnlUsrPwdRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlUsrPwdRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PnlUsrPwdRight.Location = new System.Drawing.Point(591, 1);
-            this.PnlUsrPwdRight.Name = "PnlUsrPwdRight";
-            this.PnlUsrPwdRight.Size = new System.Drawing.Size(1, 28);
-            this.PnlUsrPwdRight.TabIndex = 19;
-            // 
-            // PnlUsrPwdLeft
-            // 
-            this.PnlUsrPwdLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlUsrPwdLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlUsrPwdLeft.Location = new System.Drawing.Point(0, 1);
-            this.PnlUsrPwdLeft.Name = "PnlUsrPwdLeft";
-            this.PnlUsrPwdLeft.Size = new System.Drawing.Size(1, 28);
-            this.PnlUsrPwdLeft.TabIndex = 17;
-            // 
-            // PnlUsrPwdUp
-            // 
-            this.PnlUsrPwdUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlUsrPwdUp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlUsrPwdUp.Location = new System.Drawing.Point(0, 0);
-            this.PnlUsrPwdUp.Name = "PnlUsrPwdUp";
-            this.PnlUsrPwdUp.Size = new System.Drawing.Size(592, 1);
-            this.PnlUsrPwdUp.TabIndex = 18;
-            // 
-            // PnlUsrPwdDown
-            // 
-            this.PnlUsrPwdDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PnlUsrPwdDown.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlUsrPwdDown.Location = new System.Drawing.Point(0, 29);
-            this.PnlUsrPwdDown.Name = "PnlUsrPwdDown";
-            this.PnlUsrPwdDown.Size = new System.Drawing.Size(592, 1);
-            this.PnlUsrPwdDown.TabIndex = 12;
-            // 
             // LblNewPd
             // 
             this.LblNewPd.AutoSize = true;
             this.LblNewPd.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblNewPd.ForeColor = System.Drawing.Color.White;
-            this.LblNewPd.Location = new System.Drawing.Point(92, 279);
+            this.LblNewPd.Location = new System.Drawing.Point(93, 241);
             this.LblNewPd.Name = "LblNewPd";
             this.LblNewPd.Size = new System.Drawing.Size(142, 21);
             this.LblNewPd.TabIndex = 146;
@@ -1011,7 +893,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(92, 99);
+            this.label3.Location = new System.Drawing.Point(93, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 21);
             this.label3.TabIndex = 143;
@@ -1023,7 +905,7 @@
             this.LblWrongPhoneInput.AutoSize = true;
             this.LblWrongPhoneInput.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblWrongPhoneInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.LblWrongPhoneInput.Location = new System.Drawing.Point(393, 449);
+            this.LblWrongPhoneInput.Location = new System.Drawing.Point(396, 415);
             this.LblWrongPhoneInput.Name = "LblWrongPhoneInput";
             this.LblWrongPhoneInput.Size = new System.Drawing.Size(279, 17);
             this.LblWrongPhoneInput.TabIndex = 102;
@@ -1031,16 +913,52 @@
             this.LblWrongPhoneInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LblWrongPhoneInput.Visible = false;
             // 
+            // BtnModify
+            // 
+            this.BtnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(191)))), ((int)(((byte)(74)))));
+            this.BtnModify.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnModify.FlatAppearance.BorderSize = 0;
+            this.BtnModify.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
+            this.BtnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnModify.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModify.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.BtnModify.Location = new System.Drawing.Point(171, 544);
+            this.BtnModify.Name = "BtnModify";
+            this.BtnModify.Size = new System.Drawing.Size(206, 30);
+            this.BtnModify.TabIndex = 156;
+            this.BtnModify.Text = "Modificar";
+            this.BtnModify.UseVisualStyleBackColor = false;
+            this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
+            // 
+            // BtnSaveChanges
+            // 
+            this.BtnSaveChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(191)))), ((int)(((byte)(74)))));
+            this.BtnSaveChanges.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnSaveChanges.Enabled = false;
+            this.BtnSaveChanges.FlatAppearance.BorderSize = 0;
+            this.BtnSaveChanges.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
+            this.BtnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSaveChanges.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveChanges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.BtnSaveChanges.Location = new System.Drawing.Point(407, 544);
+            this.BtnSaveChanges.Name = "BtnSaveChanges";
+            this.BtnSaveChanges.Size = new System.Drawing.Size(206, 30);
+            this.BtnSaveChanges.TabIndex = 155;
+            this.BtnSaveChanges.Text = "Guardar";
+            this.BtnSaveChanges.UseVisualStyleBackColor = false;
+            this.BtnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
+            // 
             // FrmEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(784, 626);
+            this.Controls.Add(this.BtnModify);
+            this.Controls.Add(this.BtnSaveChanges);
             this.Controls.Add(this.LblWrongPhoneInput);
             this.Controls.Add(this.LblUserLin);
             this.Controls.Add(this.FwlPnlName);
-            this.Controls.Add(this.BtnSaveChanges);
             this.Controls.Add(this.PnlEnterNewBD);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label5);
@@ -1052,8 +970,6 @@
             this.Controls.Add(this.LblWrongPwd);
             this.Controls.Add(this.PnlAdmin);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.PnlPwd);
             this.Controls.Add(this.LblNewPd);
             this.Controls.Add(this.label3);
             this.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1064,10 +980,10 @@
             this.FwlPnlName.ResumeLayout(false);
             this.PnlEnterNewFirstName.ResumeLayout(false);
             this.PnlEnterNewFirstName.PerformLayout();
-            this.PnlAdminFirstSurname.ResumeLayout(false);
-            this.PnlAdminFirstSurname.PerformLayout();
             this.PnlEnterNewSecondName.ResumeLayout(false);
             this.PnlEnterNewSecondName.PerformLayout();
+            this.PnlAdminFirstSurname.ResumeLayout(false);
+            this.PnlAdminFirstSurname.PerformLayout();
             this.PnlEnterNewSecondSurname.ResumeLayout(false);
             this.PnlEnterNewSecondSurname.PerformLayout();
             this.PnlEnterNewBD.ResumeLayout(false);
@@ -1082,9 +998,6 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.PnlPwd.ResumeLayout(false);
-            this.PnlEnterPwd.ResumeLayout(false);
-            this.PnlEnterPwd.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1118,7 +1031,6 @@
         private System.Windows.Forms.Panel PnlSecondSurnameLeft;
         private System.Windows.Forms.Panel PnlSecondSurnameDown;
         private System.Windows.Forms.Panel PnlSecondSurnameUp;
-        private System.Windows.Forms.Button BtnSaveChanges;
         private System.Windows.Forms.Panel PnlEnterNewBD;
         private System.Windows.Forms.Panel PnlUsrBdRight;
         private System.Windows.Forms.DateTimePicker DtpUsrBD;
@@ -1164,17 +1076,10 @@
         private System.Windows.Forms.Panel PnlUsrNewPwdLeft;
         private System.Windows.Forms.Panel PnlUsrNewPwdUp;
         private System.Windows.Forms.Panel PnlUsrNewPwdDown;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel PnlPwd;
-        private System.Windows.Forms.Panel PnlEnterPwd;
-        private System.Windows.Forms.Button BtnShowHide;
-        private System.Windows.Forms.TextBox TxtUsrPwd;
-        private System.Windows.Forms.Panel PnlUsrPwdRight;
-        private System.Windows.Forms.Panel PnlUsrPwdLeft;
-        private System.Windows.Forms.Panel PnlUsrPwdUp;
-        private System.Windows.Forms.Panel PnlUsrPwdDown;
         private System.Windows.Forms.Label LblNewPd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblWrongPhoneInput;
+        private System.Windows.Forms.Button BtnModify;
+        private System.Windows.Forms.Button BtnSaveChanges;
     }
 }

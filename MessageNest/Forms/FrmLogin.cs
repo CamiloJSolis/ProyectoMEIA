@@ -97,7 +97,7 @@ namespace MessageNest
             string password = TxtPwd.Text.Trim();
 
             UserDao userDao = new UserDao();
-            UserEntity user = userDao.BuscarRegistro(userName,EncryptPassword(password));
+            UserEntity user = userDao.AutenticarUsuario(userName,EncryptPassword(password));
 
             if ( user != null)
             {

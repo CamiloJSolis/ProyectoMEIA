@@ -55,13 +55,25 @@ namespace MessageNest.Forms
                 role = "Usuario";
             }
 
+            string isActive;
+            if (user.IsActive == 1)
+            {
+                isActive = "Sí";
+            }
+            else
+            {
+                isActive = "No";
+            }
+
             TxtAdminUsr.Text = user.UserName;
             TxtAdminFirstName.Text = firstName;
             TxtAdminSecondName.Text = secondName;
             TxtAdminFirstSurname.Text = firstSurname;
             TxtAdminSecondSurname.Text = secondSurname;
             TxtAdminPhone.Text = user.PhoneNumber;
+            DtpAdminBD.Text = user.BirthDate;
             CmbxRol.Text = role;
+            CmbxActive.Text = isActive;
         }
 
         #region Cambiar color
@@ -108,27 +120,37 @@ namespace MessageNest.Forms
             }
         }
 
+        private void BtnModify_Click(object sender, EventArgs e)
+        {
+            TxtAdminNewPwd.ReadOnly = false;
+            DtpAdminBD.Enabled = true;
+            TxtAdminPhone.ReadOnly = false;
+            BtnSaveChanges.Enabled = true;
+        }
+
         private void BtnSaveChanges_Click(object sender, EventArgs e)
         {
-            UserEntity user = new UserEntity();
             UserDao userDao = new UserDao();
 
+            int isActive = 0;
+            if (CmbxActive.Text == "Sí")
+            {
+                isActive = 1;
+            }
+
             string password = TxtAdminNewPwd.Text;
+            string userName = TxtAdminUsr.Text;
+            string newBirthDate = DtpAdminBD.Value.ToString("dd/MM/yyyy").PadRight(10);
+            string newPhone = PadRight(TxtAdminPhone.Text, 10);
 
             CorrectInput(DtpAdminBD.Value);
 
             if (IsPasswordSecure(password))
             {
-                UserEntity modifyUser = new UserEntity();
+               if (userDao.ModificarUsuario(userName, EncryptPassword(password), newBirthDate, newPhone, isActive))
                 {
-                    user.PhoneNumber = PadRight(TxtAdminPhone.Text, 10);
-                    user.BirthDate = DtpAdminBD.Value.ToString("dd/MM/yyyy").PadRight(10);
-                    user.Role = SetRole(userDao.firstUser) ? 1 : 0;
-                    user.PasswordEncrypted = EncryptPassword(TxtAdminNewPwd.Text);
-
-                };
-
-                userDao.ModifyUser(user.Name, user.PhoneNumber, user.BirthDate, user.PasswordEncrypted);
+                    ClearFields();
+                }
             }
         }
 
@@ -171,19 +193,6 @@ namespace MessageNest.Forms
             return hasUpperCase && hasLowerCase && hasDigit && hasMinimumLength && hasMaxLength;
         }
 
-        private bool SetRole(bool isEmpty)
-        {
-            bool role = true;
-            if (isEmpty == true)
-            {
-                return role; // 1 para admin
-            }
-            else
-            {
-                return role = false; // 0 user
-            }
-        }
-
         private string PadRight(string input, int length)
         {
             if (input.Length < length)
@@ -204,14 +213,17 @@ namespace MessageNest.Forms
         // KeyPress
         private void TxtAdminPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!TxtAdminPhone.ReadOnly == true)
             {
-                e.Handled = true;
-                LblWrongPhoneInput.Visible = true;
-            }
-            else
-            {
-                LblWrongPhoneInput.Visible = false;
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                    LblWrongPhoneInput.Visible = true;
+                }
+                else
+                {
+                    LblWrongPhoneInput.Visible = false;
+                }
             }
         }
 
@@ -247,7 +259,7 @@ namespace MessageNest.Forms
 
         private void PnlPhone_Leave(object sender, EventArgs e)
         {
-            TxtAdminPhone.ForeColor = Color.White;
+            TxtAdminPhone.ForeColor = Color.DarkGray;
             SetAdminPhonePanelsColor(Color.FromArgb(50, 50, 50));
         }
 
