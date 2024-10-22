@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -136,23 +137,45 @@ namespace MessageNest.Forms
                     dialogResult = MessageBox.Show("¿Desea agregar otro usuario?", "Crear usuario",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                    UpdateDescUser(userName, user.Name);
+
                     if (dialogResult == DialogResult.No)
+                    {
+                        this.Close();
+                    }
+                    else
                     {
                         ClearFields();
                     }
                 }
             }
-            else
+            else if (!IsPasswordSecure(password))
             {
-                MessageBox.Show("La contraseña no cumple con el nivel mínimo de seguridad.");
+                MessageBox.Show("La contraseña no cumple con el nivel mínimo de seguridad.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
         private void ClearFields()
         {
-            this.Close();
-            this.Show();
+            TxtNewUsr.Clear();
+            TxtNewUsrFirstName.Clear();
+            TxtNewUsrSecondName.Clear();
+            TxtNewUsrFirstSurname.Clear();
+            TxtNewUsrSecondSurname.Clear();
+            TxtNewUsrPwd.Text = "Contraseña";
+            TxtNewUsrPhone.Text = "0000000000";
+            DtpNewUsrBD.Value = DateTime.Now;
+
+            SetNewUsrPanelsColor(Color.FromArgb(50, 50, 50));
+            SetNewFirstNamePanlesColor(Color.FromArgb(50, 50, 50));
+            SetNewSecondNamePanelsColor(Color.FromArgb(50, 50, 50));
+            SetNewFirstSurnamePanelColor(Color.FromArgb(50, 50, 50));
+            SetNewSecondSurnamePanelsColor(Color.FromArgb(50, 50, 50));
+            SetNewPasswordPanlesColor(Color.FromArgb(50, 50, 50));
+            SetPhonePanlesColor(Color.FromArgb(50, 50, 50));
+            SetBirthDatePanelsColor(Color.FromArgb(50, 50, 50));
+            SetPhonePanlesColor(Color.FromArgb(50, 50, 50));
         }
 
         private string EncryptPassword(string password)
@@ -200,7 +223,7 @@ namespace MessageNest.Forms
 
             if (!hasMinLength || !hasMaxLength || hasInvalidChar)
             {
-                MessageBox.Show("Usuario inválido.Debe tener entre 5 y 20 caracteres y solo contener letras, números y guiones bajos."
+                MessageBox.Show("Usuario inválido. Debe tener entre 5 y 20 caracteres. Solo debe contener letras, números y guiones bajos."
                     , "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
@@ -278,6 +301,50 @@ namespace MessageNest.Forms
                 return input.Substring(0, length); // Recorta si excede la longitud
             }
             return input;
+        }
+
+        private void UpdateDescUser(string userName, string name)
+        {
+            string descFilePath = @"C:\MEIA\desc_user.txt";
+            DateTime currentDate = DateTime.Now;
+            string symbolicName = name.Replace(" ", "").ToLower();
+
+            // Si el archivo no existe, lo crea con los detalles iniciales
+            if (!File.Exists(descFilePath))
+            {
+                using (StreamWriter writer = new StreamWriter(descFilePath))
+                {
+                    writer.WriteLine($"nombre_simbolico: {symbolicName}");
+                    writer.WriteLine($"fecha_creacion: {currentDate:dd/MM/yyyy}");
+                    writer.WriteLine($"usuario_creacion: {userName}");
+                    writer.WriteLine($"fecha_modificacion: {currentDate:dd/MM/yyyy}");
+                    writer.WriteLine($"usuario_modificacion: {userName}");
+                    writer.WriteLine("#_registros: 1");
+                    writer.WriteLine("registros_activos: 1");
+                    writer.WriteLine("registros_inactivos: 0");
+                    writer.WriteLine("max_reorganizacion: 100");
+                }
+            }
+            else
+            {
+                // Si el archivo existe, actualiza la información de la descripción
+                string[] lines = File.ReadAllLines(descFilePath);
+                int totalRecords = int.Parse(lines[5].Split(':')[1].Trim()) + 1;
+                int activeRecords = int.Parse(lines[6].Split(':')[1].Trim()) + 1;
+
+                using (StreamWriter writer = new StreamWriter(descFilePath))
+                {
+                    writer.WriteLine(lines[0]); // nombre_simbolico
+                    writer.WriteLine(lines[1]); // fecha_creacion
+                    writer.WriteLine(lines[2]); // usuario_creacion
+                    writer.WriteLine($"fecha_modificacion: {currentDate:dd/MM/yyyy}");
+                    writer.WriteLine($"usuario_modificacion: {userName}");
+                    writer.WriteLine($"#_registros: {totalRecords}");
+                    writer.WriteLine($"registros_activos: {activeRecords}");
+                    writer.WriteLine(lines[7]); // registros_inactivos
+                    writer.WriteLine(lines[8]); // max_reorganizacion
+                }
+            }
         }
 
         #endregion

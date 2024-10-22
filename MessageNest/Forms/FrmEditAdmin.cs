@@ -18,7 +18,7 @@ namespace MessageNest.Forms
         public FrmEditAdmin(UserEntity user)
         {
             InitializeComponent();
-            
+
             string[] names = user.Name.Split(' ');
             string firstName = names[0];
             string secondName;
@@ -78,7 +78,7 @@ namespace MessageNest.Forms
 
         #region Cambiar color
 
-        private void SetAdminPhonePanelsColor (Color color)
+        private void SetAdminPhonePanelsColor(Color color)
         {
             PnlPhoneLeft.BackColor = color;
             PnlPhoneRight.BackColor = color;
@@ -94,7 +94,7 @@ namespace MessageNest.Forms
             PnlAdminBDDown.BackColor = color;
         }
 
-        private void SetAdminNewPasswordPanlesColor (Color color)
+        private void SetAdminNewPasswordPanlesColor(Color color)
         {
             PnlAdminNewPwdLeft.BackColor = color;
             PnlAdminNewPwdRight.BackColor = color;
@@ -130,6 +130,7 @@ namespace MessageNest.Forms
 
         private void BtnSaveChanges_Click(object sender, EventArgs e)
         {
+            UserEntity user = new UserEntity();
             UserDao userDao = new UserDao();
 
             int isActive = 0;
@@ -138,20 +139,32 @@ namespace MessageNest.Forms
                 isActive = 1;
             }
 
-            string password = TxtAdminNewPwd.Text;
+            string Newpassword = TxtAdminNewPwd.Text;
             string userName = TxtAdminUsr.Text;
             string newBirthDate = DtpAdminBD.Value.ToString("dd/MM/yyyy").PadRight(10);
             string newPhone = PadRight(TxtAdminPhone.Text, 10);
 
             CorrectInput(DtpAdminBD.Value);
 
-            if (IsPasswordSecure(password))
+            if (IsPasswordSecure(Newpassword) && TxtAdminNewPwd.Text != "Contraseña"  && Newpassword != user.PasswordEncrypted)
             {
-               if (userDao.ModificarUsuario(userName, EncryptPassword(password), newBirthDate, newPhone, isActive))
+                if (userDao.ModificarUsuario(userName, EncryptPassword(Newpassword), newBirthDate, newPhone, isActive))
                 {
                     ClearFields();
                 }
             }
+            //else if (TxtAdminNewPwd.Text == "Contraseña")
+            //{
+            //    string password = user.PasswordEncrypted;
+            //    if (userDao.ModificarUsuario(userName, password, newBirthDate, newPhone, isActive))
+            //    {
+            //        ClearFields();
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("La nueva contraseña debe ser distinta a su contraseña actual", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private void ClearFields()
@@ -176,7 +189,7 @@ namespace MessageNest.Forms
         }
 
         private void CorrectInput(DateTime birthDate)
-        { 
+        {
             if (DtpAdminBD.Value == DateTime.Now.Date)
             {
                 MessageBox.Show("Debe ingresar una fecha válida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);

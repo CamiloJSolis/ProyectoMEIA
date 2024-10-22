@@ -43,7 +43,6 @@ C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archiv
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\bin\Debug\MessageNest.exe
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\bin\Debug\MessageNest.pdb
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\obj\Debug\MessageNest.csproj.AssemblyReference.cache
-C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\obj\Debug\MessageNest.Forms.Form1.resources
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\obj\Debug\MessageNest.Forms.FrmAddUser.resources
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\obj\Debug\MessageNest.Forms.FrmAdmin.resources
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\obj\Debug\MessageNest.Forms.FrmAdminInfo.resources

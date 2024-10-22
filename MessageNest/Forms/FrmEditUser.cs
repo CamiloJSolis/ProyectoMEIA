@@ -131,6 +131,7 @@ namespace MessageNest.Forms
 
         private void BtnSaveChanges_Click(object sender, EventArgs e)
         {
+            UserEntity user = new UserEntity();
             UserDao userDao = new UserDao();
 
             int isActive = 0;
@@ -139,16 +140,16 @@ namespace MessageNest.Forms
                 isActive = 1;
             }
 
-            string password = TxtUsrNewPwd.Text;
+            string Newpassword = TxtUsrNewPwd.Text;
             string userName = TxtNormalUsr.Text;
             string newBirthDate = DtpUsrBD.Value.ToString("dd/MM/yyyy").PadRight(10);
             string newPhone = PadRight(TxtUsrPhone.Text, 10);
 
             CorrectInput(DtpUsrBD.Value);
 
-            if (IsPasswordSecure(password))
+            if (IsPasswordSecure(Newpassword) && TxtUsrNewPwd.Text != "Contraseña" && Newpassword != user.PasswordEncrypted)
             {
-                if (userDao.ModificarUsuario(userName, EncryptPassword(password), newBirthDate, newPhone, isActive))
+                if (userDao.ModificarUsuario(userName, EncryptPassword(Newpassword), newBirthDate, newPhone, isActive))
                 {
                     ClearFields();
                 }
@@ -157,8 +158,26 @@ namespace MessageNest.Forms
 
         private void ClearFields()
         {
+            //TxtNormalUsr.Clear();
+            //TxtUsrFirstName.Clear();
+            //TxtUsrSecondName.Clear();
+            //TxtUsrFirstSurname.Clear();
+            //TxtUsrSecondSurname.Clear();
+            //TxtUsrNewPwd.Text = "Contraseña";
+            //DtpUsrBD.Value = DateTime.Now;
+            //TxtUsrPhone.Text = "0000000000";
+            //CmbxRol.Text = "";
+            //CmbxActive.Text = "";
+
+            //SetUserPhonePanelsColor(Color.FromArgb(50, 50, 50));
+            //SetUserNewPasswordPanlesColor(Color.FromArgb(50, 50, 50));
+            //SetUserBDPanelsColor(Color.FromArgb(50, 50, 50));
             this.Close();
-            this.Show();
+
+            UserEntity user = new UserEntity();
+            FrmUserInfo frmUserInfo = new FrmUserInfo(user);
+
+            frmUserInfo.Show();
         }
 
         private string EncryptPassword(string password)
