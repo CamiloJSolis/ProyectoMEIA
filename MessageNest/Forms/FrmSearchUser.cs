@@ -214,8 +214,6 @@ namespace MessageNest.Forms
             int inactiveRecords = int.Parse(lines[7].Split(':')[1].Trim());
             bool wasActive = _isActive == 1;
 
-            MessageBox.Show("Comparando", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             if (wasActive && _user.IsActive == 0)
             {
                 activeRecords -= 1;
@@ -226,14 +224,12 @@ namespace MessageNest.Forms
             {
                 activeRecords += 1;
                 inactiveRecords -= 1;
+                MessageBox.Show("El usuario ha sido activado", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show($"No se ha realizado ningún cambio en el estado.", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
-            MessageBox.Show("Ya comparo", "Info", MessageBoxButtons.OK);
 
             using (StreamWriter writer = new StreamWriter(descFilePath))
             {

@@ -159,8 +159,6 @@ namespace MessageNest.Forms
 
                 if (userDao.ModificarUsuario(_user.UserName, _user.PasswordEncrypted, _user.BirthDate, _user.PhoneNumber, _user.IsActive))
                 {
-                    MessageBox.Show("Modificando desc user");
-                    MessageBox.Show(_user.UserName);
                     UpdateDescUser(_user.UserName);
                     ClearFields();
                 }
@@ -174,9 +172,7 @@ namespace MessageNest.Forms
 
                 if (userDao.ModificarUsuario(_user.UserName, actualPassword, _user.BirthDate, _user.PhoneNumber, _user.IsActive))
                 {
-                    MessageBox.Show(_user.UserName);
                     UpdateDescUser(_user.UserName);
-                    MessageBox.Show("Modificando desc user");
                     ClearFields();
                 }
             }
@@ -244,8 +240,6 @@ namespace MessageNest.Forms
             int inactiveRecords = int.Parse(lines[7].Split(':')[1].Trim());
             bool wasActive = _isActive == 1;
 
-            MessageBox.Show("Comparando", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             if (wasActive && _user.IsActive == 0)
             {
                 activeRecords -= 1;
@@ -256,9 +250,6 @@ namespace MessageNest.Forms
             {
                 MessageBox.Show($"No se ha realizado ningún cambio en el estado.", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
-            MessageBox.Show("Ya comparo", "Info", MessageBoxButtons.OK);
 
             using (StreamWriter writer = new StreamWriter(descFilePath))
             {
