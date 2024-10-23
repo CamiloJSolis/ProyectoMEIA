@@ -131,6 +131,10 @@ namespace MessageNest.Forms
                 CmbxFoundRol.Text = role;
                 CmbxFoundActive.Text = isActive;
             }
+            else
+            {
+                MessageBox.Show("¡El usuario no existe!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 

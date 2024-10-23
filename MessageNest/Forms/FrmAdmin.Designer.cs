@@ -50,7 +50,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.BtnContacts = new System.Windows.Forms.Button();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.BtnLogOut = new System.Windows.Forms.Button();
             this.PnlTopAdmin.SuspendLayout();
@@ -61,6 +65,7 @@
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel14.SuspendLayout();
             this.SuspendLayout();
@@ -199,7 +204,10 @@
             this.FwlPnlButton.Controls.Add(this.panel5);
             this.FwlPnlButton.Controls.Add(this.panel6);
             this.FwlPnlButton.Controls.Add(this.panel7);
+            this.FwlPnlButton.Controls.Add(this.panel12);
+            this.FwlPnlButton.Controls.Add(this.panel15);
             this.FwlPnlButton.Controls.Add(this.panel8);
+            this.FwlPnlButton.Controls.Add(this.panel11);
             this.FwlPnlButton.Controls.Add(this.panel14);
             this.FwlPnlButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.FwlPnlButton.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -230,13 +238,13 @@
             // 
             this.panel1.Location = new System.Drawing.Point(3, 140);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(251, 45);
+            this.panel1.Size = new System.Drawing.Size(251, 23);
             this.panel1.TabIndex = 45;
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.BtnAdminInfo);
-            this.panel10.Location = new System.Drawing.Point(3, 191);
+            this.panel10.Location = new System.Drawing.Point(3, 169);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(251, 45);
             this.panel10.TabIndex = 51;
@@ -261,7 +269,7 @@
             // 
             // panel9
             // 
-            this.panel9.Location = new System.Drawing.Point(3, 242);
+            this.panel9.Location = new System.Drawing.Point(3, 220);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(251, 10);
             this.panel9.TabIndex = 53;
@@ -269,14 +277,14 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.BtnModifyAdmin);
-            this.panel2.Location = new System.Drawing.Point(3, 258);
+            this.panel2.Location = new System.Drawing.Point(3, 236);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(251, 45);
             this.panel2.TabIndex = 46;
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(3, 309);
+            this.panel3.Location = new System.Drawing.Point(3, 287);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(251, 10);
             this.panel3.TabIndex = 47;
@@ -284,14 +292,14 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.BtnAddUsr);
-            this.panel4.Location = new System.Drawing.Point(3, 325);
+            this.panel4.Location = new System.Drawing.Point(3, 303);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(251, 45);
             this.panel4.TabIndex = 48;
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(3, 376);
+            this.panel5.Location = new System.Drawing.Point(3, 354);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(251, 10);
             this.panel5.TabIndex = 49;
@@ -299,33 +307,73 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.BtnSrchUsr);
-            this.panel6.Location = new System.Drawing.Point(3, 392);
+            this.panel6.Location = new System.Drawing.Point(3, 370);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(251, 45);
             this.panel6.TabIndex = 50;
             // 
             // panel7
             // 
-            this.panel7.Location = new System.Drawing.Point(3, 443);
+            this.panel7.Location = new System.Drawing.Point(3, 421);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(251, 10);
             this.panel7.TabIndex = 51;
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.BtnContacts);
+            this.panel12.Location = new System.Drawing.Point(3, 437);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(251, 45);
+            this.panel12.TabIndex = 53;
+            // 
+            // BtnContacts
+            // 
+            this.BtnContacts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BtnContacts.FlatAppearance.BorderSize = 0;
+            this.BtnContacts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
+            this.BtnContacts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnContacts.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnContacts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.BtnContacts.Image = global::MessageNest.Properties.Resources.contacts;
+            this.BtnContacts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnContacts.Location = new System.Drawing.Point(7, 3);
+            this.BtnContacts.Name = "BtnContacts";
+            this.BtnContacts.Size = new System.Drawing.Size(236, 39);
+            this.BtnContacts.TabIndex = 3;
+            this.BtnContacts.Text = "Contactos";
+            this.BtnContacts.UseVisualStyleBackColor = false;
+            this.BtnContacts.Click += new System.EventHandler(this.BtnContacts_Click);
+            // 
+            // panel15
+            // 
+            this.panel15.Location = new System.Drawing.Point(3, 488);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(251, 10);
+            this.panel15.TabIndex = 53;
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.BtnBackup);
-            this.panel8.Location = new System.Drawing.Point(3, 459);
+            this.panel8.Location = new System.Drawing.Point(3, 504);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(251, 45);
             this.panel8.TabIndex = 52;
+            // 
+            // panel11
+            // 
+            this.panel11.Location = new System.Drawing.Point(3, 555);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(251, 10);
+            this.panel11.TabIndex = 52;
             // 
             // panel14
             // 
             this.panel14.Controls.Add(this.BtnLogOut);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(3, 510);
+            this.panel14.Location = new System.Drawing.Point(3, 571);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(251, 113);
+            this.panel14.Size = new System.Drawing.Size(251, 52);
             this.panel14.TabIndex = 53;
             // 
             // BtnLogOut
@@ -339,7 +387,7 @@
             this.BtnLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
             this.BtnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("BtnLogOut.Image")));
             this.BtnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLogOut.Location = new System.Drawing.Point(0, 74);
+            this.BtnLogOut.Location = new System.Drawing.Point(0, 13);
             this.BtnLogOut.Name = "BtnLogOut";
             this.BtnLogOut.Size = new System.Drawing.Size(251, 39);
             this.BtnLogOut.TabIndex = 4;
@@ -371,6 +419,7 @@
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -403,5 +452,9 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button BtnAdminInfo;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button BtnContacts;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel11;
     }
 }

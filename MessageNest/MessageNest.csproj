@@ -66,6 +66,12 @@
     <Compile Include="Forms\FrmAdminInfo.Designer.cs">
       <DependentUpon>FrmAdminInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmContacts.Designer.cs">
+      <DependentUpon>FrmContacts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmEditAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAdminInfo.resx">
       <DependentUpon>FrmAdminInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmContacts.resx">
+      <DependentUpon>FrmContacts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEditAdmin.resx">
       <DependentUpon>FrmEditAdmin.cs</DependentUpon>
@@ -225,6 +234,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contacts.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

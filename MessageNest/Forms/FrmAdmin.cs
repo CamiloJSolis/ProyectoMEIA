@@ -90,6 +90,11 @@ namespace MessageNest.Forms
             OpenChildForm(new FrmSearchUser());
         }
 
+        private void BtnContacts_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Estamos trabajando en agregar esta función", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("¿Está seguro que quiere salir?", "Confirmación", MessageBoxButtons.YesNo);
