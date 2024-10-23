@@ -257,7 +257,6 @@
             this.TxtFoundPwd.ReadOnly = true;
             this.TxtFoundPwd.Size = new System.Drawing.Size(582, 22);
             this.TxtFoundPwd.TabIndex = 15;
-            this.TxtFoundPwd.Leave += new System.EventHandler(this.TxtFoundPwd_Leave);
             // 
             // PnlInsertPwdRight
             // 
@@ -472,9 +471,9 @@
             this.BtnSearch.FlatAppearance.BorderSize = 0;
             this.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSearch.Image = global::MessageNest.Properties.Resources.search_icon;
-            this.BtnSearch.Location = new System.Drawing.Point(553, 1);
+            this.BtnSearch.Location = new System.Drawing.Point(540, 1);
             this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(38, 32);
+            this.BtnSearch.Size = new System.Drawing.Size(51, 32);
             this.BtnSearch.TabIndex = 11;
             this.BtnSearch.UseVisualStyleBackColor = true;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);

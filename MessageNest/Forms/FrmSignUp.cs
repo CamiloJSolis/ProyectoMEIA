@@ -98,7 +98,7 @@ namespace MessageNest.Forms
                     dialogResult = MessageBox.Show("¿Desea agregar otro usuario?", "Crear usuario", 
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    UpdateDescUser(userName, user.Name);
+                    UpdateDescUser(userName);
 
                     if(dialogResult == DialogResult.No)
                     {
@@ -251,18 +251,17 @@ namespace MessageNest.Forms
             return input;
         }
 
-        private void UpdateDescUser(string userName, string name)
+        private void UpdateDescUser(string userName)
         {
             string descFilePath = @"C:\MEIA\desc_user.txt";
             DateTime currentDate = DateTime.Now;
-            string symbolicName = name.Replace(" ", "").ToLower();
 
             // Si el archivo no existe, lo crea con los detalles iniciales
             if (!File.Exists(descFilePath))
             {
                 using (StreamWriter writer = new StreamWriter(descFilePath))
                 {
-                    writer.WriteLine($"nombre_simbolico: {symbolicName}");
+                    writer.WriteLine($"nombre_simbolico: Usuarios");
                     writer.WriteLine($"fecha_creacion: {currentDate:dd/MM/yyyy}");
                     writer.WriteLine($"usuario_creacion: {userName}");
                     writer.WriteLine($"fecha_modificacion: {currentDate:dd/MM/yyyy}");

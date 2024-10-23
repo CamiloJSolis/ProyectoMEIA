@@ -598,6 +598,7 @@
             this.TxtUsrPhone.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtUsrPhone.ForeColor = System.Drawing.Color.DarkGray;
             this.TxtUsrPhone.Location = new System.Drawing.Point(7, 4);
+            this.TxtUsrPhone.MaxLength = 10;
             this.TxtUsrPhone.Name = "TxtUsrPhone";
             this.TxtUsrPhone.ReadOnly = true;
             this.TxtUsrPhone.Size = new System.Drawing.Size(283, 22);

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -15,9 +16,15 @@ namespace MessageNest.Forms
 {
     public partial class FrmEditUser : Form
     {
+        private UserEntity _user;
+        private int _isActive;
+
         public FrmEditUser(UserEntity user)
         {
             InitializeComponent();
+
+            _user = user;
+            _isActive = user.IsActive;
 
             string[] names = user.Name.Split(' ');
             string firstName = names[0];
@@ -131,26 +138,45 @@ namespace MessageNest.Forms
 
         private void BtnSaveChanges_Click(object sender, EventArgs e)
         {
-            UserEntity user = new UserEntity();
             UserDao userDao = new UserDao();
 
-            int isActive = 0;
-            if (CmbxActive.Text == "Sí")
-            {
-                isActive = 1;
-            }
-
-            string Newpassword = TxtUsrNewPwd.Text;
-            string userName = TxtNormalUsr.Text;
+            int isActive = CmbxActive.Text == "Sí" ? 1 : 0;
+            string actualPassword = _user.PasswordEncrypted;
+            string newPassword = TxtUsrNewPwd.Text;
+            string userName = TxtNormalUsr.Text.Trim();
             string newBirthDate = DtpUsrBD.Value.ToString("dd/MM/yyyy").PadRight(10);
             string newPhone = PadRight(TxtUsrPhone.Text, 10);
 
             CorrectInput(DtpUsrBD.Value);
 
-            if (IsPasswordSecure(Newpassword) && TxtUsrNewPwd.Text != "Contraseña" && Newpassword != user.PasswordEncrypted)
+            if (IsPasswordSecure(newPassword) && TxtUsrNewPwd.Text != "Contraseña" && newPassword != actualPassword)
             {
-                if (userDao.ModificarUsuario(userName, EncryptPassword(Newpassword), newBirthDate, newPhone, isActive))
+                _user.UserName = userName;
+                _user.PasswordEncrypted = EncryptPassword(newPassword);
+                _user.BirthDate = newBirthDate;
+                _user.PhoneNumber = newPhone;
+                _user.IsActive = isActive;
+
+                if (userDao.ModificarUsuario(_user.UserName, _user.PasswordEncrypted, _user.BirthDate, _user.PhoneNumber, _user.IsActive))
                 {
+                    MessageBox.Show("Modificando desc user");
+                    MessageBox.Show(_user.UserName);
+                    UpdateDescUser(_user.UserName);
+                    ClearFields();
+                }
+            }
+            else
+            {
+                _user.UserName = userName;
+                _user.BirthDate = newBirthDate;
+                _user.PhoneNumber = newPhone;
+                _user.IsActive = isActive;
+
+                if (userDao.ModificarUsuario(_user.UserName, actualPassword, _user.BirthDate, _user.PhoneNumber, _user.IsActive))
+                {
+                    MessageBox.Show(_user.UserName);
+                    UpdateDescUser(_user.UserName);
+                    MessageBox.Show("Modificando desc user");
                     ClearFields();
                 }
             }
@@ -158,26 +184,7 @@ namespace MessageNest.Forms
 
         private void ClearFields()
         {
-            //TxtNormalUsr.Clear();
-            //TxtUsrFirstName.Clear();
-            //TxtUsrSecondName.Clear();
-            //TxtUsrFirstSurname.Clear();
-            //TxtUsrSecondSurname.Clear();
-            //TxtUsrNewPwd.Text = "Contraseña";
-            //DtpUsrBD.Value = DateTime.Now;
-            //TxtUsrPhone.Text = "0000000000";
-            //CmbxRol.Text = "";
-            //CmbxActive.Text = "";
-
-            //SetUserPhonePanelsColor(Color.FromArgb(50, 50, 50));
-            //SetUserNewPasswordPanlesColor(Color.FromArgb(50, 50, 50));
-            //SetUserBDPanelsColor(Color.FromArgb(50, 50, 50));
             this.Close();
-
-            UserEntity user = new UserEntity();
-            FrmUserInfo frmUserInfo = new FrmUserInfo(user);
-
-            frmUserInfo.Show();
         }
 
         private string EncryptPassword(string password)
@@ -224,6 +231,47 @@ namespace MessageNest.Forms
                 return input.Substring(0, length); // Recorta si excede la longitud
             }
             return input;
+        }
+
+        private void UpdateDescUser(string userName)
+        {
+            string descFilePath = @"C:\MEIA\desc_user.txt";
+            DateTime currentDate = DateTime.Now;
+
+            string[] lines = File.ReadAllLines(descFilePath);
+            int totalRecords = int.Parse(lines[5].Split(':')[1].Trim());
+            int activeRecords = int.Parse(lines[6].Split(':')[1].Trim());
+            int inactiveRecords = int.Parse(lines[7].Split(':')[1].Trim());
+            bool wasActive = _isActive == 1;
+
+            MessageBox.Show("Comparando", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if (wasActive && _user.IsActive == 0)
+            {
+                activeRecords -= 1;
+                inactiveRecords += 1;
+                MessageBox.Show("El usuario ha sido desactivado", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"No se ha realizado ningún cambio en el estado.", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+            MessageBox.Show("Ya comparo", "Info", MessageBoxButtons.OK);
+
+            using (StreamWriter writer = new StreamWriter(descFilePath))
+            {
+                writer.WriteLine(lines[0]); // nombre_simbolico
+                writer.WriteLine(lines[1]); // fecha_creacion
+                writer.WriteLine(lines[2]); // usuario_creacion
+                writer.WriteLine($"fecha_modificacion: {currentDate:dd/MM/yyyy}");
+                writer.WriteLine($"usuario_modificacion: {userName}");
+                writer.WriteLine($"#_registros: {totalRecords}");
+                writer.WriteLine($"registros_activos: {activeRecords}");
+                writer.WriteLine($"registros_inactivos: {inactiveRecords}"); // registros_inactivos
+                writer.WriteLine(lines[8]); // max_reorganizacion
+            }
         }
 
         #endregion

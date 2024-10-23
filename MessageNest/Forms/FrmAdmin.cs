@@ -116,35 +116,105 @@ namespace MessageNest.Forms
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 string destinationFolder = Path.Combine(folderBrowserDialog.SelectedPath, "Backup");
+
+                if (Directory.CreateDirectory(destinationFolder).Exists)
+                {
+                    Directory.Delete(destinationFolder, true);
+                }
+
                 Directory.CreateDirectory(destinationFolder);
 
                 try
                 {
-                string[] files = Directory.GetFiles(sourceFolder);
-               
-                foreach (string file in files)
-                {
-                    string fileName = Path.GetFileName(file);
-                    string destiny = Path.Combine(destinationFolder, fileName);
-                    File.Copy(file, destiny, true);
-                }
+                    string[] files = Directory.GetFiles(sourceFolder);
 
-                string[] folders = Directory.GetDirectories(sourceFolder);
+                    foreach (string file in files)
+                    {
+                        string fileName = Path.GetFileName(file);
+                        string destination = Path.Combine(destinationFolder, fileName);
+                        File.Copy(file, destination, true);
+                    }
 
-                foreach (string folder in folders)
-                {
-                    string dirName = Path.GetFileName(folder);
-                    string destiniy = Path.Combine(destinationFolder, dirName);
-                    
-                   Directory.CreateDirectory(destiniy);
-                   Backup(destiniy);
-                }
+                    string[] folders = Directory.GetDirectories(sourceFolder);
+
+                    foreach (string folder in folders)
+                    {
+                        string dirName = Path.GetFileName(folder);
+                        string destiniy = Path.Combine(destinationFolder, dirName);
+
+                        Directory.CreateDirectory(destiniy);
+                        Backup(destiniy);
+                    }
+
+                    BackupLog(destinationFolder);
 
                     MessageBox.Show("Carpeta almacenada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Ocurrió un error al guardar la carpeta: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void BackupLog(string destinationFolder)
+        {
+            string logDestinationFilePath = @"C:\MEIA\bitacora_backup.txt";
+            DateTime operationDate = DateTime.Now;
+
+            using (StreamWriter writer = new StreamWriter(logDestinationFilePath, true)) // true para agregar al final
+            {
+                writer.WriteLine($"ruta_absoluta: {destinationFolder}");
+                writer.WriteLine($"user: {_currentUser.UserName}");
+                writer.WriteLine($"fecha_operación: {operationDate:dd/MM/yyyy}");
+                writer.WriteLine();
+            }
+
+            UpdateDescBackup(logDestinationFilePath);
+        }
+
+        private void UpdateDescBackup(string logDestinationFilePath)
+        {
+            string descDestinationFilePath = @"C:\MEIA\desc_bitacora_backup.txt";
+            DateTime creationDate = DateTime.Now;
+
+
+            if (!File.Exists(descDestinationFilePath))
+            {
+                using (StreamWriter writer = new StreamWriter(descDestinationFilePath))
+                {
+                    writer.WriteLine($"nombre_simbolico: Descriptor de los backups");
+                    writer.WriteLine($"fecha_creacion: {creationDate}");
+                    writer.WriteLine($"usuario_creacion: {_currentUser.UserName}");
+                    writer.WriteLine($"fecha_modificacion: {creationDate}");
+                    writer.WriteLine($"usuario_modificacion: {_currentUser.UserName}");
+                    writer.WriteLine($"#_registros: 1");
+                }
+            }
+            else
+            {
+                string[] lines = File.ReadAllLines(descDestinationFilePath);
+                int registrationNumber = 0;
+
+                string[] backupLogLines = File.ReadAllLines(logDestinationFilePath);
+               
+                foreach (string line in backupLogLines)
+                {
+                    if (line.Trim() == "")
+                    {
+                        registrationNumber++;
+                    }
+                }
+
+                using (StreamWriter writer = new StreamWriter(descDestinationFilePath))
+                {
+                    writer.WriteLine(lines[0]);
+                    writer.WriteLine(lines[1]);
+                    writer.WriteLine(lines[2]);
+                    writer.WriteLine($"fecha_modificacion: {creationDate}");
+                    writer.WriteLine($"usuario_modificacion: {_currentUser.UserName}");
+                    writer.WriteLine($"#_registros: {registrationNumber}");
                 }
 
             }

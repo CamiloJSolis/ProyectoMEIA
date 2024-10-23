@@ -118,8 +118,7 @@ namespace MessageNest.Dao
                     return null;
                 }
 
-                string[] lines = { };
-                lines = File.ReadAllLines(filePath);
+                string[] lines = lines = File.ReadAllLines(filePath);
 
                 foreach (string line in lines)
                 {

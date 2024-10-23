@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -15,13 +16,16 @@ namespace MessageNest.Forms
 {
     public partial class FrmSearchUser : Form
     {
+        private UserEntity _user;
+        private int _isActive;
+
         public FrmSearchUser()
         {
             InitializeComponent();
         }
 
         #region Cambiar Color
-        private void SetSearchUserPanelsColor (Color color)
+        private void SetSearchUserPanelsColor(Color color)
         {
             PnlSearchUsrLeft.BackColor = color;
             PnlSearchtUsrRight.BackColor = color;
@@ -29,7 +33,7 @@ namespace MessageNest.Forms
             PnlSearchUsrDown.BackColor = color;
         }
 
-        private void SetDtpBirthDatePanelsColor (Color color)
+        private void SetDtpBirthDatePanelsColor(Color color)
         {
             PnlBDLeft.BackColor = color;
             PnlBDRight.BackColor = color;
@@ -37,7 +41,7 @@ namespace MessageNest.Forms
             PnlBDDown.BackColor = color;
         }
 
-        private void SetPhonePanelsColor (Color color)
+        private void SetPhonePanelsColor(Color color)
         {
             PnlPhoneLeft.BackColor = color;
             PnlPhoneRight.BackColor = color;
@@ -56,22 +60,15 @@ namespace MessageNest.Forms
             }
         }
 
-        private void TxtSearchUsr_Enter(object sender, EventArgs e)
-        {
-            SetSearchUserPanelsColor(Color.DeepSkyBlue);
-        }
-
-        private void TxtSearchUsr_Leave(object sender, EventArgs e)
-        {
-            SetSearchUserPanelsColor(Color.FromArgb(50, 50, 50));
-        }
-
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             string userName = TxtSearchUsr.Text.Trim();
 
             UserDao userDao = new UserDao();
             UserEntity user = userDao.BuscarUsuario(userName);
+
+            _user = user;
+            _isActive = user.IsActive;
 
             string[] names = user.Name.Split(' ');
             string firstName = names[0];
@@ -128,6 +125,7 @@ namespace MessageNest.Forms
                 TxtFoundFirstSurname.Text = firstSurname;
                 TxtFoundSecondSurname.Text = secondSurname;
                 TxtFoundPwd.Text = user.PasswordEncrypted;
+                TxtFoundPwd.PasswordChar = '●';
                 TxtFoundPhone.Text = user.PhoneNumber;
                 DtpFoundBD.Text = user.BirthDate;
                 CmbxFoundRol.Text = role;
@@ -157,7 +155,7 @@ namespace MessageNest.Forms
             DtpFoundBD.Enabled = false;
             BtnSaveChanges.Enabled = false;
 
-            TxtSearchUsr.Clear();
+            TxtSearchUsr.Text = "Ingrese el usuario a buscar";
             TxtFoundUsr.Clear();
             TxtFoundFirstName.Clear();
             TxtFoundSecondName.Clear();
@@ -166,32 +164,22 @@ namespace MessageNest.Forms
             TxtFoundPwd.Clear();
             TxtFoundPhone.Clear();
             DtpFoundBD.Value = DateTime.Now;
-            CmbxFoundRol.Text = "";
-            CmbxFoundActive.Text = "";
+            CmbxFoundRol.Text = " ";
+            CmbxFoundActive.Text = " ";
         }
 
         private void BtnSaveChanges_Click(object sender, EventArgs e)
         {
             UserDao userDao = new UserDao();
 
-            int isActive = 0;
-            if (CmbxFoundActive.Text == "Sí")
-            {
-               isActive = 1;
-            }
+            _user.IsActive = CmbxFoundActive.Text == "Sí" ? 1 : 0;
+            _user.PasswordEncrypted = TxtFoundPwd.Text;
+            _user.UserName = TxtFoundUsr.Text;
+            _user.BirthDate = DtpFoundBD.Value.ToString("dd/MM/yyyy").PadRight(10);
+            _user.PhoneNumber = PadRight(TxtFoundPhone.Text, 10);
 
-            string password = TxtFoundPwd.Text;
-            string userName = TxtFoundUsr.Text;
-            string newBirthDate = DtpFoundBD.Value.ToString("dd/MM/yyyy").PadRight(10);
-            string newPhone = PadRight(TxtFoundPhone.Text, 10);
-
-            userDao.ModificarUsuario(userName, password, newBirthDate, newPhone, isActive);
-        }
-
-        private void ClearFields()
-        {
-            this.Close();
-            this.Show();
+            userDao.ModificarUsuario(_user.UserName, _user.PasswordEncrypted, _user.BirthDate, _user.PhoneNumber, _user.IsActive);
+            UpdateDescUser(_user.UserName);
         }
 
         private void CorrectInput(DateTime birthDate)
@@ -215,14 +203,56 @@ namespace MessageNest.Forms
             return input;
         }
 
+        private void UpdateDescUser(string userName)
+        {
+            string descFilePath = @"C:\MEIA\desc_user.txt";
+            DateTime currentDate = DateTime.Now;
+
+            string[] lines = File.ReadAllLines(descFilePath);
+            int totalRecords = int.Parse(lines[5].Split(':')[1].Trim());
+            int activeRecords = int.Parse(lines[6].Split(':')[1].Trim());
+            int inactiveRecords = int.Parse(lines[7].Split(':')[1].Trim());
+            bool wasActive = _isActive == 1;
+
+            MessageBox.Show("Comparando", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if (wasActive && _user.IsActive == 0)
+            {
+                activeRecords -= 1;
+                inactiveRecords += 1;
+                MessageBox.Show("El usuario ha sido desactivado", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (!wasActive && _user.IsActive == 1)
+            {
+                activeRecords += 1;
+                inactiveRecords -= 1;
+            }
+            else
+            {
+                MessageBox.Show($"No se ha realizado ningún cambio en el estado.", "Informacón", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+            MessageBox.Show("Ya comparo", "Info", MessageBoxButtons.OK);
+
+            using (StreamWriter writer = new StreamWriter(descFilePath))
+            {
+                writer.WriteLine(lines[0]); // nombre_simbolico
+                writer.WriteLine(lines[1]); // fecha_creacion
+                writer.WriteLine(lines[2]); // usuario_creacion
+                writer.WriteLine($"fecha_modificacion: {currentDate:dd/MM/yyyy}");
+                writer.WriteLine($"usuario_modificacion: {userName}");
+                writer.WriteLine($"#_registros: {totalRecords}");
+                writer.WriteLine($"registros_activos: {activeRecords}");
+                writer.WriteLine($"registros_inactivos: {inactiveRecords}"); // registros_inactivos
+                writer.WriteLine(lines[8]); // max_reorganizacion
+            }
+        }
+
         #endregion
 
         #region Funciones
 
-
-
-        #endregion
-        
         // Keypress
 
         private void TxtFoundPhone_KeyPress(object sender, KeyPressEventArgs e)
@@ -241,7 +271,7 @@ namespace MessageNest.Forms
             }
         }
 
-        // Date time pcker
+        // Date time picker
 
         private void DtpFoundBD_DropDown(object sender, EventArgs e)
         {
@@ -255,6 +285,19 @@ namespace MessageNest.Forms
 
         // Enter/Leave
 
+        private void TxtSearchUsr_Enter(object sender, EventArgs e)
+        {
+            TxtSearchUsr.ForeColor = Color.White;
+            SetSearchUserPanelsColor(Color.DeepSkyBlue);
+        }
+
+        private void TxtSearchUsr_Leave(object sender, EventArgs e)
+        {
+            TxtSearchUsr.ForeColor = Color.DarkGray;
+            SetSearchUserPanelsColor(Color.FromArgb(50, 50, 50));
+        }
+
+
         private void TxtFoundPhone_Enter(object sender, EventArgs e)
         {
             TxtFoundPhone.ForeColor = Color.White;
@@ -266,14 +309,6 @@ namespace MessageNest.Forms
             TxtFoundPhone.ForeColor = Color.DarkGray;
             SetPhonePanelsColor(Color.FromArgb(50, 50, 50));
         }
-
-        private void TxtFoundPwd_Leave(object sender, EventArgs e)
-        {
-            if (TxtFoundPwd.Text != "")
-            {
-                TxtFoundPwd.PasswordChar = '●';
-                TxtFoundPwd.BackColor = Color.DarkGray;
-            }
-        }
+        #endregion
     }
 }

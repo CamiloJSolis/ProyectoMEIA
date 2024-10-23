@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -15,9 +16,13 @@ namespace MessageNest.Forms
 {
     public partial class FrmEditAdmin : Form
     {
+        private UserEntity _user;
+
         public FrmEditAdmin(UserEntity user)
         {
             InitializeComponent();
+
+            _user = user;
 
             string[] names = user.Name.Split(' ');
             string firstName = names[0];
@@ -133,38 +138,43 @@ namespace MessageNest.Forms
             UserEntity user = new UserEntity();
             UserDao userDao = new UserDao();
 
-            int isActive = 0;
-            if (CmbxActive.Text == "Sí")
-            {
-                isActive = 1;
-            }
+            int isActive = CmbxActive.Text == "Sí" ? 1 : 0;
 
-            string Newpassword = TxtAdminNewPwd.Text;
+            string actualPassword = _user.PasswordEncrypted;
+            string newPassword = TxtAdminNewPwd.Text;
             string userName = TxtAdminUsr.Text;
             string newBirthDate = DtpAdminBD.Value.ToString("dd/MM/yyyy").PadRight(10);
             string newPhone = PadRight(TxtAdminPhone.Text, 10);
 
             CorrectInput(DtpAdminBD.Value);
 
-            if (IsPasswordSecure(Newpassword) && TxtAdminNewPwd.Text != "Contraseña"  && Newpassword != user.PasswordEncrypted)
+            if (IsPasswordSecure(newPassword) && TxtAdminNewPwd.Text != "Contraseña"  && newPassword != actualPassword)
             {
-                if (userDao.ModificarUsuario(userName, EncryptPassword(Newpassword), newBirthDate, newPhone, isActive))
+                _user.UserName = userName;
+                _user.PasswordEncrypted = EncryptPassword(newPassword);
+                _user.BirthDate = newBirthDate;
+                _user.PhoneNumber = newPhone;
+                _user.IsActive = isActive;
+
+                if (userDao.ModificarUsuario(_user.UserName, _user.PasswordEncrypted, _user.BirthDate, _user.PhoneNumber, _user.IsActive))
                 {
+                    UpdateDescUser(_user.UserName);
                     ClearFields();
                 }
             }
-            //else if (TxtAdminNewPwd.Text == "Contraseña")
-            //{
-            //    string password = user.PasswordEncrypted;
-            //    if (userDao.ModificarUsuario(userName, password, newBirthDate, newPhone, isActive))
-            //    {
-            //        ClearFields();
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("La nueva contraseña debe ser distinta a su contraseña actual", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
+            else
+            {
+                _user.UserName = userName;
+                _user.BirthDate = newBirthDate;
+                _user.PhoneNumber = newPhone;
+                _user.IsActive = isActive;
+
+                if (userDao.ModificarUsuario(_user.UserName, actualPassword, _user.BirthDate, _user.PhoneNumber, _user.IsActive))
+                {
+                    UpdateDescUser(_user.UserName);
+                    ClearFields();
+                }
+            }
         }
 
         private void ClearFields()
@@ -217,6 +227,27 @@ namespace MessageNest.Forms
                 return input.Substring(0, length); // Recorta si excede la longitud
             }
             return input;
+        }
+
+        private void UpdateDescUser(string userName)
+        {
+            string descFilePath = @"C:\MEIA\desc_user.txt";
+            DateTime currentDate = DateTime.Now;
+
+            string[] lines = File.ReadAllLines(descFilePath);
+
+            using (StreamWriter writer = new StreamWriter(descFilePath))
+            {
+                writer.WriteLine(lines[0]); // nombre_simbolico
+                writer.WriteLine(lines[1]); // fecha_creacion
+                writer.WriteLine(lines[2]); // usuario_creacion
+                writer.WriteLine($"fecha_modificacion: {currentDate:dd/MM/yyyy}");
+                writer.WriteLine($"usuario_modificacion: {userName}");
+                writer.WriteLine(lines[5]);
+                writer.WriteLine(lines[6]);
+                writer.WriteLine(lines[7]); // registros_inactivos
+                writer.WriteLine(lines[8]); // max_reorganizacion
+            }
         }
 
         #endregion
