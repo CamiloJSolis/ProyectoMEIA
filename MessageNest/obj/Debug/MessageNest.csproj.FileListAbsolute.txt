@@ -58,3 +58,4 @@ C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archiv
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\obj\Debug\MessageNest.csproj.CoreCompileInputs.cache
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\obj\Debug\MessageNest.exe
 C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\obj\Debug\MessageNest.pdb
+C:\Users\Dell\OneDrive\Documentos\URL\2024\IIS\Manejo e implementacion de archivos\Proyecto\ProyectoMEIAFase1\MessageNest\obj\Debug\MessageNest.Forms.FrmContacts.resources

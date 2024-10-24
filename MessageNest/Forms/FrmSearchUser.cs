@@ -52,14 +52,6 @@ namespace MessageNest.Forms
         #endregion
 
         #region Botones
-        private void TxtSearchUsr_Click(object sender, EventArgs e)
-        {
-            if (TxtSearchUsr.Text == "Ingrese el usuario a buscar")
-            {
-                TxtSearchUsr.SelectAll();
-            }
-        }
-
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             string userName = TxtSearchUsr.Text.Trim();
@@ -268,6 +260,16 @@ namespace MessageNest.Forms
                 {
                     TxtFoundPhone.Visible = false;
                 }
+            }
+        }
+
+        // Click
+
+        private void TxtSearchUsr_Click(object sender, EventArgs e)
+        {
+            if (TxtSearchUsr.Text == "Ingrese el usuario a buscar")
+            {
+                TxtSearchUsr.SelectAll();
             }
         }
 

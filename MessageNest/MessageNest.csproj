@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\ContactDao.cs" />
+    <Compile Include="Entities\ContactEntity.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Entities\UserEntity.cs" />
     <Compile Include="Forms\FrmAddUser.cs">

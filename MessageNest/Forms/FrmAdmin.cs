@@ -92,7 +92,7 @@ namespace MessageNest.Forms
 
         private void BtnContacts_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Estamos trabajando en agregar esta función", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            OpenChildForm(new FrmContacts());
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e)
