@@ -95,8 +95,7 @@ namespace MessageNest.Forms
                 {
                     DialogResult dialogResult = new DialogResult();
                     
-                    dialogResult = MessageBox.Show("¿Desea agregar otro usuario?", "Crear usuario", 
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    dialogResult = MessageBox.Show("¿Desea agregar otro usuario?", "Crear usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     UpdateDescUser(userName);
 

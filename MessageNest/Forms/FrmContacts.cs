@@ -17,12 +17,15 @@ namespace MessageNest.Forms
     public partial class FrmContacts : Form
     {
         private ContactEntity _contact;
+        private string _currentUser;
 
-        public FrmContacts()
+        public FrmContacts(UserEntity user)
         {
             InitializeComponent();
 
             LoadData();
+
+            _currentUser = user.UserName;
 
             searchTimer = new System.Windows.Forms.Timer();
             searchTimer.Interval = 1000;
@@ -56,18 +59,47 @@ namespace MessageNest.Forms
 
         private void BtnAddContact_Click(object sender, EventArgs e)
         {
+
             if (ListViewUsers.Items.Count > 0)
             {
+                ContactEntity contact = new ContactEntity();
+                ContactDao contactDao = new ContactDao();
                 ListViewItem selectedItem = ListViewUsers.Items[0];
-                string userName = selectedItem.Text;
-                string contact = TxtNewContactName.Text;
+                DateTime currentDate = DateTime.Now;
 
+                contact.User = PadRight(selectedItem.Text, 20);
+                contact.Contact = PadRight(TxtNewContactName.Text, 20);
+                contact.TransactionDate = PadRight(currentDate.ToString("dd/MM/yyyy"), 10);
+                contact.UserTransaction = PadRight(_currentUser, 20);
+                contact.Status = 1;
 
+                if (contactDao.AgregarContacto(contact))
+                {
+                    TxtSearchContact.Text = "Ingrese el usuario, nombres o apellidos a buscar";
+                    TxtNewContactName.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error al agregar los al archivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
 
             }
+        }
+
+        private string PadRight(string input, int length)
+        {
+            if (input.Length < length)
+            {
+                return input.PadRight(length, ' ');
+            }
+            else if (input.Length > length)
+            {
+                return input.Substring(0, length); // Recorta si excede la longitud
+            }
+            return input;
         }
 
         #endregion
@@ -143,13 +175,34 @@ namespace MessageNest.Forms
 
             foreach (var user in users)
             {
-                if (user.UserName == TxtSearchContact.Text.Trim())
-                {
-                    ListViewItem item = new ListViewItem(user.UserName);
-                    item.SubItems.Add(user.Name);
-                    item.SubItems.Add(user.Surname);
-                    ListViewUsers.Items.Add(item);
+                string[] names = user.Name.Split(' ');
+                string firstName = names[0];
+                string secondName = "";
 
+                if (names.Length > 1)
+                {
+                    secondName = names[1];
+                }
+
+                string[] surnames = user.Surname.Split(' ');
+                string firstSurname = surnames[0];
+                string secondSurname = "";
+
+                if (surnames.Length > 1)
+                {
+                    secondSurname = surnames[1];
+                }
+
+                if (user.UserName == TxtSearchContact.Text.Trim() || firstName == TxtSearchContact.Text.Trim() || secondName == TxtSearchContact.Text.Trim()
+                    || firstSurname == TxtSearchContact.Text.Trim() || secondSurname == TxtSearchContact.Text.Trim())
+                {
+                    if (TxtSearchContact.Text != "")
+                    {
+                        ListViewItem item = new ListViewItem(user.UserName);
+                        item.SubItems.Add(user.Name);
+                        item.SubItems.Add(user.Surname);
+                        ListViewUsers.Items.Add(item);
+                    }
                 }
             }
 

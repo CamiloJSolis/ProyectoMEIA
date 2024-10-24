@@ -47,7 +47,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlSearchContact = new System.Windows.Forms.Panel();
-            this.BtnSearch = new System.Windows.Forms.Button();
             this.PnlSearchtUsrRight = new System.Windows.Forms.Panel();
             this.TxtSearchContact = new System.Windows.Forms.TextBox();
             this.PnlSearchUsrLeft = new System.Windows.Forms.Panel();
@@ -248,7 +247,6 @@
             // pnlSearchContact
             // 
             this.pnlSearchContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.pnlSearchContact.Controls.Add(this.BtnSearch);
             this.pnlSearchContact.Controls.Add(this.PnlSearchtUsrRight);
             this.pnlSearchContact.Controls.Add(this.TxtSearchContact);
             this.pnlSearchContact.Controls.Add(this.PnlSearchUsrLeft);
@@ -258,18 +256,6 @@
             this.pnlSearchContact.Name = "pnlSearchContact";
             this.pnlSearchContact.Size = new System.Drawing.Size(592, 34);
             this.pnlSearchContact.TabIndex = 51;
-            // 
-            // BtnSearch
-            // 
-            this.BtnSearch.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnSearch.FlatAppearance.BorderSize = 0;
-            this.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSearch.Image = global::MessageNest.Properties.Resources.search_icon;
-            this.BtnSearch.Location = new System.Drawing.Point(540, 1);
-            this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(51, 32);
-            this.BtnSearch.TabIndex = 11;
-            this.BtnSearch.UseVisualStyleBackColor = true;
             // 
             // PnlSearchtUsrRight
             // 
@@ -386,7 +372,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlSearchContact;
-        private System.Windows.Forms.Button BtnSearch;
         private System.Windows.Forms.Panel PnlSearchtUsrRight;
         private System.Windows.Forms.TextBox TxtSearchContact;
         private System.Windows.Forms.Panel PnlSearchUsrLeft;
