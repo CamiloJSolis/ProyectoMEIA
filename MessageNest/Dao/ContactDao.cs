@@ -51,5 +51,32 @@ namespace MessageNest.Dao
                 return false;
             }
         }
+
+        public List<ContactEntity> GetAllContacts()
+        {
+            var users = new List<ContactEntity>();
+            string[] lines = File.ReadAllLines(filePath);
+
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(';');
+                ContactEntity contact = GetContact(fields);
+                users.Add(contact);
+            }
+
+            return users;
+        }
+
+        private ContactEntity GetContact(string[] fields)
+        {
+            return new ContactEntity
+            {
+                User = fields[0].Trim(),
+                Contact = fields[1].Trim(),
+                TransactionDate = fields[2].Trim(),
+                UserTransaction = fields[3].Trim(),
+                Status = int.Parse(fields[4].Trim()),
+            };
+        }
     }
 }

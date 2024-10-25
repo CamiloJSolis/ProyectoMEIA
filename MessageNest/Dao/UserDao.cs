@@ -40,6 +40,7 @@ namespace MessageNest.Dao
                 UserEntity user = GetUser(fields);
                 users.Add(user);
             }
+
             return users;
         }
 

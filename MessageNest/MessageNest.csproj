@@ -240,5 +240,14 @@
   <ItemGroup>
     <None Include="Resources\contacts.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-contact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mycontacts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-contact.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

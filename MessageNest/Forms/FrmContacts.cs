@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MessageNest.Forms
@@ -18,26 +20,38 @@ namespace MessageNest.Forms
     {
         private ContactEntity _contact;
         private string _currentUser;
+        private string _selectedUser;
 
         public FrmContacts(UserEntity user)
         {
             InitializeComponent();
 
-            LoadData();
+            LoadUsersData();
+            LoadContactsData();
 
             _currentUser = user.UserName;
 
-            searchTimer = new System.Windows.Forms.Timer();
-            searchTimer.Interval = 1000;
-            searchTimer.Tick += SearchTimer_Tick;
+            // Obtener los usuarios
 
-            TxtSearchContact.TextChanged += TxtSearchContact_TextChanged;
+            searchUserTimer = new System.Windows.Forms.Timer();
+            searchUserTimer.Interval = 1000;
+            searchUserTimer.Tick += SearchUserTimer_Tick;
+
+            TxtSearchUser.TextChanged += TxtSearchUser_TextChanged;
             ListViewUsers.SelectedIndexChanged += ListViewUsers_SelectedIndexChanged;
+
+            // Obtener los contactos
+
+            searchUserTimer = new System.Windows.Forms.Timer();
+            searchUserTimer.Interval = 1000;
+            searchUserTimer.Tick += SearchUserTimer_Tick;
+
+
         }
 
         #region Cambiar Color
 
-        private void SetSearchContactPanelsColor(Color color)
+        private void SetSearchUserPanelsColor(Color color)
         {
             PnlSearchUsrLeft.BackColor = color;
             PnlSearchtUsrRight.BackColor = color;
@@ -53,9 +67,33 @@ namespace MessageNest.Forms
             PnlContactNameDown.BackColor = color;
         }
 
+        private void SetSearchContactPanlesColor(Color color)
+        {
+            PnlContactNameLeft.BackColor = color;
+            PnlContactNameRight.BackColor = color;
+            PnlContactNameUp.BackColor = color;
+            PnlSearchContactDown.BackColor = color;
+        }
+
         #endregion
 
         #region Botones
+
+        // TabPageUserContacts
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            TabPageUserContacts.Hide();
+            TabPageAddContact.Show();
+        }
+
+        private void BtnModify_Click(object sender, EventArgs e)
+        {
+            TabPageUserContacts.Hide();
+            TabPageEditContact.Show();
+        }
+
+        // TabPageAddContact
 
         private void BtnAddContact_Click(object sender, EventArgs e)
         {
@@ -64,10 +102,9 @@ namespace MessageNest.Forms
             {
                 ContactEntity contact = new ContactEntity();
                 ContactDao contactDao = new ContactDao();
-                ListViewItem selectedItem = ListViewUsers.Items[0];
                 DateTime currentDate = DateTime.Now;
 
-                contact.User = PadRight(selectedItem.Text, 20);
+                contact.User = PadRight(_selectedUser, 20);
                 contact.Contact = PadRight(TxtNewContactName.Text, 20);
                 contact.TransactionDate = PadRight(currentDate.ToString("dd/MM/yyyy"), 10);
                 contact.UserTransaction = PadRight(_currentUser, 20);
@@ -75,7 +112,7 @@ namespace MessageNest.Forms
 
                 if (contactDao.AgregarContacto(contact))
                 {
-                    TxtSearchContact.Text = "Ingrese el usuario, nombres o apellidos a buscar";
+                    TxtSearchUser.Text = "Ingrese el usuario, nombres o apellidos a buscar";
                     TxtNewContactName.Clear();
                 }
                 else
@@ -85,7 +122,7 @@ namespace MessageNest.Forms
             }
             else
             {
-
+                MessageBox.Show("Por favor, seleccione un usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -106,7 +143,7 @@ namespace MessageNest.Forms
 
         #region Funciones
 
-        private void LoadData()
+        private void LoadUsersData()
         {
             Cursor.Current = Cursors.WaitCursor;
 
@@ -123,24 +160,26 @@ namespace MessageNest.Forms
             Cursor.Current = Cursors.Default;
         }
 
-        private void TxtSearchContact_Enter(object sender, EventArgs e)
-        {
-            TxtSearchContact.ForeColor = Color.White;
-            SetSearchContactPanelsColor(Color.DeepSkyBlue);
-        }
+        // TabPageAddContact
 
-        private void TxtSearchContact_Leave(object sender, EventArgs e)
+        private void TxtSearchUser_Click(object sender, EventArgs e)
         {
-            TxtSearchContact.ForeColor = Color.DarkGray;
-            SetSearchContactPanelsColor(Color.FromArgb(50, 50, 50));
-        }
-
-        private void TxtSearchContact_Click(object sender, EventArgs e)
-        {
-            if (TxtSearchContact.Text == "Ingrese el usuario, nombres o apellidos a buscar")
+            if (TxtSearchUser.Text == "Ingrese el usuario, nombres o apellidos a buscar")
             {
-                TxtSearchContact.SelectAll();
+                TxtSearchUser.SelectAll();
             }
+        }
+
+        private void TxtSearchUser_Enter(object sender, EventArgs e)
+        {
+            TxtSearchUser.ForeColor = Color.White;
+            SetSearchUserPanelsColor(Color.DeepSkyBlue);
+        }
+
+        private void TxtSearchUser_Leave(object sender, EventArgs e)
+        {
+            TxtSearchUser.ForeColor = Color.DarkGray;
+            SetSearchUserPanelsColor(Color.FromArgb(50, 50, 50));
         }
 
         private void TxtNewContacttName_Enter(object sender, EventArgs e)
@@ -155,21 +194,21 @@ namespace MessageNest.Forms
             SetNewContactPanlesColor(Color.FromArgb(50, 50, 50));
         }
 
-        private System.Windows.Forms.Timer searchTimer;
+        private System.Windows.Forms.Timer searchUserTimer;
 
-        private void TxtSearchContact_TextChanged(object sender, EventArgs e)
+        private void TxtSearchUser_TextChanged(object sender, EventArgs e)
         {
-            searchTimer.Stop();
-            searchTimer.Start();
+            searchUserTimer.Stop();
+            searchUserTimer.Start();
         }
 
-        private void SearchTimer_Tick(object sender, EventArgs e)
+        private void SearchUserTimer_Tick(object sender, EventArgs e)
         {
-            searchTimer.Stop();
+            searchUserTimer.Stop();
 
             UserDao userDao = new UserDao();
 
-            string userName = TxtSearchContact.Text;
+            string userName = TxtSearchUser.Text;
             ListViewUsers.Items.Clear();
             List<UserEntity> users = userDao.GetAllUsers();
 
@@ -193,10 +232,10 @@ namespace MessageNest.Forms
                     secondSurname = surnames[1];
                 }
 
-                if (user.UserName == TxtSearchContact.Text.Trim() || firstName == TxtSearchContact.Text.Trim() || secondName == TxtSearchContact.Text.Trim()
-                    || firstSurname == TxtSearchContact.Text.Trim() || secondSurname == TxtSearchContact.Text.Trim())
+                if (user.UserName == TxtSearchUser.Text.Trim() || firstName == TxtSearchUser.Text.Trim() || secondName == TxtSearchUser.Text.Trim()
+                    || firstSurname == TxtSearchUser.Text.Trim() || secondSurname == TxtSearchUser.Text.Trim())
                 {
-                    if (TxtSearchContact.Text != "")
+                    if (TxtSearchUser.Text != "")
                     {
                         ListViewItem item = new ListViewItem(user.UserName);
                         item.SubItems.Add(user.Name);
@@ -206,9 +245,9 @@ namespace MessageNest.Forms
                 }
             }
 
-            if (ListViewUsers.Items.Count == 0 && TxtSearchContact.Text == "")
+            if (ListViewUsers.Items.Count == 0 && TxtSearchUser.Text == "")
             {
-                LoadData();
+                LoadUsersData();
                 TxtNewContactName.Clear();
             }
             else if (ListViewUsers.Items.Count == 0)
@@ -218,7 +257,7 @@ namespace MessageNest.Forms
 
                 if (dialog == DialogResult.OK)
                 {
-                    LoadData();
+                    LoadUsersData();
                 }
             }
         }
@@ -228,11 +267,111 @@ namespace MessageNest.Forms
             if (ListViewUsers.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = ListViewUsers.SelectedItems[0];
+                _selectedUser = selectedItem.Text;
                 TxtNewContactName.Text = selectedItem.SubItems[1].Text.Replace(" ", "");
             }
             else
             {
+                _selectedUser = null;
                 TxtNewContactName.Clear();
+            }
+        }
+
+        // TabPageUserContacts
+
+        private void LoadContactsData()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+
+            ContactDao contactDao = new ContactDao();
+            List<ContactEntity> contacts = contactDao.GetAllContacts();
+
+            foreach (var contact in contacts)
+            {
+                string isActive;
+
+                if (contact.Status == 1)
+                {
+                    isActive = "Activo";
+                }
+                else
+                {
+                    isActive = "Inactivo";
+                }
+
+                ListViewItem item = new ListViewItem(contact.Contact);
+                item.SubItems.Add(contact.User);
+                item.SubItems.Add(isActive);
+                ListViewContacts.Items.Add(item);
+            }
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void TxtSearchContact_Click(object sender, EventArgs e)
+        {
+            if (TxtSearchContact.Text == "Ingrese el contacto a buscar")
+            {
+                TxtSearchContact.SelectAll();
+            }
+        }
+
+        private void TxtSearchContact_Enter(object sender, EventArgs e)
+        {
+            TxtSearchContact.ForeColor = Color.White;
+            SetSearchContactPanlesColor(Color.DeepSkyBlue);
+        }
+
+        private void TxtSearchContact_Leave(object sender, EventArgs e)
+        {
+            TxtSearchContact.ForeColor = Color.DarkGray;
+            SetSearchContactPanlesColor(Color.FromArgb(50, 50, 50));
+        }
+
+        private System.Windows.Forms.Timer searchContactTimer;
+
+        private void TxtSearchContact_TextChanged(object sender, EventArgs e)
+        {
+            searchContactTimer.Stop();
+            searchContactTimer.Start();
+        }
+
+        private void SearcContactTimer_Tick (object sender, EventArgs e)
+        {
+            searchContactTimer.Start();
+
+            ContactDao contactDao = new ContactDao();
+            string contactName = TxtSearchContact.Text;
+            ListViewContacts.Items.Clear();
+            List<ContactEntity> contacts = contactDao.GetAllContacts();
+
+            foreach (var contact in contacts)
+            {
+                string isActive;
+
+                if(contact.Status == 1)
+                {
+                    isActive = "Activo";
+                }
+                else
+                {
+                    isActive = "Inactivo";
+                }
+
+                if (contact.Contact == TxtSearchContact.Text)
+                {
+                    if (TxtSearchContact.Text != "")
+                    {
+                        ListViewItem item = new ListViewItem(contact.Contact);
+                        item.SubItems.Add(contact.User);
+                        item.SubItems.Add(isActive);
+                        ListViewContacts.Items.Add(item);
+                    }
+                }
+            }
+
+            if (ListViewContacts.Items.Count == 0 && TxtSearchContact.Text == "")
+            {
+
             }
         }
 
