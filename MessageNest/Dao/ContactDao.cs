@@ -54,17 +54,75 @@ namespace MessageNest.Dao
 
         public List<ContactEntity> GetAllContacts()
         {
-            var users = new List<ContactEntity>();
-            string[] lines = File.ReadAllLines(filePath);
-
-            foreach (string line in lines)
+            if (File.Exists(filePath))
             {
-                string[] fields = line.Split(';');
-                ContactEntity contact = GetContact(fields);
-                users.Add(contact);
-            }
+                var users = new List<ContactEntity>();
+                string[] lines = File.ReadAllLines(filePath);
 
-            return users;
+                foreach (string line in lines)
+                {
+                    string[] fields = line.Split(';');
+                    ContactEntity contact = GetContact(fields);
+                    users.Add(contact);
+                }
+
+                return users;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public ContactEntity BuscarContacto(string userName)
+        {
+            try
+            {
+                var user = ObtainContact(userName);
+                if (user != null)
+                {
+                    return user;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al buscar el usuario: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        private ContactEntity ObtainContact(string userName)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("El archivo de contactos no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return null;
+                }
+
+                string[] lines = File.ReadAllLines(filePath);
+
+                foreach (string line in lines)
+                {
+                    string[] fileds = line.Split(';');
+                    if (fileds[0].Trim().Equals(userName))
+                    {
+                        return GetContact(fileds);
+                    }
+                }
+                MessageBox.Show("El nombre de usuario no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al buscar el usuario: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
 
         private ContactEntity GetContact(string[] fields)
@@ -77,6 +135,53 @@ namespace MessageNest.Dao
                 UserTransaction = fields[3].Trim(),
                 Status = int.Parse(fields[4].Trim()),
             };
+        }
+
+        public bool ModificarContacto(string userName, string contact, string newTransactionDate, string newTransactionUser, int newStatus)
+        {
+            try
+            {               
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("El archivo de contactos no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                string[] lines = File.ReadAllLines(filePath);
+                bool founUser = false;
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    string[] fields = lines[i].Split(';');
+                    
+                    if (fields[0].Trim().Equals(userName) && fields[1].Trim().Equals(contact))
+                    {
+                        fields[2] = newTransactionDate;
+                        fields[3] = newTransactionUser;
+                        fields[4] = newStatus.ToString();
+
+                        lines[i] = string.Join(";", fields);
+                        founUser = true;
+                        break;
+                    }
+                }
+
+                if (!founUser)
+                {
+                    MessageBox.Show("El nombre de usuario o contacto no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                File.WriteAllLines(filePath, lines);
+
+                MessageBox.Show("El contacto ha sido modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al modificar el contacto: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 }

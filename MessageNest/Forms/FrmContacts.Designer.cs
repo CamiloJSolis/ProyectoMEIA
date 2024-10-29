@@ -33,11 +33,6 @@
             this.TabCtrlContacts = new System.Windows.Forms.TabControl();
             this.TabPageUserContacts = new System.Windows.Forms.TabPage();
             this.BtnAdd = new System.Windows.Forms.Button();
-            this.BtnModify = new System.Windows.Forms.Button();
-            this.ListViewContacts = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -47,6 +42,12 @@
             this.PnlSearchContactDown = new System.Windows.Forms.Panel();
             this.PnlSearchContactUp = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.ListViewContacts = new System.Windows.Forms.ListView();
+            this.columnHeaderContact = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderContactUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTransactionDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTransactionUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TabPageAddContact = new System.Windows.Forms.TabPage();
             this.PnlEnterNewFirstName = new System.Windows.Forms.Panel();
             this.PnlContactNameRight = new System.Windows.Forms.Panel();
@@ -164,12 +165,11 @@
             // 
             this.TabPageUserContacts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.TabPageUserContacts.Controls.Add(this.BtnAdd);
-            this.TabPageUserContacts.Controls.Add(this.BtnModify);
-            this.TabPageUserContacts.Controls.Add(this.ListViewContacts);
             this.TabPageUserContacts.Controls.Add(this.pictureBox3);
             this.TabPageUserContacts.Controls.Add(this.pictureBox4);
             this.TabPageUserContacts.Controls.Add(this.panel6);
             this.TabPageUserContacts.Controls.Add(this.label2);
+            this.TabPageUserContacts.Controls.Add(this.ListViewContacts);
             this.TabPageUserContacts.Location = new System.Drawing.Point(4, 22);
             this.TabPageUserContacts.Name = "TabPageUserContacts";
             this.TabPageUserContacts.Padding = new System.Windows.Forms.Padding(3);
@@ -186,63 +186,13 @@
             this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAdd.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.BtnAdd.Location = new System.Drawing.Point(405, 516);
+            this.BtnAdd.Location = new System.Drawing.Point(279, 516);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.Size = new System.Drawing.Size(206, 30);
             this.BtnAdd.TabIndex = 65;
             this.BtnAdd.Text = "Agregar";
             this.BtnAdd.UseVisualStyleBackColor = false;
             this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
-            // 
-            // BtnModify
-            // 
-            this.BtnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(191)))), ((int)(((byte)(74)))));
-            this.BtnModify.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BtnModify.FlatAppearance.BorderSize = 0;
-            this.BtnModify.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
-            this.BtnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModify.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModify.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.BtnModify.Location = new System.Drawing.Point(165, 516);
-            this.BtnModify.Name = "BtnModify";
-            this.BtnModify.Size = new System.Drawing.Size(206, 30);
-            this.BtnModify.TabIndex = 64;
-            this.BtnModify.Text = "Modificar";
-            this.BtnModify.UseVisualStyleBackColor = false;
-            this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
-            // 
-            // ListViewContacts
-            // 
-            this.ListViewContacts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.ListViewContacts.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ListViewContacts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.ListViewContacts.ForeColor = System.Drawing.Color.White;
-            this.ListViewContacts.FullRowSelect = true;
-            this.ListViewContacts.HideSelection = false;
-            this.ListViewContacts.Location = new System.Drawing.Point(92, 184);
-            this.ListViewContacts.Name = "ListViewContacts";
-            this.ListViewContacts.Size = new System.Drawing.Size(592, 284);
-            this.ListViewContacts.TabIndex = 63;
-            this.ListViewContacts.UseCompatibleStateImageBehavior = false;
-            this.ListViewContacts.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Contacto";
-            this.columnHeader1.Width = 197;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Usuario";
-            this.columnHeader2.Width = 196;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Estado";
-            this.columnHeader3.Width = 196;
             // 
             // pictureBox3
             // 
@@ -339,6 +289,52 @@
             this.label2.TabIndex = 60;
             this.label2.Text = "Contactos";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ListViewContacts
+            // 
+            this.ListViewContacts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ListViewContacts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ListViewContacts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderContact,
+            this.columnHeaderContactUser,
+            this.columnHeaderTransactionDate,
+            this.columnHeaderTransactionUser,
+            this.columnHeaderStatus});
+            this.ListViewContacts.ForeColor = System.Drawing.Color.White;
+            this.ListViewContacts.FullRowSelect = true;
+            this.ListViewContacts.HideSelection = false;
+            this.ListViewContacts.Location = new System.Drawing.Point(92, 172);
+            this.ListViewContacts.Name = "ListViewContacts";
+            this.ListViewContacts.Size = new System.Drawing.Size(592, 310);
+            this.ListViewContacts.TabIndex = 63;
+            this.ListViewContacts.UseCompatibleStateImageBehavior = false;
+            this.ListViewContacts.View = System.Windows.Forms.View.Details;
+            this.ListViewContacts.DoubleClick += new System.EventHandler(this.ListViewContacts_DoubleClick);
+            // 
+            // columnHeaderContact
+            // 
+            this.columnHeaderContact.Text = "Contacto";
+            this.columnHeaderContact.Width = 135;
+            // 
+            // columnHeaderContactUser
+            // 
+            this.columnHeaderContactUser.Text = "Usuario";
+            this.columnHeaderContactUser.Width = 135;
+            // 
+            // columnHeaderTransactionDate
+            // 
+            this.columnHeaderTransactionDate.Text = "Fecha de transacción";
+            this.columnHeaderTransactionDate.Width = 135;
+            // 
+            // columnHeaderTransactionUser
+            // 
+            this.columnHeaderTransactionUser.Text = "Usuario de transacción";
+            this.columnHeaderTransactionUser.Width = 135;
+            // 
+            // columnHeaderStatus
+            // 
+            this.columnHeaderStatus.Text = "Activo";
+            this.columnHeaderStatus.Width = 52;
             // 
             // TabPageAddContact
             // 
@@ -619,6 +615,7 @@
             this.BtnClean.TabIndex = 177;
             this.BtnClean.Text = "Limpiar";
             this.BtnClean.UseVisualStyleBackColor = false;
+            this.BtnClean.Click += new System.EventHandler(this.BtnClean_Click);
             // 
             // BtnModifyContact
             // 
@@ -635,6 +632,7 @@
             this.BtnModifyContact.TabIndex = 176;
             this.BtnModifyContact.Text = "Modificar";
             this.BtnModifyContact.UseVisualStyleBackColor = false;
+            this.BtnModifyContact.Click += new System.EventHandler(this.BtnModifyContact_Click);
             // 
             // BtnSaveChanges
             // 
@@ -652,6 +650,7 @@
             this.BtnSaveChanges.TabIndex = 175;
             this.BtnSaveChanges.Text = "Guardar";
             this.BtnSaveChanges.UseVisualStyleBackColor = false;
+            this.BtnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
             // 
             // pictureBox5
             // 
@@ -1028,7 +1027,6 @@
             this.CmbxActive.AutoCompleteCustomSource.AddRange(new string[] {
             "Sí",
             "No"});
-            this.CmbxActive.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CmbxActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.CmbxActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbxActive.Enabled = false;
@@ -1134,9 +1132,9 @@
         private System.Windows.Forms.TabControl TabCtrlContacts;
         private System.Windows.Forms.TabPage TabPageUserContacts;
         private System.Windows.Forms.ListView ListViewContacts;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeaderContact;
+        private System.Windows.Forms.ColumnHeader columnHeaderContactUser;
+        private System.Windows.Forms.ColumnHeader columnHeaderStatus;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel6;
@@ -1170,7 +1168,6 @@
         private System.Windows.Forms.Label LblTitleLin;
         private System.Windows.Forms.TabPage TabPageEditContact;
         private System.Windows.Forms.Button BtnAdd;
-        private System.Windows.Forms.Button BtnModify;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -1215,5 +1212,7 @@
         private System.Windows.Forms.Button BtnClean;
         private System.Windows.Forms.Button BtnModifyContact;
         private System.Windows.Forms.Button BtnSaveChanges;
+        private System.Windows.Forms.ColumnHeader columnHeaderTransactionDate;
+        private System.Windows.Forms.ColumnHeader columnHeaderTransactionUser;
     }
 }

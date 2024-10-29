@@ -60,56 +60,58 @@ namespace MessageNest.Forms
             UserEntity user = userDao.BuscarUsuario(userName);
 
             _user = user;
-            _isActive = user.IsActive;
-
-            string[] names = user.Name.Split(' ');
-            string firstName = names[0];
-            string secondName;
-
-            if (names.Length > 1)
-            {
-                secondName = string.Join(" ", names.Skip(1));
-            }
-            else
-            {
-                secondName = "";
-            }
-
-            string[] surnames = user.Surname.Split(' ');
-            string firstSurname = surnames[0];
-            string secondSurname;
-
-            if (surnames.Length > 1)
-            {
-                secondSurname = string.Join(" ", surnames.Skip(1));
-            }
-            else
-            {
-                secondSurname = "";
-            }
-
-            string role;
-            if (user.Role == 1)
-            {
-                role = "Administrador";
-            }
-            else
-            {
-                role = "Usuario";
-            }
-
-            string isActive;
-            if (user.IsActive == 1)
-            {
-                isActive = "Sí";
-            }
-            else
-            {
-                isActive = "No";
-            }
 
             if (user != null)
             {
+                _isActive = user.IsActive;
+
+                string[] names = user.Name.Split(' ');
+                string firstName = names[0];
+                string secondName;
+
+                if (names.Length > 1)
+                {
+                    secondName = string.Join(" ", names.Skip(1));
+                }
+                else
+                {
+                    secondName = "";
+                }
+
+                string[] surnames = user.Surname.Split(' ');
+                string firstSurname = surnames[0];
+                string secondSurname;
+
+                if (surnames.Length > 1)
+                {
+                    secondSurname = string.Join(" ", surnames.Skip(1));
+                }
+                else
+                {
+                    secondSurname = "";
+                }
+
+                string role;
+                if (user.Role == 1)
+                {
+                    role = "Administrador";
+                }
+                else
+                {
+                    role = "Usuario";
+                }
+
+                string isActive;
+                if (user.IsActive == 1)
+                {
+                    isActive = "Sí";
+                }
+                else
+                {
+                    isActive = "No";
+                }
+
+
                 MessageBox.Show("¡Usuario encontrado!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TxtFoundUsr.Text = user.UserName;
                 TxtFoundFirstName.Text = firstName;
@@ -132,18 +134,13 @@ namespace MessageNest.Forms
 
         private void BtnModify_Click(object sender, EventArgs e)
         {
-            TxtFoundPhone.Enabled = true;
+            TxtFoundPhone.ReadOnly = true;
             CmbxFoundActive.Enabled = true;
             DtpFoundBD.Enabled = true;
             BtnSaveChanges.Enabled = true;
         }
 
         private void BtnClean_Click(object sender, EventArgs e)
-        {
-            CleanFields();
-        }
-
-        private void CleanFields()
         {
             TxtFoundPhone.Enabled = false;
             TxtFoundPhone.Enabled = false;
@@ -160,8 +157,8 @@ namespace MessageNest.Forms
             TxtFoundPwd.Clear();
             TxtFoundPhone.Clear();
             DtpFoundBD.Value = DateTime.Now;
-            CmbxFoundRol.Text = " ";
-            CmbxFoundActive.Text = " ";
+            CmbxFoundRol.SelectedIndex = -1;
+            CmbxFoundActive.SelectedIndex = -1;
         }
 
         private void BtnSaveChanges_Click(object sender, EventArgs e)
