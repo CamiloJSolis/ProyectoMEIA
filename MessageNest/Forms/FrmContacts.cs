@@ -97,7 +97,6 @@ namespace MessageNest.Forms
 
         private void BtnAddContact_Click(object sender, EventArgs e)
         {
-
             if (ListViewUsers.Items.Count > 0)
             {
                 ContactEntity contact = new ContactEntity();
@@ -118,7 +117,7 @@ namespace MessageNest.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrió un error al agregar los al archivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ocurrió un error al agregar los datos al archivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

@@ -33,21 +33,39 @@ namespace MessageNest.Dao
                     File.Create(filePath).Close();
                 }
 
-                string userRecord = $"{contact.User};{contact.Contact};{contact.TransactionDate};{contact.UserTransaction};{contact.Status}";
-                using (StreamWriter writer = new StreamWriter(filePath, true))
+                bool userExists = false;
+                string[] lines = File.ReadAllLines(filePath);
+                foreach (string line in lines)
                 {
-                    writer.WriteLine(userRecord);
+                    string[] fields = line.Split(';');
+                    if (fields[0].ToString().Trim() == contact.User.Trim() || fields[1].ToString().Trim() == contact.Contact.Trim())
+                    {
+                        MessageBox.Show("El contacto ya existe. No se guardará nuevamente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        userExists = true;
+                        break;
+                    }
                 }
 
-                MessageBox.Show("El contacto ha sido creado exitosamente.", "Éxito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (!userExists)
+                {
+                    string userRecord = $"{contact.User};{contact.Contact};{contact.TransactionDate};{contact.UserTransaction};{contact.Status}";
+                    using (StreamWriter writer = new StreamWriter(filePath, true))
+                    {
+                        writer.WriteLine(userRecord);
+                    }
 
-                return true;
+                    MessageBox.Show("El contacto ha sido creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error al guardar los datos: {ex}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocurrió un error al guardar los datos: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -70,57 +88,6 @@ namespace MessageNest.Dao
             }
             else
             {
-                return null;
-            }
-        }
-
-        public ContactEntity BuscarContacto(string userName)
-        {
-            try
-            {
-                var user = ObtainContact(userName);
-                if (user != null)
-                {
-                    return user;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error al buscar el usuario: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-        }
-
-        private ContactEntity ObtainContact(string userName)
-        {
-            try
-            {
-                if (!File.Exists(filePath))
-                {
-                    MessageBox.Show("El archivo de contactos no existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return null;
-                }
-
-                string[] lines = File.ReadAllLines(filePath);
-
-                foreach (string line in lines)
-                {
-                    string[] fileds = line.Split(';');
-                    if (fileds[0].Trim().Equals(userName))
-                    {
-                        return GetContact(fileds);
-                    }
-                }
-                MessageBox.Show("El nombre de usuario no existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return null;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error al buscar el usuario: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
