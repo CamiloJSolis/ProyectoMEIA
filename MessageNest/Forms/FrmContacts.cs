@@ -26,17 +26,16 @@ namespace MessageNest.Forms
         {
             InitializeComponent();
 
-            LoadUsersData();
-            LoadContactsData();
-        
             _currentUser = user.UserName.Trim();
 
+            LoadContactsData();
+            LoadUsersData();
+       
             // Obtener los usuarios
 
             searchUserTimer = new System.Windows.Forms.Timer();
             searchUserTimer.Interval = 1000;
             searchUserTimer.Tick += SearchUserTimer_Tick;
-
             TxtSearchUser.TextChanged += TxtSearchUser_TextChanged;
             ListViewUsers.SelectedIndexChanged += ListViewUsers_SelectedIndexChanged;
 
@@ -45,7 +44,6 @@ namespace MessageNest.Forms
             searchContactTimer = new System.Windows.Forms.Timer();
             searchContactTimer.Interval = 1000;
             searchContactTimer.Tick += SearcContactTimer_Tick;
-
             TxtSearchContact.TextChanged += TxtSearchContact_TextChanged;
         }
 
@@ -139,6 +137,58 @@ namespace MessageNest.Forms
             return input;
         }
 
+        private void ListViewContacts_DoubleClick(object sender, EventArgs e)
+        {
+            TabPageUserContacts.Hide();
+            TabPageEditContact.Show();
+
+            ListViewItem selectedItem = ListViewContacts.SelectedItems[0];
+
+            //MessageBox.Show($"{selectedItem.SubItems[0].Text}, {selectedItem.SubItems[1].Text}, {selectedItem.SubItems[2].Text}, {selectedItem.SubItems[3].Text}, {selectedItem.SubItems[4].Text}");
+
+            TxtContactUserName.Text = selectedItem.SubItems[1].Text;
+            TxtUsrContact.Text = selectedItem.SubItems[0].Text;
+            DtpTransactionDate.Text = selectedItem.SubItems[2].Text;
+            TxtTransactionUser.Text = selectedItem.SubItems[3].Text;
+            CmbxActive.Text = selectedItem.SubItems[4].Text;
+        }
+
+        private void BtnModifyContact_Click(object sender, EventArgs e)
+        {
+            BtnSaveChanges.Enabled = true;
+            TxtContactUserName.ReadOnly = false;
+            DtpTransactionDate.Enabled = true;
+            TxtTransactionUser.ReadOnly = false;
+            CmbxActive.Enabled = true;
+        }
+
+        private void BtnClean_Click(object sender, EventArgs e)
+        {
+            TxtContactUserName.Clear();
+            TxtUsrContact.Clear();
+            TxtTransactionUser.Clear();
+            DtpTransactionDate.Value = DateTime.Now;
+            CmbxActive.SelectedIndex = -1;
+
+            TabPageEditContact.Hide();
+            TabPageUserContacts.Show();
+        }
+
+        private void BtnSaveChanges_Click(object sender, EventArgs e)
+        {
+            ContactEntity contact = new ContactEntity();
+            ContactDao contactDao = new ContactDao();
+
+            contact.User = TxtContactUserName.Text.Trim();
+            contact.Contact = TxtUsrContact.Text.Trim();
+            contact.TransactionDate = DtpTransactionDate.Value.ToString("dd/MM/yyyy");
+            contact.UserTransaction = PadRight(TxtTransactionUser.Text.Trim(), 20);
+            contact.Status = CmbxActive.Text == "Sí" ? 1 : 0;
+
+            contactDao.ModificarContacto(contact.User, contact.Contact, contact.TransactionDate, contact.UserTransaction, contact.Status);
+            LoadContactsData();
+        }
+
         #endregion
 
         #region Funciones
@@ -153,6 +203,11 @@ namespace MessageNest.Forms
 
             foreach (var user in users)
             {
+                if (user.UserName.Trim().Equals(_currentUser))
+                {
+                    continue;
+                }
+
                 ListViewItem item = new ListViewItem(user.UserName);
                 item.SubItems.Add(user.Name);
                 item.SubItems.Add(user.Surname);
@@ -216,26 +271,7 @@ namespace MessageNest.Forms
 
             foreach (var user in users)
             {
-                string[] names = user.Name.Split(' ');
-                string firstName = names[0];
-                string secondName = "";
-
-                if (names.Length > 1)
-                {
-                    secondName = names[1];
-                }
-
-                string[] surnames = user.Surname.Split(' ');
-                string firstSurname = surnames[0];
-                string secondSurname = "";
-
-                if (surnames.Length > 1)
-                {
-                    secondSurname = surnames[1];
-                }
-
-                if (user.UserName == TxtSearchUser.Text.Trim() || firstName == TxtSearchUser.Text.Trim() || secondName == TxtSearchUser.Text.Trim()
-                    || firstSurname == TxtSearchUser.Text.Trim() || secondSurname == TxtSearchUser.Text.Trim())
+                if (user.UserName.Contains(userName) || user.Name.Contains(userName))
                 {
                     if (TxtSearchUser.Text != "")
                     {
@@ -386,65 +422,14 @@ namespace MessageNest.Forms
             else if (ListViewContacts.Items.Count == 0 && TxtSearchContact.Text != "")
             {
                 DialogResult dialog = new DialogResult();
-                dialog = MessageBox.Show("No se encontró el usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dialog = MessageBox.Show("No se encontró el contacto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 if (dialog == DialogResult.OK)
                 {
-                    LoadUsersData();
+                    LoadContactsData();
                 }
             }
         }
         #endregion
-
-        private void ListViewContacts_DoubleClick(object sender, EventArgs e)
-        {
-            TabPageUserContacts.Hide();
-            TabPageEditContact.Show();
-
-            ListViewItem selectedItem = ListViewContacts.SelectedItems[0];
-
-            //MessageBox.Show($"{selectedItem.SubItems[0].Text}, {selectedItem.SubItems[1].Text}, {selectedItem.SubItems[2].Text}, {selectedItem.SubItems[3].Text}, {selectedItem.SubItems[4].Text}");
-
-            TxtContactUserName.Text = selectedItem.SubItems[1].Text;
-            TxtUsrContact.Text = selectedItem.SubItems[0].Text;
-            DtpTransactionDate.Text = selectedItem.SubItems[2].Text;
-            TxtTransactionUser.Text = selectedItem.SubItems[3].Text;
-            CmbxActive.Text = selectedItem.SubItems[4].Text;
-        }
-
-        private void BtnModifyContact_Click(object sender, EventArgs e)
-        {
-            BtnSaveChanges.Enabled = true;
-            TxtContactUserName.ReadOnly = false;
-            DtpTransactionDate.Enabled = true;
-            TxtTransactionUser.ReadOnly = false;
-            CmbxActive.Enabled = true;
-        }
-
-        private void BtnClean_Click(object sender, EventArgs e)
-        {
-            TxtContactUserName.Clear();
-            TxtUsrContact.Clear();
-            TxtTransactionUser.Clear();
-            DtpTransactionDate.Value = DateTime.Now;
-            CmbxActive.SelectedIndex = -1;
-
-            TabPageEditContact.Hide();
-            TabPageUserContacts.Show();
-        }
-
-        private void BtnSaveChanges_Click(object sender, EventArgs e)
-        {
-            ContactEntity contact = new ContactEntity();
-            ContactDao contactDao = new ContactDao();
-
-            contact.User = TxtContactUserName.Text.Trim();
-            contact.Contact = TxtUsrContact.Text.Trim();
-            contact.TransactionDate = DtpTransactionDate.Value.ToString("dd/MM/yyyy");
-            contact.UserTransaction = PadRight(TxtTransactionUser.Text.Trim(), 20);
-            contact.Status = CmbxActive.Text == "Sí" ? 1: 0;
-
-            contactDao.ModificarContacto(contact.User, contact.Contact, contact.TransactionDate, contact.UserTransaction, contact.Status);
-        }
     }
 }

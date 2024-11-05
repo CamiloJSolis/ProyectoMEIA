@@ -225,6 +225,11 @@ namespace MessageNest.Forms
             }
         }
 
+        private void BtnList_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmList(_currentUser));
+        }
+
         #endregion
 
         #region Arrastrar Form

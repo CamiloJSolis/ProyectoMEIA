@@ -38,9 +38,7 @@
             this.BtnAddUsr = new System.Windows.Forms.Button();
             this.BtnSrchUsr = new System.Windows.Forms.Button();
             this.FwlPnlButton = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel13 = new System.Windows.Forms.Panel();
             this.PbLogo = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.BtnAdminInfo = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -53,10 +51,13 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.BtnContacts = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.BtnList = new System.Windows.Forms.Button();
+            this.panel16 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.BtnLogOut = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.PnlTopAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbTitle)).BeginInit();
             this.FwlPnlButton.SuspendLayout();
@@ -66,6 +67,7 @@
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel14.SuspendLayout();
             this.SuspendLayout();
@@ -193,9 +195,7 @@
             // FwlPnlButton
             // 
             this.FwlPnlButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.FwlPnlButton.Controls.Add(this.panel13);
             this.FwlPnlButton.Controls.Add(this.PbLogo);
-            this.FwlPnlButton.Controls.Add(this.panel1);
             this.FwlPnlButton.Controls.Add(this.panel10);
             this.FwlPnlButton.Controls.Add(this.panel9);
             this.FwlPnlButton.Controls.Add(this.panel2);
@@ -206,9 +206,11 @@
             this.FwlPnlButton.Controls.Add(this.panel7);
             this.FwlPnlButton.Controls.Add(this.panel12);
             this.FwlPnlButton.Controls.Add(this.panel15);
+            this.FwlPnlButton.Controls.Add(this.panel17);
+            this.FwlPnlButton.Controls.Add(this.panel16);
             this.FwlPnlButton.Controls.Add(this.panel8);
-            this.FwlPnlButton.Controls.Add(this.panel11);
             this.FwlPnlButton.Controls.Add(this.panel14);
+            this.FwlPnlButton.Controls.Add(this.panel11);
             this.FwlPnlButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.FwlPnlButton.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.FwlPnlButton.Location = new System.Drawing.Point(0, 32);
@@ -216,35 +218,21 @@
             this.FwlPnlButton.Size = new System.Drawing.Size(254, 626);
             this.FwlPnlButton.TabIndex = 5;
             // 
-            // panel13
-            // 
-            this.panel13.Location = new System.Drawing.Point(3, 3);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(251, 23);
-            this.panel13.TabIndex = 46;
-            // 
             // PbLogo
             // 
             this.PbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PbLogo.Image = global::MessageNest.Properties.Resources.appLogo;
-            this.PbLogo.Location = new System.Drawing.Point(64, 32);
+            this.PbLogo.Location = new System.Drawing.Point(64, 3);
             this.PbLogo.Name = "PbLogo";
             this.PbLogo.Size = new System.Drawing.Size(129, 102);
             this.PbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PbLogo.TabIndex = 45;
             this.PbLogo.TabStop = false;
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(3, 140);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(251, 23);
-            this.panel1.TabIndex = 45;
-            // 
             // panel10
             // 
             this.panel10.Controls.Add(this.BtnAdminInfo);
-            this.panel10.Location = new System.Drawing.Point(3, 169);
+            this.panel10.Location = new System.Drawing.Point(3, 111);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(251, 45);
             this.panel10.TabIndex = 51;
@@ -269,7 +257,7 @@
             // 
             // panel9
             // 
-            this.panel9.Location = new System.Drawing.Point(3, 220);
+            this.panel9.Location = new System.Drawing.Point(3, 162);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(251, 10);
             this.panel9.TabIndex = 53;
@@ -277,14 +265,14 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.BtnModifyAdmin);
-            this.panel2.Location = new System.Drawing.Point(3, 236);
+            this.panel2.Location = new System.Drawing.Point(3, 178);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(251, 45);
             this.panel2.TabIndex = 46;
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(3, 287);
+            this.panel3.Location = new System.Drawing.Point(3, 229);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(251, 10);
             this.panel3.TabIndex = 47;
@@ -292,14 +280,14 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.BtnAddUsr);
-            this.panel4.Location = new System.Drawing.Point(3, 303);
+            this.panel4.Location = new System.Drawing.Point(3, 245);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(251, 45);
             this.panel4.TabIndex = 48;
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(3, 354);
+            this.panel5.Location = new System.Drawing.Point(3, 296);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(251, 10);
             this.panel5.TabIndex = 49;
@@ -307,14 +295,14 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.BtnSrchUsr);
-            this.panel6.Location = new System.Drawing.Point(3, 370);
+            this.panel6.Location = new System.Drawing.Point(3, 312);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(251, 45);
             this.panel6.TabIndex = 50;
             // 
             // panel7
             // 
-            this.panel7.Location = new System.Drawing.Point(3, 421);
+            this.panel7.Location = new System.Drawing.Point(3, 363);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(251, 10);
             this.panel7.TabIndex = 51;
@@ -322,7 +310,7 @@
             // panel12
             // 
             this.panel12.Controls.Add(this.BtnContacts);
-            this.panel12.Location = new System.Drawing.Point(3, 437);
+            this.panel12.Location = new System.Drawing.Point(3, 379);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(251, 45);
             this.panel12.TabIndex = 53;
@@ -347,31 +335,57 @@
             // 
             // panel15
             // 
-            this.panel15.Location = new System.Drawing.Point(3, 488);
+            this.panel15.Location = new System.Drawing.Point(3, 430);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(251, 10);
             this.panel15.TabIndex = 53;
             // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.BtnList);
+            this.panel17.Location = new System.Drawing.Point(3, 446);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(251, 45);
+            this.panel17.TabIndex = 57;
+            // 
+            // BtnList
+            // 
+            this.BtnList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BtnList.FlatAppearance.BorderSize = 0;
+            this.BtnList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
+            this.BtnList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnList.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.BtnList.Image = global::MessageNest.Properties.Resources.list;
+            this.BtnList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnList.Location = new System.Drawing.Point(7, 3);
+            this.BtnList.Name = "BtnList";
+            this.BtnList.Size = new System.Drawing.Size(236, 39);
+            this.BtnList.TabIndex = 3;
+            this.BtnList.Text = "Listas";
+            this.BtnList.UseVisualStyleBackColor = false;
+            this.BtnList.Click += new System.EventHandler(this.BtnList_Click);
+            // 
+            // panel16
+            // 
+            this.panel16.Location = new System.Drawing.Point(3, 497);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(251, 10);
+            this.panel16.TabIndex = 55;
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.BtnBackup);
-            this.panel8.Location = new System.Drawing.Point(3, 504);
+            this.panel8.Location = new System.Drawing.Point(3, 513);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(251, 45);
             this.panel8.TabIndex = 52;
-            // 
-            // panel11
-            // 
-            this.panel11.Location = new System.Drawing.Point(3, 555);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(251, 10);
-            this.panel11.TabIndex = 52;
             // 
             // panel14
             // 
             this.panel14.Controls.Add(this.BtnLogOut);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(3, 571);
+            this.panel14.Location = new System.Drawing.Point(3, 564);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(251, 52);
             this.panel14.TabIndex = 53;
@@ -394,6 +408,13 @@
             this.BtnLogOut.Text = "Cerrar Sesión";
             this.BtnLogOut.UseVisualStyleBackColor = false;
             this.BtnLogOut.Click += new System.EventHandler(this.BtnLogOut_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.Location = new System.Drawing.Point(260, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(251, 10);
+            this.panel11.TabIndex = 52;
             // 
             // FrmAdmin
             // 
@@ -420,6 +441,7 @@
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -442,8 +464,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox PbTitle;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.PictureBox PbLogo;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
@@ -456,5 +476,8 @@
         private System.Windows.Forms.Button BtnContacts;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Button BtnList;
+        private System.Windows.Forms.Panel panel16;
     }
 }
