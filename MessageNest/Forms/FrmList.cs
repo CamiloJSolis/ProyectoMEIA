@@ -38,6 +38,7 @@ namespace MessageNest.Forms
             searchUserTimer.Tick += SearchUserTime_Tick;
             TxtSearchUser.TextChanged += TxtSearchUser_TextChanged;
             ListViewUsers.SelectedIndexChanged += ListViewUsers_SelectedIndexChanged;
+            ListViewUsersToAdd.SelectedIndexChanged += ListViewUsers_SelectedIndexChanged;
 
             // Obtener los contactos
 
@@ -184,23 +185,42 @@ namespace MessageNest.Forms
 
         private void BtnModifyUserOfList_Click(object sender, EventArgs e)
         {
-            //ListDao listDao = new ListDao();
-
-            //string listName = PadRight(TxtListName.Text.Trim(), 30);
-            //string curretnUser = PadRight(_currentUser, 20);
-
-
-            //listDao.ModificarBloque();
+            CmbxModifyAssociatedUserStatus.Enabled = true;
+            BtnSaveChangesUserOfList.Enabled = true;
         }
 
         private void BtnSaveChangesUserOfList_Click(object sender, EventArgs e)
         {
+            ListEntity list = new ListEntity();
+            ListDao listDao = new ListDao();
 
+            list.ListName = PadRight(TxtFoundListName.Text.Trim(), 30);
+            list.UserName = PadRight(_currentUser.Trim(), 20);
+            list.Description = PadRight(TxtFoundListDescription.Text.Trim(), 40);
+            list.CreationDate = DtpFoundCreationDate.Value.ToString("dd/MM/yyyy");
+            list.Status = CmbxActive.Text == "Sí" ? 1 : 0;
+
+            MessageBox.Show($"{list.ListName}.{list.UserName}.{list.Description}.{list.CreationDate}.{list.Status}");
+
+            listDao.ModificarLista(list.ListName, list.UserName, list.Description, list.CreationDate, list.Status);
+
+            string listName = TxtFoundListName.Text;
+            string selectedUser = TxtFoundUserName.Text;
+            int status = CmbxActive.Text == "Sí" ? 1 : 0;
+
+            //listDao.ModificarBloque(listName, _currentUser, selectedUser, status);
+            foreach (UserEntity user in _selectedUsers)
+            {
+                MessageBox.Show($"{user.Name};{user.IsActive};");
+            }
+           
         }
 
         private void BtnCleanUserOfList_Click(object sender, EventArgs e)
         {
-
+            TxtAssociatedUserName.Clear();
+            CmbxModifyAssociatedUserStatus.SelectedIndex = -1;
+            CmbxModifyAssociatedUserStatus.Enabled = false;
         }
 
         private string PadRight(string input, int length)
@@ -241,6 +261,30 @@ namespace MessageNest.Forms
                 item.SubItems.Add(user.Name);
                 item.SubItems.Add(user.Surname);
                 ListViewUsers.Items.Add(item);
+            }
+
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void LoadUsersToAddData()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+
+            ListViewUsersToAdd.Items.Clear();
+            UserDao userDao = new UserDao();
+            List<UserEntity> users = userDao.GetAllUsers();
+
+            foreach (UserEntity user in users)
+            {
+                if (user.UserName.Trim().Equals(_currentUser))
+                {
+                    continue;
+                }
+
+                ListViewItem item = new ListViewItem(user.UserName);
+                item.SubItems.Add(user.Name);
+                item.SubItems.Add(user.Surname);
+                ListViewUsersToAdd.Items.Add(item);
             }
 
             Cursor.Current = Cursors.Default;
@@ -420,10 +464,9 @@ namespace MessageNest.Forms
             Cursor.Current = Cursors.WaitCursor;
 
             ListViewEditUsersOfList.Items.Clear();
-            string listName = PadRight(TxtFoundListName.Text, 30);
+            string listName = TxtFoundListName.Text;
             ListDao listDao = new ListDao();
-            MessageBox.Show($"{listName};{PadRight(_currentUser, 20)};");
-            List<BlockEntity> users = listDao.GetUsersOfList(listName, PadRight(_currentUser, 20));
+            List<BlockEntity> users = listDao.GetUsersOfList(listName, _currentUser);
 
             if (users != null)
             {
@@ -548,6 +591,15 @@ namespace MessageNest.Forms
             CmbxActive.Text = selectedItem.SubItems[5].Text;
         }
 
+        private void ListViewEditUsersOfList_DoubleClick(object sender, EventArgs e)
+        {
+
+            ListViewItem selectedItem = ListViewEditUsersOfList.SelectedItems[0];
+
+            TxtAssociatedUserName.Text = selectedItem.SubItems[0].Text;
+            CmbxModifyAssociatedUserStatus.Text = selectedItem.SubItems[1].Text;
+        }
+
         private void TxtUsersInList_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Desesa modificar los usuarios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -555,10 +607,44 @@ namespace MessageNest.Forms
             {
                 TabPageEditList.Hide();
                 LoadUsersOfListsData();
+                LoadUsersToAddData();
                 TabPageEditUsersOfList.Show();
             }
         }
 
         #endregion
+
+        private void ListViewUsersToAdd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ListViewUsersToAdd.SelectedItems.Count > 0)
+            {
+                _selectedUsers.Clear();
+                foreach (ListViewItem selectedItem in ListViewUsersToAdd.SelectedItems)
+                {
+                    string userName = selectedItem.Text;
+                    string status = CmbxActive.Text;
+                    UserEntity user = new UserEntity();
+                    user.UserName = PadRight(userName, 20);
+                    user.IsActive = CmbxActive.Text == "Sí" ? 1 : 0;
+                    _selectedUsers.Add(user);
+                }
+                numberOfUsers = _selectedUsers.Count;
+
+                foreach (UserEntity userEntity in _selectedUsers)
+                {
+                    foreach (ListViewItem item in ListViewUsers.Items)
+                    {
+                        if (item.Text == userEntity.UserName)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                numberOfUsers = 0;
+            }
+        }
     }
 }

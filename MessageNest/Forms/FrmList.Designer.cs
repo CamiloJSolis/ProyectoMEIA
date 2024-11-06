@@ -135,12 +135,20 @@
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.TabPageEditUsersOfList = new System.Windows.Forms.TabPage();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.ListViewEditUsersOfList = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BtnCleanUserOfList = new System.Windows.Forms.Button();
             this.BtnModifyUserOfList = new System.Windows.Forms.Button();
             this.BtnSaveChangesUserOfList = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.panel35 = new System.Windows.Forms.Panel();
+            this.panel36 = new System.Windows.Forms.Panel();
+            this.TxtAssociatedUserName = new System.Windows.Forms.TextBox();
+            this.panel37 = new System.Windows.Forms.Panel();
+            this.panel38 = new System.Windows.Forms.Panel();
+            this.panel39 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.panel47 = new System.Windows.Forms.Panel();
             this.CmbxModifyAssociatedUserStatus = new System.Windows.Forms.ComboBox();
@@ -148,17 +156,15 @@
             this.panel49 = new System.Windows.Forms.Panel();
             this.panel50 = new System.Windows.Forms.Panel();
             this.panel51 = new System.Windows.Forms.Panel();
-            this.panel35 = new System.Windows.Forms.Panel();
-            this.panel39 = new System.Windows.Forms.Panel();
-            this.panel38 = new System.Windows.Forms.Panel();
-            this.panel37 = new System.Windows.Forms.Panel();
-            this.TxtAssociatedUserName = new System.Windows.Forms.TextBox();
-            this.panel36 = new System.Windows.Forms.Panel();
-            this.panel34 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.ListViewEditUsersOfList = new System.Windows.Forms.ListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ListViewUsersToAdd = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label15 = new System.Windows.Forms.Label();
             this.PnlList.SuspendLayout();
             this.TabCtrlContacts.SuspendLayout();
             this.TabPageUserLists.SuspendLayout();
@@ -187,11 +193,11 @@
             this.PnlUserPhone.SuspendLayout();
             this.panel1.SuspendLayout();
             this.TabPageEditUsersOfList.SuspendLayout();
+            this.panel34.SuspendLayout();
+            this.panel35.SuspendLayout();
+            this.panel47.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.panel47.SuspendLayout();
-            this.panel35.SuspendLayout();
-            this.panel34.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlList
@@ -1337,6 +1343,9 @@
             // TabPageEditUsersOfList
             // 
             this.TabPageEditUsersOfList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.TabPageEditUsersOfList.Controls.Add(this.label15);
+            this.TabPageEditUsersOfList.Controls.Add(this.ListViewUsersToAdd);
+            this.TabPageEditUsersOfList.Controls.Add(this.label13);
             this.TabPageEditUsersOfList.Controls.Add(this.ListViewEditUsersOfList);
             this.TabPageEditUsersOfList.Controls.Add(this.BtnCleanUserOfList);
             this.TabPageEditUsersOfList.Controls.Add(this.BtnModifyUserOfList);
@@ -1355,36 +1364,33 @@
             this.TabPageEditUsersOfList.TabIndex = 3;
             this.TabPageEditUsersOfList.Text = "Editar Usuarios";
             // 
-            // pictureBox7
+            // ListViewEditUsersOfList
             // 
-            this.pictureBox7.Image = global::MessageNest.Properties.Resources.edit_contact;
-            this.pictureBox7.Location = new System.Drawing.Point(534, 61);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox7.TabIndex = 177;
-            this.pictureBox7.TabStop = false;
+            this.ListViewEditUsersOfList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ListViewEditUsersOfList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ListViewEditUsersOfList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader6});
+            this.ListViewEditUsersOfList.ForeColor = System.Drawing.Color.White;
+            this.ListViewEditUsersOfList.FullRowSelect = true;
+            this.ListViewEditUsersOfList.HideSelection = false;
+            this.ListViewEditUsersOfList.Location = new System.Drawing.Point(92, 166);
+            this.ListViewEditUsersOfList.Name = "ListViewEditUsersOfList";
+            this.ListViewEditUsersOfList.Size = new System.Drawing.Size(595, 97);
+            this.ListViewEditUsersOfList.TabIndex = 191;
+            this.ListViewEditUsersOfList.UseCompatibleStateImageBehavior = false;
+            this.ListViewEditUsersOfList.View = System.Windows.Forms.View.Details;
+            this.ListViewEditUsersOfList.DoubleClick += new System.EventHandler(this.ListViewEditUsersOfList_DoubleClick);
             // 
-            // pictureBox8
+            // columnHeader2
             // 
-            this.pictureBox8.Image = global::MessageNest.Properties.Resources.edit_contact;
-            this.pictureBox8.Location = new System.Drawing.Point(195, 61);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox8.TabIndex = 176;
-            this.pictureBox8.TabStop = false;
+            this.columnHeader2.Text = "Usuario ";
+            this.columnHeader2.Width = 294;
             // 
-            // label11
+            // columnHeader6
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.label11.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(267, 66);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(247, 37);
-            this.label11.TabIndex = 175;
-            this.label11.Text = "Modificar Usuarios";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.columnHeader6.Text = "Activo";
+            this.columnHeader6.Width = 297;
             // 
             // BtnCleanUserOfList
             // 
@@ -1438,12 +1444,94 @@
             this.BtnSaveChangesUserOfList.UseVisualStyleBackColor = false;
             this.BtnSaveChangesUserOfList.Click += new System.EventHandler(this.BtnSaveChangesUserOfList_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(88, 431);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(167, 21);
+            this.label14.TabIndex = 184;
+            this.label14.Text = "Usuario Seleccionado";
+            // 
+            // panel34
+            // 
+            this.panel34.Controls.Add(this.panel35);
+            this.panel34.Location = new System.Drawing.Point(92, 455);
+            this.panel34.Name = "panel34";
+            this.panel34.Size = new System.Drawing.Size(292, 32);
+            this.panel34.TabIndex = 185;
+            // 
+            // panel35
+            // 
+            this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.panel35.Controls.Add(this.panel36);
+            this.panel35.Controls.Add(this.TxtAssociatedUserName);
+            this.panel35.Controls.Add(this.panel37);
+            this.panel35.Controls.Add(this.panel38);
+            this.panel35.Controls.Add(this.panel39);
+            this.panel35.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel35.Location = new System.Drawing.Point(0, 0);
+            this.panel35.Name = "panel35";
+            this.panel35.Size = new System.Drawing.Size(292, 30);
+            this.panel35.TabIndex = 5;
+            // 
+            // panel36
+            // 
+            this.panel36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel36.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel36.Location = new System.Drawing.Point(291, 1);
+            this.panel36.Name = "panel36";
+            this.panel36.Size = new System.Drawing.Size(1, 28);
+            this.panel36.TabIndex = 9;
+            // 
+            // TxtAssociatedUserName
+            // 
+            this.TxtAssociatedUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.TxtAssociatedUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtAssociatedUserName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtAssociatedUserName.ForeColor = System.Drawing.Color.DarkGray;
+            this.TxtAssociatedUserName.Location = new System.Drawing.Point(7, 4);
+            this.TxtAssociatedUserName.MaxLength = 10;
+            this.TxtAssociatedUserName.Name = "TxtAssociatedUserName";
+            this.TxtAssociatedUserName.ReadOnly = true;
+            this.TxtAssociatedUserName.Size = new System.Drawing.Size(283, 22);
+            this.TxtAssociatedUserName.TabIndex = 6;
+            // 
+            // panel37
+            // 
+            this.panel37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel37.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel37.Location = new System.Drawing.Point(0, 1);
+            this.panel37.Name = "panel37";
+            this.panel37.Size = new System.Drawing.Size(1, 28);
+            this.panel37.TabIndex = 7;
+            // 
+            // panel38
+            // 
+            this.panel38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel38.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel38.Location = new System.Drawing.Point(0, 29);
+            this.panel38.Name = "panel38";
+            this.panel38.Size = new System.Drawing.Size(292, 1);
+            this.panel38.TabIndex = 10;
+            // 
+            // panel39
+            // 
+            this.panel39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel39.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel39.Location = new System.Drawing.Point(0, 0);
+            this.panel39.Name = "panel39";
+            this.panel39.Size = new System.Drawing.Size(292, 1);
+            this.panel39.TabIndex = 8;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(393, 391);
+            this.label17.Location = new System.Drawing.Point(393, 431);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(57, 21);
             this.label17.TabIndex = 183;
@@ -1457,7 +1545,7 @@
             this.panel47.Controls.Add(this.panel49);
             this.panel47.Controls.Add(this.panel50);
             this.panel47.Controls.Add(this.panel51);
-            this.panel47.Location = new System.Drawing.Point(395, 415);
+            this.panel47.Location = new System.Drawing.Point(395, 455);
             this.panel47.Name = "panel47";
             this.panel47.Size = new System.Drawing.Size(292, 33);
             this.panel47.TabIndex = 182;
@@ -1518,114 +1606,92 @@
             this.panel51.Size = new System.Drawing.Size(292, 1);
             this.panel51.TabIndex = 8;
             // 
-            // panel35
+            // pictureBox7
             // 
-            this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.panel35.Controls.Add(this.panel36);
-            this.panel35.Controls.Add(this.TxtAssociatedUserName);
-            this.panel35.Controls.Add(this.panel37);
-            this.panel35.Controls.Add(this.panel38);
-            this.panel35.Controls.Add(this.panel39);
-            this.panel35.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel35.Location = new System.Drawing.Point(0, 0);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(292, 30);
-            this.panel35.TabIndex = 5;
+            this.pictureBox7.Image = global::MessageNest.Properties.Resources.edit_contact;
+            this.pictureBox7.Location = new System.Drawing.Point(534, 61);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox7.TabIndex = 177;
+            this.pictureBox7.TabStop = false;
             // 
-            // panel39
+            // pictureBox8
             // 
-            this.panel39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel39.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel39.Location = new System.Drawing.Point(0, 0);
-            this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(292, 1);
-            this.panel39.TabIndex = 8;
+            this.pictureBox8.Image = global::MessageNest.Properties.Resources.edit_contact;
+            this.pictureBox8.Location = new System.Drawing.Point(195, 61);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox8.TabIndex = 176;
+            this.pictureBox8.TabStop = false;
             // 
-            // panel38
+            // label11
             // 
-            this.panel38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel38.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel38.Location = new System.Drawing.Point(0, 29);
-            this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(292, 1);
-            this.panel38.TabIndex = 10;
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.label11.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(267, 66);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(247, 37);
+            this.label11.TabIndex = 175;
+            this.label11.Text = "Modificar Usuarios";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel37
+            // label13
             // 
-            this.panel37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel37.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel37.Location = new System.Drawing.Point(0, 1);
-            this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(1, 28);
-            this.panel37.TabIndex = 7;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(88, 290);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(72, 21);
+            this.label13.TabIndex = 193;
+            this.label13.Text = "Usuarios";
             // 
-            // TxtAssociatedUserName
+            // ListViewUsersToAdd
             // 
-            this.TxtAssociatedUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TxtAssociatedUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtAssociatedUserName.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAssociatedUserName.ForeColor = System.Drawing.Color.DarkGray;
-            this.TxtAssociatedUserName.Location = new System.Drawing.Point(7, 4);
-            this.TxtAssociatedUserName.MaxLength = 10;
-            this.TxtAssociatedUserName.Name = "TxtAssociatedUserName";
-            this.TxtAssociatedUserName.ReadOnly = true;
-            this.TxtAssociatedUserName.Size = new System.Drawing.Size(283, 22);
-            this.TxtAssociatedUserName.TabIndex = 6;
+            this.ListViewUsersToAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ListViewUsersToAdd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ListViewUsersToAdd.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.ListViewUsersToAdd.ForeColor = System.Drawing.Color.White;
+            this.ListViewUsersToAdd.FullRowSelect = true;
+            this.ListViewUsersToAdd.HideSelection = false;
+            this.ListViewUsersToAdd.Location = new System.Drawing.Point(92, 314);
+            this.ListViewUsersToAdd.Name = "ListViewUsersToAdd";
+            this.ListViewUsersToAdd.Size = new System.Drawing.Size(595, 89);
+            this.ListViewUsersToAdd.TabIndex = 194;
+            this.ListViewUsersToAdd.UseCompatibleStateImageBehavior = false;
+            this.ListViewUsersToAdd.View = System.Windows.Forms.View.Details;
+            this.ListViewUsersToAdd.SelectedIndexChanged += new System.EventHandler(this.ListViewUsersToAdd_SelectedIndexChanged);
             // 
-            // panel36
+            // columnHeader1
             // 
-            this.panel36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel36.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel36.Location = new System.Drawing.Point(291, 1);
-            this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(1, 28);
-            this.panel36.TabIndex = 9;
+            this.columnHeader1.Text = "Usuario";
+            this.columnHeader1.Width = 197;
             // 
-            // panel34
+            // columnHeader3
             // 
-            this.panel34.Controls.Add(this.panel35);
-            this.panel34.Location = new System.Drawing.Point(92, 415);
-            this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(292, 32);
-            this.panel34.TabIndex = 185;
+            this.columnHeader3.Text = "Nombres";
+            this.columnHeader3.Width = 196;
             // 
-            // label14
+            // columnHeader4
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(88, 391);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(167, 21);
-            this.label14.TabIndex = 184;
-            this.label14.Text = "Usuario Seleccionado";
+            this.columnHeader4.Text = "Apellidos";
+            this.columnHeader4.Width = 196;
             // 
-            // ListViewEditUsersOfList
+            // label15
             // 
-            this.ListViewEditUsersOfList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.ListViewEditUsersOfList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ListViewEditUsersOfList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
-            this.columnHeader6});
-            this.ListViewEditUsersOfList.ForeColor = System.Drawing.Color.White;
-            this.ListViewEditUsersOfList.FullRowSelect = true;
-            this.ListViewEditUsersOfList.HideSelection = false;
-            this.ListViewEditUsersOfList.Location = new System.Drawing.Point(92, 145);
-            this.ListViewEditUsersOfList.Name = "ListViewEditUsersOfList";
-            this.ListViewEditUsersOfList.Size = new System.Drawing.Size(592, 185);
-            this.ListViewEditUsersOfList.TabIndex = 191;
-            this.ListViewEditUsersOfList.UseCompatibleStateImageBehavior = false;
-            this.ListViewEditUsersOfList.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Usuario ";
-            this.columnHeader2.Width = 294;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Activo";
-            this.columnHeader6.Width = 297;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(88, 142);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(144, 21);
+            this.label15.TabIndex = 195;
+            this.label15.Text = "Usuarios de la lista";
             // 
             // FrmList
             // 
@@ -1680,12 +1746,12 @@
             this.panel1.ResumeLayout(false);
             this.TabPageEditUsersOfList.ResumeLayout(false);
             this.TabPageEditUsersOfList.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.panel47.ResumeLayout(false);
+            this.panel34.ResumeLayout(false);
             this.panel35.ResumeLayout(false);
             this.panel35.PerformLayout();
-            this.panel34.ResumeLayout(false);
+            this.panel47.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1822,5 +1888,11 @@
         private System.Windows.Forms.ListView ListViewEditUsersOfList;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ListView ListViewUsersToAdd;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Label label13;
     }
 }

@@ -6,10 +6,12 @@ using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MessageNest.Dao
 {
@@ -252,91 +254,107 @@ namespace MessageNest.Dao
             }
         }
 
-        public bool ModificarBloque(string listName, string currentUser, string userName, string modifiedUser, int newSatus)
+
+        static int RECORD_SIZE = 84;
+        static string GetRecord(string path, int posicion)
         {
-            try
+            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            using (BinaryReader reader = new BinaryReader(fs))
             {
-                if (!File.Exists(indexFilePath))
-                {
-                    MessageBox.Show("El archivo de índices no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                
-                if (!File.Exists(blockFilePath))
-                {
-                    MessageBox.Show("El archivo de bloques no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+                fs.Seek(posicion * RECORD_SIZE, SeekOrigin.Begin);
 
-                string[] indexLines = File.ReadAllLines(indexFilePath);
-                int blockPosition = -1;
+                byte[] line = reader.ReadBytes(RECORD_SIZE);
+                string record = Encoding.ASCII.GetString(line).Trim();
 
-                for (int i = 0; i < indexLines.Length; i++)
-                {
-                    string[] indexFields = indexLines[i].Split(';');
-
-                    if (indexFields[2].Equals(listName) && indexFields[3].Equals(currentUser) && indexFields[4].Equals(modifiedUser))
-                    {
-                        blockPosition = int.Parse(indexFields[0].Trim());
-                        break;
-                    }
-                }
-
-                if (blockPosition == -1)
-                {
-                    MessageBox.Show("El usuario no se encontró en el índice", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                string[] blockLines = File.ReadAllLines(blockFilePath);
-
-                if (blockPosition < 0 || blockPosition >= blockLines.Length)
-                {
-                    MessageBox.Show("La posición de índice está incorrecta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                string[] blockFields = blockLines[blockPosition].Split(';');
-
-                blockFields[5] = newSatus.ToString();
-
-                blockLines[blockPosition] = string.Join(";", blockFields);
-
-                File.WriteAllLines(blockFilePath, blockLines);
-
-                MessageBox.Show("Usuario se modificó exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                return true;
-                //if (!blockExists)
-                //{
-                //    using (StreamWriter writer = new StreamWriter(blockFilePath, true))
-                //    {
-                //        foreach (var user in users)
-                //        {
-                //            if (!string.IsNullOrEmpty(user.UserName))
-                //            {
-                //                block.AssociatedUser = user.UserName;
-
-                //                string blockRecord = $"{block.ListName};{block.User};{block.AssociatedUser};{block.Description};{block.CreationDate};{block.Status}";
-                //                writer.WriteLine(blockRecord);
-                //            }
-
-                //        }
-                //    }
-                //    MessageBox.Show("El bloque ha sido creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    return true;
-                //}
-                //else
-                //{
-                //    return false;
-                //}
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error al modificar el usuario en el boque: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return record;
             }
         }
+
+        //public bool ModificarBloque(string listName, string currentUser, string modifiedUser, int newSatus)
+        //{
+        //    try
+        //    {
+        //        //if (!File.Exists(indexFilePath))
+        //        //{
+        //        //    MessageBox.Show("El archivo de índices no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        //    return false;
+        //        //}
+
+        //        //if (!File.Exists(blockFilePath))
+        //        //{
+        //        //    MessageBox.Show("El archivo de bloques no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        //    return false;
+        //        //}
+
+        //        //string[] indexLines = File.ReadAllLines(indexFilePath);
+        //        //int blockPosition = -1;
+
+        //        //for (int i = 0; i < indexLines.Length; i++)
+        //        //{
+        //        //    string[] indexFields = indexLines[i].Split(';');
+
+        //        //    if (indexFields[2].Equals(listName) && indexFields[3].Equals(currentUser) && indexFields[4].Equals(modifiedUser))
+        //        //    {
+        //        //        blockPosition = int.Parse(indexFields[0].Trim());
+        //        //        break;
+        //        //    }
+        //        //}
+
+        //        //if (blockPosition == -1)
+        //        //{
+        //        //    MessageBox.Show("El usuario no se encontró en el índice", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        //    return false;
+        //        //}
+
+        //        //string[] blockLines = File.ReadAllLines(blockFilePath);
+
+        //        //if (blockPosition < 0 || blockPosition >= blockLines.Length)
+        //        //{
+        //        //    MessageBox.Show("La posición de índice está incorrecta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        //    return false;
+        //        //}
+
+        //        //string[] blockFields = blockLines[blockPosition].Split(';');
+
+        //        //blockFields[5] = newSatus.ToString();
+
+        //        //blockLines[blockPosition] = string.Join(";", blockFields);
+
+        //        //File.WriteAllLines(blockFilePath, blockLines);
+
+        //        //MessageBox.Show("Usuario se modificó exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //        //return true;
+        //        //if (!blockExists)
+        //        //{
+        //        //    using (StreamWriter writer = new StreamWriter(blockFilePath, true))
+        //        //    {
+        //        //        foreach (var user in users)
+        //        //        {
+        //        //            if (!string.IsNullOrEmpty(user.UserName))
+        //        //            {
+        //        //                block.AssociatedUser = user.UserName;
+
+        //        //                string blockRecord = $"{block.ListName};{block.User};{block.AssociatedUser};{block.Description};{block.CreationDate};{block.Status}";
+        //        //                writer.WriteLine(blockRecord);
+        //        //            }
+
+        //        //        }
+        //        //    }
+        //        //    MessageBox.Show("El bloque ha sido creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        //    return true;
+        //        //}
+        //        //else
+        //        //{
+        //        //    return false;
+        //        //}
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Ocurrió un error al modificar el usuario en el boque: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return false;
+        //    }
+        //}
 
         // Index
 
