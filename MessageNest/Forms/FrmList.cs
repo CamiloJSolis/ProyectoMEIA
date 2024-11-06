@@ -113,7 +113,14 @@ namespace MessageNest.Forms
                 index.CreationDate = DateTime.Now.ToString("dd/MM/yyyy"); ;
                 index.Status = 1;
 
+                block.ListName = PadRight(TxtListName.Text.Trim(), 30);
+                block.User = PadRight(_currentUser, 20);
+                block.Description = PadRight(TxtListDescription.Text.Trim(), 40);
+                block.CreationDate = DateTime.Now.ToString("dd/MM/yyyy");
+                block.Status = 1;
+
                 listDao.AgregarIndex(index, _selectedUsers);
+                listDao.AgregarBloque(block, _selectedUsers);
 
                 if (listDao.AgregarLista(list))
                 {
@@ -136,15 +143,62 @@ namespace MessageNest.Forms
 
         private void BtnModifyContact_Click(object sender, EventArgs e)
         {
-
+            BtnSaveChanges.Enabled = true;
+            TxtFoundListName.ReadOnly = false;
+            TxtFoundUserName.ReadOnly = false;
+            TxtListDescription.ReadOnly = false;
+            DtpFoundCreationDate.Enabled = true;
+            CmbxActive.Enabled = true;
         }
 
         private void BtnSaveChanges_Click(object sender, EventArgs e)
         {
+            ListEntity list = new ListEntity();
+            ListDao listDao = new ListDao();
 
+            list.ListName = PadRight(TxtFoundListName.Text.Trim(), 30);
+            list.UserName = PadRight(_currentUser.Trim(), 20);
+            list.Description  = PadRight(TxtFoundListDescription.Text.Trim(), 40);
+            list.CreationDate = DtpFoundCreationDate.Value.ToString("dd/MM/yyyy");
+            list.Status = CmbxActive.Text == "Sí" ? 1 : 0;
+
+            MessageBox.Show($"{list.ListName}.{list.UserName}.{list.Description}.{list.CreationDate}.{list.Status}");
+
+            listDao.ModificarLista(list.ListName, list.UserName, list.Description,list.CreationDate, list.Status);
         }
 
         private void BtnClean_Click(object sender, EventArgs e)
+        {
+            TxtFoundListName.Clear();
+            TxtFoundUserName.Clear();
+            TxtFoundListDescription.Clear();
+            DtpFoundCreationDate.Value = DateTime.Now;
+            TxtUsersInList.Text = string.Empty;
+            CmbxActive.SelectedIndex = -1;
+
+            BtnSaveChanges.Enabled = false;
+
+            TabPageEditList.Hide();
+            TabPageUserLists.Show();
+        }
+
+        private void BtnModifyUserOfList_Click(object sender, EventArgs e)
+        {
+            //ListDao listDao = new ListDao();
+
+            //string listName = PadRight(TxtListName.Text.Trim(), 30);
+            //string curretnUser = PadRight(_currentUser, 20);
+
+
+            //listDao.ModificarBloque();
+        }
+
+        private void BtnSaveChangesUserOfList_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCleanUserOfList_Click(object sender, EventArgs e)
         {
 
         }
@@ -299,8 +353,10 @@ namespace MessageNest.Forms
                 foreach (ListViewItem selectedItem in ListViewUsers.SelectedItems)
                 {
                     string userName = selectedItem.Text;
+                    string status = CmbxActive.Text;
                     UserEntity user = new UserEntity();
                     user.UserName = PadRight(userName, 20);
+                    user.IsActive = CmbxActive.Text == "Sí" ? 1 : 0;
                     _selectedUsers.Add(user);
                 }
                 numberOfUsers = _selectedUsers.Count;
@@ -330,7 +386,7 @@ namespace MessageNest.Forms
 
             ListViewLists.Items.Clear();
             ListDao listDao = new ListDao();
-            List<ListEntity> lists = listDao.GetAllLists();
+            List<ListEntity> lists = listDao.GetAllLists(_currentUser);
 
             if (lists != null)
             {
@@ -355,6 +411,43 @@ namespace MessageNest.Forms
                     item.SubItems.Add(isActive);
                     ListViewLists.Items.Add(item);
                 }
+            }
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void LoadUsersOfListsData()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+
+            ListViewEditUsersOfList.Items.Clear();
+            string listName = PadRight(TxtFoundListName.Text, 30);
+            ListDao listDao = new ListDao();
+            MessageBox.Show($"{listName};{PadRight(_currentUser, 20)};");
+            List<BlockEntity> users = listDao.GetUsersOfList(listName, PadRight(_currentUser, 20));
+
+            if (users != null)
+            {
+                foreach (BlockEntity user in users)
+                {
+                    string isActive;
+
+                    if (user.Status == 1)
+                    {
+                        isActive = "Sí";
+                    }
+                    else
+                    {
+                        isActive = "No";
+                    }
+
+                    ListViewItem item = new ListViewItem(user.AssociatedUser);
+                    item.SubItems.Add(isActive);
+                    ListViewEditUsersOfList.Items.Add(item);
+                }
+            }
+            else
+            {
+                MessageBox.Show("d");
             }
             Cursor.Current = Cursors.Default;
         }
@@ -394,7 +487,7 @@ namespace MessageNest.Forms
             ListDao listDao = new ListDao();
             string listName = TxtSearchList.Text;
             ListViewLists.Items.Clear();
-            List<ListEntity> listEntities = listDao.GetAllLists();
+            List<ListEntity> listEntities = listDao.GetAllLists(_currentUser);
 
             foreach (var list in listEntities)
             {
@@ -437,6 +530,32 @@ namespace MessageNest.Forms
                 {
                     LoadListsData();
                 }
+            }
+        }
+
+        private void ListViewLists_DoubleClick(object sender, EventArgs e)
+        {
+            TabPageUserLists.Hide();
+            TabPageEditList.Show();
+
+            ListViewItem selectedItem = ListViewLists.SelectedItems[0];
+
+            TxtFoundListName.Text = selectedItem.SubItems[0].Text;
+            TxtFoundUserName.Text = selectedItem.SubItems[1].Text;
+            TxtFoundListDescription.Text = selectedItem.SubItems[2].Text;
+            TxtUsersInList.Text = selectedItem.SubItems[3].Text;
+            DtpFoundCreationDate.Text = selectedItem.SubItems[4].Text;
+            CmbxActive.Text = selectedItem.SubItems[5].Text;
+        }
+
+        private void TxtUsersInList_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Desesa modificar los usuarios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                TabPageEditList.Hide();
+                LoadUsersOfListsData();
+                TabPageEditUsersOfList.Show();
             }
         }
 

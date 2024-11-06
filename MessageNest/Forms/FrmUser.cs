@@ -90,6 +90,16 @@ namespace MessageNest.Forms
             }
         }
 
+        private void BtnContacts_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmContacts(_currentUser));
+        }
+
+        private void BtnList_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmList(_currentUser));
+        }
+
         #endregion
 
         #region Arrastrar Form

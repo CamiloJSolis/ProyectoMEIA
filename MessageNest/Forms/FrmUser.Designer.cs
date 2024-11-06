@@ -30,17 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUser));
             this.panel10 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.BtnIdk2 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.BtnIdk1 = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.PbLogo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.BtnUserInfo = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnModifyUsr = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -53,16 +47,22 @@
             this.FwlPnlButton = new System.Windows.Forms.FlowLayoutPanel();
             this.PnlChildForm = new System.Windows.Forms.Panel();
             this.PnlTopUser = new System.Windows.Forms.Panel();
-            this.panel6.SuspendLayout();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.BtnContacts = new System.Windows.Forms.Button();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.BtnList = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).BeginInit();
             this.panel9.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbTitle)).BeginInit();
             this.FwlPnlButton.SuspendLayout();
             this.PnlTopUser.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel10
@@ -71,57 +71,6 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(250, 10);
             this.panel10.TabIndex = 50;
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(3, 377);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 10);
-            this.panel5.TabIndex = 49;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.BtnIdk2);
-            this.panel6.Location = new System.Drawing.Point(3, 393);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(250, 45);
-            this.panel6.TabIndex = 50;
-            // 
-            // BtnIdk2
-            // 
-            this.BtnIdk2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BtnIdk2.FlatAppearance.BorderSize = 0;
-            this.BtnIdk2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnIdk2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnIdk2.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnIdk2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
-            this.BtnIdk2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnIdk2.Location = new System.Drawing.Point(7, 3);
-            this.BtnIdk2.Name = "BtnIdk2";
-            this.BtnIdk2.Size = new System.Drawing.Size(236, 39);
-            this.BtnIdk2.TabIndex = 2;
-            this.BtnIdk2.UseVisualStyleBackColor = false;
-            // 
-            // panel7
-            // 
-            this.panel7.Location = new System.Drawing.Point(3, 444);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 10);
-            this.panel7.TabIndex = 51;
-            // 
-            // BtnIdk1
-            // 
-            this.BtnIdk1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BtnIdk1.FlatAppearance.BorderSize = 0;
-            this.BtnIdk1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnIdk1.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnIdk1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
-            this.BtnIdk1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnIdk1.Location = new System.Drawing.Point(7, 3);
-            this.BtnIdk1.Name = "BtnIdk1";
-            this.BtnIdk1.Size = new System.Drawing.Size(236, 39);
-            this.BtnIdk1.TabIndex = 1;
-            this.BtnIdk1.UseVisualStyleBackColor = false;
             // 
             // panel13
             // 
@@ -134,7 +83,7 @@
             // 
             this.PbLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PbLogo.Image = global::MessageNest.Properties.Resources.appLogo;
-            this.PbLogo.Location = new System.Drawing.Point(63, 32);
+            this.PbLogo.Location = new System.Drawing.Point(64, 32);
             this.PbLogo.Name = "PbLogo";
             this.PbLogo.Size = new System.Drawing.Size(129, 103);
             this.PbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -173,14 +122,6 @@
             this.BtnUserInfo.Text = "Información";
             this.BtnUserInfo.UseVisualStyleBackColor = false;
             this.BtnUserInfo.Click += new System.EventHandler(this.BtnUserInfo_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.BtnIdk1);
-            this.panel4.Location = new System.Drawing.Point(3, 326);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 45);
-            this.panel4.TabIndex = 48;
             // 
             // panel2
             // 
@@ -244,13 +185,12 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel14.Location = new System.Drawing.Point(3, 511);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(250, 112);
+            this.panel14.Size = new System.Drawing.Size(251, 112);
             this.panel14.TabIndex = 53;
             // 
             // BtnLogOut
             // 
             this.BtnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BtnLogOut.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnLogOut.FlatAppearance.BorderSize = 0;
             this.BtnLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
             this.BtnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -258,9 +198,9 @@
             this.BtnLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
             this.BtnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("BtnLogOut.Image")));
             this.BtnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLogOut.Location = new System.Drawing.Point(0, 73);
+            this.BtnLogOut.Location = new System.Drawing.Point(7, 70);
             this.BtnLogOut.Name = "BtnLogOut";
-            this.BtnLogOut.Size = new System.Drawing.Size(250, 39);
+            this.BtnLogOut.Size = new System.Drawing.Size(243, 39);
             this.BtnLogOut.TabIndex = 4;
             this.BtnLogOut.Text = "Cerrar Sesión";
             this.BtnLogOut.UseVisualStyleBackColor = false;
@@ -302,10 +242,10 @@
             this.FwlPnlButton.Controls.Add(this.panel10);
             this.FwlPnlButton.Controls.Add(this.panel2);
             this.FwlPnlButton.Controls.Add(this.panel3);
+            this.FwlPnlButton.Controls.Add(this.panel12);
             this.FwlPnlButton.Controls.Add(this.panel4);
-            this.FwlPnlButton.Controls.Add(this.panel5);
-            this.FwlPnlButton.Controls.Add(this.panel6);
-            this.FwlPnlButton.Controls.Add(this.panel7);
+            this.FwlPnlButton.Controls.Add(this.panel17);
+            this.FwlPnlButton.Controls.Add(this.panel15);
             this.FwlPnlButton.Controls.Add(this.panel8);
             this.FwlPnlButton.Controls.Add(this.panel14);
             this.FwlPnlButton.Dock = System.Windows.Forms.DockStyle.Left;
@@ -337,6 +277,72 @@
             this.PnlTopUser.TabIndex = 12;
             this.PnlTopUser.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlTopUser_MouseDown);
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.BtnContacts);
+            this.panel12.Location = new System.Drawing.Point(3, 326);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(251, 45);
+            this.panel12.TabIndex = 58;
+            // 
+            // BtnContacts
+            // 
+            this.BtnContacts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BtnContacts.FlatAppearance.BorderSize = 0;
+            this.BtnContacts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
+            this.BtnContacts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnContacts.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnContacts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.BtnContacts.Image = global::MessageNest.Properties.Resources.contacts;
+            this.BtnContacts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnContacts.Location = new System.Drawing.Point(7, 3);
+            this.BtnContacts.Name = "BtnContacts";
+            this.BtnContacts.Size = new System.Drawing.Size(236, 39);
+            this.BtnContacts.TabIndex = 3;
+            this.BtnContacts.Text = "Contactos";
+            this.BtnContacts.UseVisualStyleBackColor = false;
+            this.BtnContacts.Click += new System.EventHandler(this.BtnContacts_Click);
+            // 
+            // panel15
+            // 
+            this.panel15.Location = new System.Drawing.Point(3, 444);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(251, 10);
+            this.panel15.TabIndex = 59;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.BtnList);
+            this.panel17.Location = new System.Drawing.Point(3, 393);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(251, 45);
+            this.panel17.TabIndex = 60;
+            // 
+            // BtnList
+            // 
+            this.BtnList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BtnList.FlatAppearance.BorderSize = 0;
+            this.BtnList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
+            this.BtnList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnList.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.BtnList.Image = global::MessageNest.Properties.Resources.list;
+            this.BtnList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnList.Location = new System.Drawing.Point(7, 3);
+            this.BtnList.Name = "BtnList";
+            this.BtnList.Size = new System.Drawing.Size(236, 39);
+            this.BtnList.TabIndex = 3;
+            this.BtnList.Text = "Listas";
+            this.BtnList.UseVisualStyleBackColor = false;
+            this.BtnList.Click += new System.EventHandler(this.BtnList_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(3, 377);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(251, 10);
+            this.panel4.TabIndex = 60;
+            // 
             // FrmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -353,16 +359,16 @@
             this.Name = "FrmUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmUser";
-            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).EndInit();
             this.panel9.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbTitle)).EndInit();
             this.FwlPnlButton.ResumeLayout(false);
             this.PnlTopUser.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -370,17 +376,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button BtnIdk2;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button BtnIdk1;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.PictureBox PbLogo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button BtnUserInfo;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button BtnModifyUsr;
         private System.Windows.Forms.Panel panel3;
@@ -393,5 +393,11 @@
         private System.Windows.Forms.FlowLayoutPanel FwlPnlButton;
         private System.Windows.Forms.Panel PnlChildForm;
         private System.Windows.Forms.Panel PnlTopUser;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button BtnContacts;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Button BtnList;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel4;
     }
 }

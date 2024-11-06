@@ -323,7 +323,7 @@ namespace MessageNest.Forms
 
             ListViewContacts.Items.Clear();
             ContactDao contactDao = new ContactDao();
-            List<ContactEntity> contacts = contactDao.GetAllContacts();
+            List<ContactEntity> contacts = contactDao.GetAllContacts(_currentUser);
 
             if (contacts != null)
             {
@@ -386,7 +386,7 @@ namespace MessageNest.Forms
             ContactDao contactDao = new ContactDao();
             string contactName = TxtSearchContact.Text;
             ListViewContacts.Items.Clear();
-            List<ContactEntity> contacts = contactDao.GetAllContacts();
+            List<ContactEntity> contacts = contactDao.GetAllContacts(_currentUser);
 
             foreach (var contact in contacts)
             {

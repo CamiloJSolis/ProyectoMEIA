@@ -49,15 +49,15 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.BtnContacts = new System.Windows.Forms.Button();
-            this.panel15 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.BtnList = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.BtnLogOut = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.BtnContacts = new System.Windows.Forms.Button();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.BtnList = new System.Windows.Forms.Button();
             this.PnlTopAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbTitle)).BeginInit();
             this.FwlPnlButton.SuspendLayout();
@@ -315,31 +315,6 @@
             this.panel12.Size = new System.Drawing.Size(251, 45);
             this.panel12.TabIndex = 53;
             // 
-            // BtnContacts
-            // 
-            this.BtnContacts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BtnContacts.FlatAppearance.BorderSize = 0;
-            this.BtnContacts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
-            this.BtnContacts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnContacts.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnContacts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
-            this.BtnContacts.Image = global::MessageNest.Properties.Resources.contacts;
-            this.BtnContacts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnContacts.Location = new System.Drawing.Point(7, 3);
-            this.BtnContacts.Name = "BtnContacts";
-            this.BtnContacts.Size = new System.Drawing.Size(236, 39);
-            this.BtnContacts.TabIndex = 3;
-            this.BtnContacts.Text = "Contactos";
-            this.BtnContacts.UseVisualStyleBackColor = false;
-            this.BtnContacts.Click += new System.EventHandler(this.BtnContacts_Click);
-            // 
-            // panel15
-            // 
-            this.panel15.Location = new System.Drawing.Point(3, 430);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(251, 10);
-            this.panel15.TabIndex = 53;
-            // 
             // panel17
             // 
             this.panel17.Controls.Add(this.BtnList);
@@ -347,24 +322,6 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(251, 45);
             this.panel17.TabIndex = 57;
-            // 
-            // BtnList
-            // 
-            this.BtnList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BtnList.FlatAppearance.BorderSize = 0;
-            this.BtnList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
-            this.BtnList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnList.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
-            this.BtnList.Image = global::MessageNest.Properties.Resources.list;
-            this.BtnList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnList.Location = new System.Drawing.Point(7, 3);
-            this.BtnList.Name = "BtnList";
-            this.BtnList.Size = new System.Drawing.Size(236, 39);
-            this.BtnList.TabIndex = 3;
-            this.BtnList.Text = "Listas";
-            this.BtnList.UseVisualStyleBackColor = false;
-            this.BtnList.Click += new System.EventHandler(this.BtnList_Click);
             // 
             // panel16
             // 
@@ -415,6 +372,49 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(251, 10);
             this.panel11.TabIndex = 52;
+            // 
+            // BtnContacts
+            // 
+            this.BtnContacts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BtnContacts.FlatAppearance.BorderSize = 0;
+            this.BtnContacts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
+            this.BtnContacts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnContacts.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnContacts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.BtnContacts.Image = global::MessageNest.Properties.Resources.contacts;
+            this.BtnContacts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnContacts.Location = new System.Drawing.Point(7, 3);
+            this.BtnContacts.Name = "BtnContacts";
+            this.BtnContacts.Size = new System.Drawing.Size(236, 39);
+            this.BtnContacts.TabIndex = 3;
+            this.BtnContacts.Text = "Contactos";
+            this.BtnContacts.UseVisualStyleBackColor = false;
+            this.BtnContacts.Click += new System.EventHandler(this.BtnContacts_Click);
+            // 
+            // panel15
+            // 
+            this.panel15.Location = new System.Drawing.Point(3, 430);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(251, 10);
+            this.panel15.TabIndex = 53;
+            // 
+            // BtnList
+            // 
+            this.BtnList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BtnList.FlatAppearance.BorderSize = 0;
+            this.BtnList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(210)))), ((int)(((byte)(100)))));
+            this.BtnList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnList.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.BtnList.Image = global::MessageNest.Properties.Resources.list;
+            this.BtnList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnList.Location = new System.Drawing.Point(7, 3);
+            this.BtnList.Name = "BtnList";
+            this.BtnList.Size = new System.Drawing.Size(236, 39);
+            this.BtnList.TabIndex = 3;
+            this.BtnList.Text = "Listas";
+            this.BtnList.UseVisualStyleBackColor = false;
+            this.BtnList.Click += new System.EventHandler(this.BtnList_Click);
             // 
             // FrmAdmin
             // 
@@ -473,11 +473,11 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button BtnAdminInfo;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button BtnContacts;
-        private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Button BtnList;
         private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Button BtnContacts;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button BtnList;
     }
 }

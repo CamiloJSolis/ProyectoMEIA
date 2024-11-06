@@ -70,9 +70,9 @@ namespace MessageNest.Dao
             }
         }
 
-        public List<ContactEntity> GetAllContacts()
+        public List<ContactEntity> GetAllContacts(string currentUser)
         {
-            if (File.Exists(filePath))
+            if (File.Exists(filePath) && currentUser != string.Empty)
             {
                 var users = new List<ContactEntity>();
                 string[] lines = File.ReadAllLines(filePath);
@@ -81,7 +81,11 @@ namespace MessageNest.Dao
                 {
                     string[] fields = line.Split(';');
                     ContactEntity contact = GetContact(fields);
-                    users.Add(contact);
+
+                    if(currentUser == contact.UserTransaction)
+                    {
+                        users.Add(contact);
+                    }
                 }
 
                 return users;
