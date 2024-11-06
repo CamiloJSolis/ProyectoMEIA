@@ -4,9 +4,11 @@ using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace MessageNest.Dao
 {
@@ -46,6 +48,7 @@ namespace MessageNest.Dao
                         break;
                     }
                 }
+
 
                 if (!listExists && list.ListName.Trim() != "" && list.Description.Trim() != "")
                 {
@@ -179,9 +182,19 @@ namespace MessageNest.Dao
 
                 bool indexExists = false;
                 string[] lines = File.ReadAllLines(indexFilePath);
-                index.Record = lines.Count();
+                int currentIndex = 0;
 
-                //if(File.Exists(filePath))
+                if (lines.Length > 0)
+                {
+                    var maxIndex = lines.Select(line => int.Parse(line.Split(';')[0].Trim())).Max();
+                    currentIndex = maxIndex + 1;
+                }
+                else
+                {
+                    currentIndex = 0;
+                }
+
+                //if (File.Exists(filePath))
                 //{
                 //    foreach (string line in lines)
                 //    {
@@ -201,25 +214,34 @@ namespace MessageNest.Dao
                     return false;
                 }
 
-                using (StreamWriter writer = new StreamWriter(indexFilePath, true))
+                if (!indexExists)
                 {
-                    foreach (var user in users)
+                    using (StreamWriter writer = new StreamWriter(indexFilePath, true))
                     {
-                        index.AssociatedUser = user.UserName;
-                        if (!string.IsNullOrEmpty(user.UserName))
-                        {
-                            string indexRecord = $"{index.Record + 1};{index.Position};{index.ListName};{index.User};{index.AssociatedUser},{index.CreationDate};{index.Status}";
-                            writer.WriteLine(indexRecord);
-                        }
-                        else
-                        {
-                            MessageBox.Show("El nombre de usuario asociado está vacío", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            MessageBox.Show(user.UserName);
+                        foreach (var user in users)
+                        { 
+                            if (!string.IsNullOrEmpty(user.UserName))
+                            {
+                                index.AssociatedUser = user.UserName;
+                                index.Record = currentIndex++;
+
+                                string indexRecord = $"{index.Record};{index.Position};{index.ListName};{index.User};{index.AssociatedUser},{index.CreationDate};{index.Status}";
+                                writer.WriteLine(indexRecord);
+                            }
+                            else
+                            {
+                                MessageBox.Show("El nombre de usuario asociado está vacío", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show(user.UserName);
+                            }
                         }
                     }
+                    MessageBox.Show("El índice ha sido creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
                 }
-                MessageBox.Show("El índice ha sido creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {

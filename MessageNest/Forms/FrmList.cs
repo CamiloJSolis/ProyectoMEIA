@@ -86,7 +86,10 @@ namespace MessageNest.Forms
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-
+            foreach(UserEntity user in _selectedUsers)
+            {
+                MessageBox.Show($"{user.UserName}.");
+            }
         }
 
         private void BtnCreateList_Click(object sender, EventArgs e)
@@ -297,8 +300,7 @@ namespace MessageNest.Forms
                 {
                     string userName = selectedItem.Text;
                     UserEntity user = new UserEntity();
-                    user.UserName = userName;
-                    //PadRight(user.UserName, 20);
+                    user.UserName = PadRight(userName, 20);
                     _selectedUsers.Add(user);
                 }
                 numberOfUsers = _selectedUsers.Count;
